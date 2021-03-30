@@ -5,7 +5,13 @@ using UnityEngine;
 public class GarbageCollectorTrigger : MonoBehaviour
 {
     void OnTriggerExit2D(Collider2D collision){
-        Destroy(collision.gameObject.transform.parent.gameObject);
+        switch(collision.gameObject.tag){
+            case "Bullet1":
+                Destroy(collision.gameObject.transform.parent.gameObject);
+                break;
+            case "Enemy1":
+                Destroy(collision.gameObject);
+                break;
+        }
     }
-
 }
