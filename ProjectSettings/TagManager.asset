@@ -9,6 +9,7 @@ TagManager:
   - Enemy1_Splitted
   - Ship
   - GarbageCollector
+  - Enemy3
   layers:
   - Default
   - TransparentFX

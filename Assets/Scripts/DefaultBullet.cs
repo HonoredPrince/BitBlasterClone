@@ -27,8 +27,16 @@ public class DefaultBullet : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision){
-        if(collision.gameObject.tag == "Enemy1" || collision.gameObject.tag == "Enemy1_Splitted"){
-            DestroyBullet();
+        switch(collision.gameObject.tag){
+            case "Enemy1":
+                DestroyBullet();
+                break;
+            case "Enemy1_Splitted":
+                DestroyBullet();
+                break;
+            case "Enemy3":
+                DestroyBullet();
+                break;
         }
     }
 }

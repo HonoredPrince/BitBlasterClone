@@ -36,15 +36,16 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Enemies\EnemyEmitter.cs" />
      <Compile Include="Assets\Scripts\ShipAttack.cs" />
-     <Compile Include="Assets\Scripts\EnemyCollisionHandler.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyCollisionHandler.cs" />
      <Compile Include="Assets\Scripts\DefaultBullet.cs" />
      <Compile Include="Assets\Scripts\ShipMovement.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Enemy1\Enemy1Movement.cs" />
      <Compile Include="Assets\Scripts\HUDController.cs" />
-     <Compile Include="Assets\Scripts\Enemy1Controller.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Enemy1\Enemy1Splitter.cs" />
      <Compile Include="Assets\Scripts\GarbageCollectorTrigger.cs" />
-     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
-     <Compile Include="Assets\Scripts\EnemyEmitter.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Enemy3\Enemy3Movement.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
