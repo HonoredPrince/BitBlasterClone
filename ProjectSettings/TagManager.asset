@@ -10,6 +10,7 @@ TagManager:
   - Ship
   - GarbageCollector
   - Enemy3
+  - Ammunition
   layers:
   - Default
   - TransparentFX

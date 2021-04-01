@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class EnemyCollisionHandler : MonoBehaviour
 {
+    EnemyDropsController enemyDropsController;
+
+    void Awake(){
+        enemyDropsController = GetComponent<EnemyDropsController>();
+    }
+
     void OnTriggerEnter2D(Collider2D collision){
         switch(collision.gameObject.tag){
             case "Bullet1":
-                DestroyEnemy(this.gameObject.tag, collision);
-                // if(this.gameObject.tag == "Enemy1"){
-                //     DestroyEnemy("Enemy1", collision);
-                // }else if(this.gameObject.tag == "Enemy1_Splitted"){
-                //     DestroyEnemy("Enemy1SplittedPart", collision);
-                // }                
+                DestroyEnemy(this.gameObject.tag, collision);          
                 break;
         }
     }
@@ -20,16 +21,19 @@ public class EnemyCollisionHandler : MonoBehaviour
     void DestroyEnemy(string typeOfEnemy, Collider2D collision){
         switch(typeOfEnemy){
             case "Enemy1":
+                enemyDropsController.DropAmmo(transform);
                 Enemy1Splitter enemy1Splitter = GetComponent<Enemy1Splitter>();
                 enemy1Splitter.SpawnSplittedParts();
                 Destroy(this.gameObject);
                 break;
             case "Enemy1_Splitted":
+                enemyDropsController.DropAmmo(transform);
                 Destroy(this.gameObject);
                 break;
             case "Enemy3":
+                enemyDropsController.DropAmmo(transform);
                 Destroy(this.gameObject);
-                break;
+                break; 
         }
     }
 }

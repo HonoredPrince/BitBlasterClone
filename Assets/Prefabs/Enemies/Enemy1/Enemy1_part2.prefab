@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -5790556955970778949}
   - component: {fileID: 3160840338759468820}
   - component: {fileID: 3160840338759468811}
+  - component: {fileID: 3102538574769710283}
   m_Layer: 0
   m_Name: Enemy1_part2
   m_TagString: Enemy1_Splitted
@@ -186,3 +187,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96462777955793a48b6f101f2314f579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3102538574769710283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3160840338759468810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08158eb1bcc8c4048888747505f9aef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoPrefab: {fileID: 5082292531553913417, guid: 761b0c681ea79434592c27411b3366a9, type: 3}
