@@ -5,13 +5,12 @@ using UnityEngine;
 public class Enemy1Movement : MonoBehaviour
 {
     Rigidbody2D enemy1RigidBody2D;
-    float movSpeed;
-    
-    public string typeOfDirection;
-    public int direction;
+    [SerializeField]float movSpeed = 0f;
+    [HideInInspector]public string typeOfDirection;
+    [HideInInspector]public int direction;
 
     void Update(){
-        movSpeed = 1f;
+        //movSpeed = 1f;
         Movement();
     }
 

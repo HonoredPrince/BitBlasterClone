@@ -7,13 +7,20 @@ public class Enemy3Movement : MonoBehaviour
     Transform shipTransform;
     float movSpeed;
 
-    void Update(){
+    void Awake(){
+        //TODO: Have to fix this line sometimes conflicting with the ship destruction/deactivation
+        //probably because the emitters still emits enemy type 3 even after the game's ending delay time
         shipTransform = GameObject.FindGameObjectWithTag("Ship").GetComponent<Transform>();
+    }
+
+    void Update(){
         movSpeed = 3f;
         Movement();
     }
 
     void Movement(){
-        transform.position = Vector2.MoveTowards(transform.position, shipTransform.position, movSpeed*Time.deltaTime);
+        if(shipTransform != null){
+            transform.position = Vector2.MoveTowards(transform.position, shipTransform.position, movSpeed*Time.deltaTime);
+        }
     }
 }

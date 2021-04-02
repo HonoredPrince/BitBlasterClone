@@ -34,6 +34,9 @@ public class DefaultBullet : MonoBehaviour
             case "Enemy1_Splitted":
                 DestroyBullet();
                 break;
+            case "Enemy2":
+                DestroyBullet();
+                break;
             case "Enemy3":
                 DestroyBullet();
                 break;

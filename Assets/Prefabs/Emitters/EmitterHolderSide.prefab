@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 2263806421527809391}
   m_Layer: 0
   m_Name: EmitterHolderSide
-  m_TagString: Untagged
+  m_TagString: Emitter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab:
   - {fileID: 2315366849348703921, guid: da520b69cb98e3c428f2949e2c3eb28e, type: 3}
+  - {fileID: 6069689938350528118, guid: 5eddac1fcfe71944d86fcbca0a5181e9, type: 3}
   - {fileID: 2342282478849482543, guid: 1f9d70ab905822742a7442ceaad8b364, type: 3}
   emissionStartPoint: {fileID: 2263806421501379942}
   emissionEndPoint: {fileID: 2263806422619163739}

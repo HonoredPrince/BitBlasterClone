@@ -12,7 +12,13 @@ public class GarbageCollectorTrigger : MonoBehaviour
             case "Enemy1":
                 Destroy(collision.gameObject);
                 break;
+            case "Enemy2":
+                Destroy(collision.gameObject);
+                break;
             case "Enemy1_Splitted":
+                Destroy(collision.gameObject);
+                break;
+            case "Ammunition":
                 Destroy(collision.gameObject);
                 break;
         }

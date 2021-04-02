@@ -11,6 +11,8 @@ TagManager:
   - GarbageCollector
   - Enemy3
   - Ammunition
+  - Enemy2
+  - Emitter
   layers:
   - Default
   - TransparentFX

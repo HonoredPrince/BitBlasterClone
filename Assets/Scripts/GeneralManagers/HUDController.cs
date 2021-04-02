@@ -6,15 +6,20 @@ using UnityEngine;
 public class HUDController : MonoBehaviour
 {
     [SerializeField] Image boostBarImage = null;
-    ShipAttack shipAttackHandler;
     [SerializeField]Text shipAmmoText = null;
+    [SerializeField]Text shipScoreText = null;
+
+    ShipAttack shipAttackHandler;
+    ScoreController shipScoreController;
 
     void Awake(){
         shipAttackHandler = GameObject.FindGameObjectWithTag("Ship").GetComponent<ShipAttack>();
+        shipScoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
     }
 
     void FixedUpdate(){
         shipAmmoText.text = this.shipAttackHandler.GetShipCurrentAmmo().ToString();
+        shipScoreText.text = "Score: " + this.shipScoreController.GetPlayerScore().ToString();
     }
 
     public void DecreaseBoostBar(float amount){

@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemyEmitter : MonoBehaviour
 {
+    const int ENEMY1 = 0;
+    const int ENEMY2 = 1;
+    const int ENEMY3 = 2;
+
     [Header("Enemy Selection")] 
     [SerializeField]GameObject[] enemyPrefab = null;
     
@@ -24,9 +29,11 @@ public class EnemyEmitter : MonoBehaviour
     void TestSpawn(){
         float chance = Random.Range(0, 100);
         if(chance <= 20){
-            SpawnEnemy(this.enemyPrefab[1], this.emissionOrientationType, this.directionOfEmission);
-        }else{  
-            SpawnEnemy(this.enemyPrefab[0], this.emissionOrientationType, this.directionOfEmission);
+            SpawnEnemy(this.enemyPrefab[ENEMY3], this.emissionOrientationType, this.directionOfEmission);
+        }else if(chance > 20 && chance <= 50){  
+            SpawnEnemy(this.enemyPrefab[ENEMY1], this.emissionOrientationType, this.directionOfEmission);
+        }else if(chance > 50 && chance <= 100){
+            SpawnEnemy(this.enemyPrefab[ENEMY2], this.emissionOrientationType, this.directionOfEmission);
         }
     }
 
@@ -53,9 +60,15 @@ public class EnemyEmitter : MonoBehaviour
         switch(enemyPrefab.gameObject.tag){
             case "Enemy1":
                 enemySpawned = Instantiate(enemyPrefab,RandomEmissionPointInEmitterLimits(this.emitterType),transform.rotation);
-                Enemy1Movement enemySpawnedMovementController = enemySpawned.GetComponent<Enemy1Movement>();
-                enemySpawnedMovementController.direction = direction;
-                enemySpawnedMovementController.typeOfDirection = orientation;
+                Enemy1Movement enemyTypeOneSpawnedMovementController = enemySpawned.GetComponent<Enemy1Movement>();
+                enemyTypeOneSpawnedMovementController.direction = direction;
+                enemyTypeOneSpawnedMovementController.typeOfDirection = orientation;
+                break;
+            case "Enemy2":
+                enemySpawned = Instantiate(enemyPrefab,RandomEmissionPointInEmitterLimits(this.emitterType),transform.rotation);
+                Enemy1Movement enemyTypeTwoSpawnedMovementController = enemySpawned.GetComponent<Enemy1Movement>();
+                enemyTypeTwoSpawnedMovementController.direction = direction;
+                enemyTypeTwoSpawnedMovementController.typeOfDirection = orientation;
                 break;
             case "Enemy3":
                 enemySpawned = Instantiate(enemyPrefab,RandomEmissionPointInEmitterLimits(this.emitterType),Quaternion.identity);
