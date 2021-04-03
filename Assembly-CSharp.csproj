@@ -42,6 +42,7 @@
      <Compile Include="Assets\Scripts\Enemies\EnemyEmitter.cs" />
      <Compile Include="Assets\Scripts\Ship\ShipAttack.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyCollisionHandler.cs" />
+     <Compile Include="Assets\Scripts\ScoreController.cs" />
      <Compile Include="Assets\Scripts\ShipProjectiles\DefaultBullet.cs" />
      <Compile Include="Assets\Scripts\Ship\ShipMovement.cs" />
      <Compile Include="Assets\Scripts\Enemies\Enemy1\Enemy1Movement.cs" />
@@ -51,7 +52,7 @@
      <Compile Include="Assets\Scripts\Ammunition\AmmunittionController.cs" />
      <Compile Include="Assets\Scripts\GeneralManagers\GarbageCollectorTrigger.cs" />
      <Compile Include="Assets\Scripts\Ammunition\AmmunitionMagnet.cs" />
-     <Compile Include="Assets\Scripts\ScoreController.cs" />
+     <Compile Include="Assets\Scripts\ShipPowerUps\ShieldPowerUpController.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

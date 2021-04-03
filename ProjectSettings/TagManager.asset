@@ -13,6 +13,8 @@ TagManager:
   - Ammunition
   - Enemy2
   - Emitter
+  - ShieldPowerUp
+  - HUD
   layers:
   - Default
   - TransparentFX

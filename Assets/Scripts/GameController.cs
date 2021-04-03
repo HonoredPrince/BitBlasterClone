@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField]HUDController hudController = null;
     GameObject shipPlayer;
     bool isShipInDamagedState, isShipInvencible;
     int playerShield;
-    int playerHealth;
 
     void Awake(){
         shipPlayer = GameObject.FindGameObjectWithTag("Ship");
@@ -16,23 +16,16 @@ public class GameController : MonoBehaviour
         isShipInvencible = false; //God Mode
         
         isShipInDamagedState = false;
-        playerShield = 1;
-        playerHealth = 1;
+        playerShield = 5;
     }
 
     IEnumerator playerDamage(){
         if(!isShipInDamagedState && isShipInvencible == false){
             isShipInDamagedState = true;
             if(playerShield > 0){
-                string damageTarget = "Shield";
-                StartCoroutine(DamageTaken(damageTarget));
+                StartCoroutine(DamageTaken());
+                hudController.UpdateShieldHUD(this.playerShield);
                 //Debug.Log("ShipShield: " + playerShield);
-                //Debug.Log("ShipHealth: " + playerHealth);
-            }else if(playerShield == 0 && playerHealth > 0){
-                string damageTarget = "Health";
-                StartCoroutine(DamageTaken(damageTarget));
-                //Debug.Log("ShipShield: " + playerShield);
-                //Debug.Log("ShipHealth: " + playerHealth); 
             }else{
                 GameObject[] emitters = GameObject.FindGameObjectsWithTag("Emitter");
                 foreach(GameObject emitter in emitters){
@@ -40,18 +33,16 @@ public class GameController : MonoBehaviour
                 }
                 //TODO: Ship's death and handle the game's scenes resets, a.k.a Game Ending Handler
                 shipPlayer.SetActive(false);
-                yield return new WaitForSeconds(3f);
+                //For now, it's better to instantaneously end the game upon death hit, until find a way
+                //for not get NullReference on emmiters spawn objects on "game end" delay
+                yield return new WaitForSeconds(0f);
                 SceneManager.LoadScene("MainGame");
             }
         }
     }
 
-    IEnumerator DamageTaken(string damageTarget){
-        if(damageTarget == "Shield"){
-            playerShield--;
-        }else{
-            playerHealth--;
-        }
+    IEnumerator DamageTaken(){
+        playerShield--;
         Color hitColor = new Color(1, 0, 0, 1);
         Color noHitColor = new Color(1, 1, 1, 0.5f);
         SpriteRenderer playerSprite = shipPlayer.GetComponent<SpriteRenderer>();
@@ -73,5 +64,15 @@ public class GameController : MonoBehaviour
         if(!isShipInDamagedState){
             Destroy(enemyPrefab);
         }
+    }
+
+    public void AddShield(int amount){
+        if(this.playerShield < 5){
+            this.playerShield += amount;
+        }
+    }
+
+    public int GetShipShield(){
+        return this.playerShield;
     }
 }

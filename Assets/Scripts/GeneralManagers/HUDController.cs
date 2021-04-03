@@ -9,6 +9,8 @@ public class HUDController : MonoBehaviour
     [SerializeField]Text shipAmmoText = null;
     [SerializeField]Text shipScoreText = null;
 
+    [SerializeField]Image[] shieldSprites = null;
+
     ShipAttack shipAttackHandler;
     ScoreController shipScoreController;
 
@@ -28,5 +30,29 @@ public class HUDController : MonoBehaviour
 
     public void IncreaseBoostBar(float amount){
         boostBarImage.fillAmount += amount;   
+    }
+
+    // public void RemoveOneShieldFromHud(){
+    //     if(shieldSpritesCounter >= 0){
+    //         this.shieldSprites[shieldSpritesCounter].enabled = false;
+    //         this.shieldSpritesCounter--;
+    //     }
+    // }
+
+    // public void AddOneShieldToHud(){
+    //     if(shieldSpritesCounter <= 4){
+    //         this.shieldSprites[shieldSpritesCounter].enabled = true;
+    //         this.shieldSpritesCounter++;
+    //     }
+    // }
+
+    public void UpdateShieldHUD(int playerShield){
+        for(int i = 0; i < shieldSprites.Length; i++){
+            if(i <= playerShield - 1){
+                shieldSprites[i].enabled = true;
+            }else{
+                shieldSprites[i].enabled = false;
+            }
+        }
     }
 }
