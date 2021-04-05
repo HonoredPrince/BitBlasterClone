@@ -15,6 +15,7 @@ TagManager:
   - Emitter
   - ShieldPowerUp
   - HUD
+  - TripleBulletPowerUp
   layers:
   - Default
   - TransparentFX

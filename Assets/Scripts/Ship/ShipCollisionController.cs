@@ -60,6 +60,10 @@ public class ShipCollisionController : MonoBehaviour
                 hudController.UpdateShieldHUD(gameController.GetShipShield());
                 Destroy(collision.gameObject);
                 break;
+            case "TripleBulletPowerUp":
+                StartCoroutine(shipAttackController.ChangeTypeOfFiringSystemInSeconds("tripleBullet", 30f));
+                Destroy(collision.gameObject);
+                break;
         }
     }
 }

@@ -24,26 +24,38 @@ public class EnemyCollisionHandler : MonoBehaviour
         switch(typeOfEnemy){
             case "Enemy1":
                 shipScoreController.AddScore(10);
-                enemyDropsController.DropAmmo(transform);
+                DropItem();
                 Enemy1Splitter enemy1Splitter = GetComponent<Enemy1Splitter>();
                 enemy1Splitter.SpawnSplittedParts();
                 Destroy(this.gameObject);
                 break;
             case "Enemy1_Splitted":
                 shipScoreController.AddScore(20);
-                enemyDropsController.DropAmmo(transform);
+                DropItem();
                 Destroy(this.gameObject);
                 break;
             case "Enemy2":
                 shipScoreController.AddScore(20);
-                enemyDropsController.DropAmmo(transform);
+                DropItem();
                 Destroy(this.gameObject);
                 break; 
             case "Enemy3":
                 shipScoreController.AddScore(30);
-                enemyDropsController.DropAmmo(transform);
+                DropItem();
                 Destroy(this.gameObject);
                 break; 
+        }
+    }
+
+    void DropItem(){
+        //TODO: Find a better way to implement the % chance of every item dropped by enemies
+        float chance = Random.Range(0f, 100f);
+        if(chance <= 10){
+            enemyDropsController.DropShieldPowerUp(transform);
+        }else if(chance <= 30){
+            enemyDropsController.DropTripleBulletPowerUp(transform);
+        }else{
+            enemyDropsController.DropAmmo(transform);
         }
     }
 }
