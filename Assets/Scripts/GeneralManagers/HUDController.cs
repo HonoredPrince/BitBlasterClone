@@ -6,8 +6,10 @@ using UnityEngine;
 public class HUDController : MonoBehaviour
 {
     [SerializeField] Image boostBarImage = null;
-    [SerializeField]Text shipAmmoText = null;
-    [SerializeField]Text shipScoreText = null;
+    [SerializeField] Text shipAmmoText = null;
+    [SerializeField] Text shipScoreText = null;
+    [SerializeField] Sprite[] bulletsTypesSprites = null;
+    [SerializeField] Image bulletTypeSprite = null;
 
     [SerializeField]Image[] shieldSprites = null;
 
@@ -32,20 +34,6 @@ public class HUDController : MonoBehaviour
         boostBarImage.fillAmount += amount;   
     }
 
-    // public void RemoveOneShieldFromHud(){
-    //     if(shieldSpritesCounter >= 0){
-    //         this.shieldSprites[shieldSpritesCounter].enabled = false;
-    //         this.shieldSpritesCounter--;
-    //     }
-    // }
-
-    // public void AddOneShieldToHud(){
-    //     if(shieldSpritesCounter <= 4){
-    //         this.shieldSprites[shieldSpritesCounter].enabled = true;
-    //         this.shieldSpritesCounter++;
-    //     }
-    // }
-
     public void UpdateShieldHUD(int playerShield){
         for(int i = 0; i < shieldSprites.Length; i++){
             if(i <= playerShield - 1){
@@ -54,5 +42,17 @@ public class HUDController : MonoBehaviour
                 shieldSprites[i].enabled = false;
             }
         }
+    }
+
+    public void SetBulletTypeSprite(string bulletType){
+        switch(bulletType){
+            case "defaultBullet":
+                this.bulletTypeSprite.sprite = bulletsTypesSprites[0];
+                break;
+            case "tripleBullet":
+                this.bulletTypeSprite.sprite = bulletsTypesSprites[1];
+                break;
+        }
+        
     }
 }

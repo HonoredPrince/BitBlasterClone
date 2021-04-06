@@ -7,14 +7,16 @@ public class ShipAttack : MonoBehaviour
     [SerializeField] GameObject defaultBullet = null;
     [SerializeField]Transform[] shootingPoints = null;
 
+    HUDController hudController;
+
     int shipAmmo;
     float fireRate = 0.1f;
     bool fireAllowed;
 
-    //TODO: Figure it out how is gonna work the data information of the type of bullet fired
     string typeOfFiringSystem;
 
     void Awake(){
+        hudController = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDController>();
         fireAllowed = true;
         shipAmmo = 100;
         typeOfFiringSystem = "defaultBullet";
@@ -48,11 +50,14 @@ public class ShipAttack : MonoBehaviour
 
     //TODO: The Ship's attack firing system changing to the other 2 types of bullets: triple-fire e laser
     public IEnumerator ChangeTypeOfFiringSystemInSeconds(string typeOfFireSystem, float timeActiveInSeconds){
-        //TODO: Fix the issue with getting the power up while in the time frame of the same type of powerup,
-        //will have to just reset time, and not letting one routine call interfere with another
+        //See the current solution on ShipCollisionPowerUp switch(case)...
+        //Debug.Log(Time.time);
         this.typeOfFiringSystem = typeOfFireSystem;
+        hudController.SetBulletTypeSprite(this.typeOfFiringSystem);
         yield return new WaitForSeconds(timeActiveInSeconds);
+        //Debug.Log(Time.time);
         this.typeOfFiringSystem = "defaultBullet";
+        hudController.SetBulletTypeSprite(this.typeOfFiringSystem);
     }
 
     IEnumerator FireDefaultBullet(){
@@ -74,6 +79,10 @@ public class ShipAttack : MonoBehaviour
             yield return new WaitForSeconds(fireRate);
             fireAllowed = true;
         }
+    }
+
+    public string GetTypeOfFiringSystem(){
+        return this.typeOfFiringSystem;
     }
 
 }

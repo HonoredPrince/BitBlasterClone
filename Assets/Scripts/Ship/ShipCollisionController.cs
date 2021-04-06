@@ -9,6 +9,8 @@ public class ShipCollisionController : MonoBehaviour
     GameController gameController;
     ScoreController scoreController;
 
+    Coroutine currentFiringTypeRoutine;
+
     void Awake(){
         shipAttackController = GetComponent<ShipAttack>();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
@@ -61,7 +63,10 @@ public class ShipCollisionController : MonoBehaviour
                 Destroy(collision.gameObject);
                 break;
             case "TripleBulletPowerUp":
-                StartCoroutine(shipAttackController.ChangeTypeOfFiringSystemInSeconds("tripleBullet", 30f));
+                if(shipAttackController.GetTypeOfFiringSystem() == "tripleBullet"){
+                    StopCoroutine(this.currentFiringTypeRoutine); //Works but maybe not the optimal way
+                }
+                this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ChangeTypeOfFiringSystemInSeconds("tripleBullet", 6f));
                 Destroy(collision.gameObject);
                 break;
         }
