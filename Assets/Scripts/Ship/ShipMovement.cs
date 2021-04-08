@@ -57,6 +57,7 @@ public class ShipMovement : MonoBehaviour
         Vector2 shipDirectionVector = new Vector2(0f, yDirection * movSpeed * Time.deltaTime);
         shipRigidBody2D.transform.Translate(shipDirectionVector, Space.Self);
         
+        //TODO: Find a way of clampping the Ship in the limits of the camera, not transform object points
         float xPosClampped = Mathf.Clamp(transform.position.x, leftBorder.position.x + shipSizeOffSet, rightBorder.position.x - shipSizeOffSet);
         float yPosClampped = Mathf.Clamp(transform.position.y, bottomBorder.position.y + shipSizeOffSet, topBorder.position.y - shipSizeOffSet);
         transform.position = new Vector2(xPosClampped, yPosClampped);

@@ -5,20 +5,25 @@ using UnityEngine;
 public class ShipAttack : MonoBehaviour
 {
     [SerializeField] GameObject defaultBullet = null;
-    [SerializeField]Transform[] shootingPoints = null;
+    [SerializeField] Transform[] shootingPoints = null;
+    [SerializeField] GameObject shipBerserker = null;
 
     HUDController hudController;
+    GameController gameController;
 
     int shipAmmo;
     float fireRate = 0.1f;
     bool fireAllowed;
+    bool hasBerserkerMode;
 
     string typeOfFiringSystem;
-    public bool shipHasSpecialBullet;
+    [HideInInspector] public bool shipHasSpecialBullet;
 
     void Awake(){
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         hudController = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDController>();
         fireAllowed = true;
+        hasBerserkerMode = false;
         shipAmmo = 100;
         typeOfFiringSystem = "defaultBullet";
         shipHasSpecialBullet = false;
@@ -31,7 +36,7 @@ public class ShipAttack : MonoBehaviour
         }   
 
         if(shipHasSpecialBullet){
-            hudController.DecreaseWeaponTypeBar(Time.deltaTime/6f);
+            hudController.DecreaseWeaponTypeBar(Time.deltaTime/10f);
         } 
     }
 
@@ -79,6 +84,7 @@ public class ShipAttack : MonoBehaviour
             fireAllowed = true;
         }
     }
+
     IEnumerator FireTripleBullet(){
         if(fireAllowed && this.shipAmmo > 0){
             fireAllowed = false;
@@ -89,6 +95,29 @@ public class ShipAttack : MonoBehaviour
             yield return new WaitForSeconds(fireRate);
             fireAllowed = true;
         }
+    }
+
+    public IEnumerator ActivateBerserkerMode(float timeActiveInSeconds){
+        //Debug.Log(Time.time);
+        this.hasBerserkerMode = true;
+        this.gameController.SetPlayerInvencible(true);
+        this.shipBerserker.SetActive(true);
+
+        yield return new WaitForSeconds(timeActiveInSeconds);
+        //Debug.Log(Time.time);
+        
+        this.hasBerserkerMode = false;
+        this.gameController.SetPlayerInvencible(false);
+        this.shipBerserker.SetActive(false);
+    }
+
+    public void DeactivateBerserkerMode(){
+        this.gameController.SetPlayerInvencible(false);
+        this.shipBerserker.SetActive(false);
+    }
+
+    public bool HasBerserkerMode(){
+        return this.hasBerserkerMode;
     }
 
     public string GetTypeOfFiringSystem(){

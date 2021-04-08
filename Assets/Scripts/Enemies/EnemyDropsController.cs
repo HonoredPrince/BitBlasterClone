@@ -17,4 +17,8 @@ public class EnemyDropsController : MonoBehaviour
     public void DropTripleBulletPowerUp(Transform enemyTransform){
         GameObject shieldDropped = Instantiate(enemyDrops[2], enemyTransform.position, Quaternion.identity);
     } 
+
+    public void DropBerserkerPowerUp(Transform enemyTransform){
+        GameObject shieldDropped = Instantiate(enemyDrops[3], enemyTransform.position, Quaternion.identity);
+    } 
 }

@@ -16,6 +16,8 @@ TagManager:
   - ShieldPowerUp
   - HUD
   - TripleBulletPowerUp
+  - ShipBerserker
+  - ShipBerserkerPowerUp
   layers:
   - Default
   - TransparentFX

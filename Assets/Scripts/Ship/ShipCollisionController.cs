@@ -9,7 +9,7 @@ public class ShipCollisionController : MonoBehaviour
     GameController gameController;
     ScoreController scoreController;
 
-    Coroutine currentFiringTypeRoutine;
+    Coroutine currentFiringTypeRoutine, currentBerserkerRoutine;
 
     void Awake(){
         shipAttackController = GetComponent<ShipAttack>();
@@ -67,7 +67,15 @@ public class ShipCollisionController : MonoBehaviour
                     StopCoroutine(this.currentFiringTypeRoutine); //Works but maybe not the optimal way
                     shipAttackController.shipHasSpecialBullet = false;
                 }
-                this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ChangeTypeOfFiringSystemInSeconds("tripleBullet", 6f));
+                this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ChangeTypeOfFiringSystemInSeconds("tripleBullet", 10f));
+                Destroy(collision.gameObject);
+                break;
+            case "ShipBerserkerPowerUp":
+                if(shipAttackController.HasBerserkerMode() == true){
+                    shipAttackController.DeactivateBerserkerMode();
+                    StopCoroutine(this.currentBerserkerRoutine); //Works but maybe not the optimal way
+                }
+                this.currentBerserkerRoutine = StartCoroutine(shipAttackController.ActivateBerserkerMode(10f));
                 Destroy(collision.gameObject);
                 break;
         }

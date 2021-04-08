@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
     void Awake(){
         shipPlayer = GameObject.FindGameObjectWithTag("Ship");
         
-        isShipInvencible = false; //God Mode
+        isShipInvencible = false; //God Mode for Debug purposes
         
         isShipInDamagedState = false;
         playerShield = 5;
@@ -70,6 +70,10 @@ public class GameController : MonoBehaviour
         if(this.playerShield < 5){
             this.playerShield += amount;
         }
+    }
+
+    public void SetPlayerInvencible(bool status){
+        this.isShipInvencible = status;
     }
 
     public int GetShipShield(){
