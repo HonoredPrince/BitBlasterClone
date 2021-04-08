@@ -14,19 +14,25 @@ public class ShipAttack : MonoBehaviour
     bool fireAllowed;
 
     string typeOfFiringSystem;
+    public bool shipHasSpecialBullet;
 
     void Awake(){
         hudController = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDController>();
         fireAllowed = true;
         shipAmmo = 100;
         typeOfFiringSystem = "defaultBullet";
+        shipHasSpecialBullet = false;
     }
 
     void Update()
     {
         if(Input.GetMouseButtonDown(0)){
             FireBullet();
-        }    
+        }   
+
+        if(shipHasSpecialBullet){
+            hudController.DecreaseWeaponTypeBar(Time.deltaTime/6f);
+        } 
     }
 
     public int GetShipCurrentAmmo(){
@@ -52,11 +58,15 @@ public class ShipAttack : MonoBehaviour
     public IEnumerator ChangeTypeOfFiringSystemInSeconds(string typeOfFireSystem, float timeActiveInSeconds){
         //See the current solution on ShipCollisionPowerUp switch(case)...
         //Debug.Log(Time.time);
+        hudController.SetWeaponTypeBarActive();
+        shipHasSpecialBullet = true;
         this.typeOfFiringSystem = typeOfFireSystem;
         hudController.SetBulletTypeSprite(this.typeOfFiringSystem);
         yield return new WaitForSeconds(timeActiveInSeconds);
         //Debug.Log(Time.time);
         this.typeOfFiringSystem = "defaultBullet";
+        shipHasSpecialBullet = false;
+        hudController.DeactivateWeaponTypeBar();
         hudController.SetBulletTypeSprite(this.typeOfFiringSystem);
     }
 

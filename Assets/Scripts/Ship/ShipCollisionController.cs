@@ -65,6 +65,7 @@ public class ShipCollisionController : MonoBehaviour
             case "TripleBulletPowerUp":
                 if(shipAttackController.GetTypeOfFiringSystem() == "tripleBullet"){
                     StopCoroutine(this.currentFiringTypeRoutine); //Works but maybe not the optimal way
+                    shipAttackController.shipHasSpecialBullet = false;
                 }
                 this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ChangeTypeOfFiringSystemInSeconds("tripleBullet", 6f));
                 Destroy(collision.gameObject);

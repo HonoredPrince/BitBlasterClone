@@ -11,7 +11,10 @@ public class HUDController : MonoBehaviour
     [SerializeField] Sprite[] bulletsTypesSprites = null;
     [SerializeField] Image bulletTypeSprite = null;
 
-    [SerializeField]Image[] shieldSprites = null;
+    [SerializeField] Image[] shieldSprites = null;
+
+    [SerializeField] GameObject weaponTypeTimeBar = null;
+    [SerializeField] Image weaponTimeBarFillImage = null;
 
     ShipAttack shipAttackHandler;
     ScoreController shipScoreController;
@@ -19,6 +22,7 @@ public class HUDController : MonoBehaviour
     void Awake(){
         shipAttackHandler = GameObject.FindGameObjectWithTag("Ship").GetComponent<ShipAttack>();
         shipScoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
+        weaponTypeTimeBar.SetActive(false);
     }
 
     void FixedUpdate(){
@@ -32,6 +36,21 @@ public class HUDController : MonoBehaviour
 
     public void IncreaseBoostBar(float amount){
         boostBarImage.fillAmount += amount;   
+    }
+
+    
+    public void SetWeaponTypeBarActive(){
+        this.weaponTypeTimeBar.SetActive(true);
+        weaponTimeBarFillImage.fillAmount = 1;
+    }
+    
+    public void DeactivateWeaponTypeBar(){
+        this.weaponTypeTimeBar.SetActive(false);
+        weaponTimeBarFillImage.fillAmount = 0;
+    }
+
+    public void DecreaseWeaponTypeBar(float amount){
+        weaponTimeBarFillImage.fillAmount -= amount;
     }
 
     public void UpdateShieldHUD(int playerShield){
