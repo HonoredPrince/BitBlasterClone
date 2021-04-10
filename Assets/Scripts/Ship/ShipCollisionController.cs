@@ -62,6 +62,14 @@ public class ShipCollisionController : MonoBehaviour
                 hudController.UpdateShieldHUD(gameController.GetShipShield());
                 Destroy(collision.gameObject);
                 break;
+            case "NukePowerUp":
+                if(shipAttackController.GetAmountOfNukes() == 5){
+                    scoreController.AddScore(100);
+                }
+                shipAttackController.AddNuke();
+                hudController.UpdateNukesHUD(shipAttackController.GetAmountOfNukes());
+                Destroy(collision.gameObject);
+                break;
             case "TripleBulletPowerUp":
                 if(shipAttackController.GetTypeOfFiringSystem() == "tripleBullet"){
                     StopCoroutine(this.currentFiringTypeRoutine); //Works but maybe not the optimal way

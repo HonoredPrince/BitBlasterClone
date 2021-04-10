@@ -10,23 +10,28 @@ public class ShipAttack : MonoBehaviour
 
     HUDController hudController;
     GameController gameController;
+    ScoreController scoreController;
 
     int shipAmmo;
     float fireRate = 0.1f;
     bool fireAllowed;
     bool hasBerserkerMode;
+    int amountOfNukes;
 
     string typeOfFiringSystem;
     [HideInInspector] public bool shipHasSpecialBullet;
 
     void Awake(){
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        scoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
         hudController = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDController>();
         fireAllowed = true;
         hasBerserkerMode = false;
         shipAmmo = 100;
         typeOfFiringSystem = "defaultBullet";
         shipHasSpecialBullet = false;
+        amountOfNukes = 3;
+        hudController.UpdateNukesHUD(GetAmountOfNukes());
     }
 
     void Update()
@@ -34,6 +39,10 @@ public class ShipAttack : MonoBehaviour
         if(Input.GetMouseButtonDown(0)){
             FireBullet();
         }   
+
+        if(Input.GetMouseButtonDown(1) && amountOfNukes > 0){
+            DeployNuke();
+        }
 
         if(shipHasSpecialBullet){
             hudController.DecreaseWeaponTypeBar(Time.deltaTime/10f);
@@ -46,6 +55,16 @@ public class ShipAttack : MonoBehaviour
 
     public void AddAmmo(int amount){
         this.shipAmmo += amount;
+    }
+
+    public void AddNuke(){
+        if(amountOfNukes < 5){
+            amountOfNukes++;
+        }
+    }
+
+    public int GetAmountOfNukes(){
+        return this.amountOfNukes;
     }
 
     void FireBullet(){
@@ -124,4 +143,46 @@ public class ShipAttack : MonoBehaviour
         return this.typeOfFiringSystem;
     }
 
+    void DeployNuke(){
+        this.amountOfNukes--;
+        hudController.UpdateNukesHUD(GetAmountOfNukes());
+
+        GameObject[] allEnemiesType1 = GameObject.FindGameObjectsWithTag("Enemy1");
+        GameObject[] allEnemiesType1Splitted = GameObject.FindGameObjectsWithTag("Enemy1_Splitted");
+        GameObject[] allEnemiesType2 = GameObject.FindGameObjectsWithTag("Enemy2");
+        GameObject[] allEnemiesType3 = GameObject.FindGameObjectsWithTag("Enemy3");
+
+        NukeDamageOnEnemies(allEnemiesType1, "Enemy1");
+        NukeDamageOnEnemies(allEnemiesType1Splitted, "Enemy1_Splitted");
+        NukeDamageOnEnemies(allEnemiesType2, "Enemy2");
+        NukeDamageOnEnemies(allEnemiesType3, "Enemy3");
+    }
+
+    void NukeDamageOnEnemies(GameObject[] allEnemiesFromOneType, string typeToAddScore){
+        foreach(GameObject enemie in allEnemiesFromOneType){
+            Renderer enemieRenderer = enemie.GetComponent<Renderer>(); //Have to see if this works as a way to destroy only enemies in câmera view
+            EnemyCollisionHandler enemieDropsController = enemie.GetComponent<EnemyCollisionHandler>();
+            if(enemieRenderer.isVisible){
+                Destroy(enemie);
+                switch(typeToAddScore){
+                    case "Enemy1":
+                        scoreController.AddScore(10);
+                        enemieDropsController.DropItem();
+                        break;
+                    case "Enemy1_Splitter":
+                        scoreController.AddScore(20);
+                        enemieDropsController.DropItem();
+                        break;
+                    case "Enemy2":
+                        scoreController.AddScore(20);
+                        enemieDropsController.DropItem();
+                        break;
+                    case "Enemy3":
+                        scoreController.AddScore(30);
+                        enemieDropsController.DropItem();
+                        break;
+                }
+            }
+        }
+    }
 }

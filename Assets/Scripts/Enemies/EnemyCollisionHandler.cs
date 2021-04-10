@@ -50,10 +50,12 @@ public class EnemyCollisionHandler : MonoBehaviour
         }
     }
 
-    void DropItem(){
+    public void DropItem(){
         //TODO: Find a better way to implement the % chance of every item dropped by enemies
         float chance = Random.Range(0f, 100f);
-        if(chance <= 2f){
+        if(chance <= 1f){
+            enemyDropsController.DropNukePowerUp(transform);
+        }else if(chance <= 2f){
             enemyDropsController.DropBerserkerPowerUp(transform);
         }else if(chance <= 5f){
             enemyDropsController.DropShieldPowerUp(transform);

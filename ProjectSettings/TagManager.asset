@@ -18,6 +18,7 @@ TagManager:
   - TripleBulletPowerUp
   - ShipBerserker
   - ShipBerserkerPowerUp
+  - NukePowerUp
   layers:
   - Default
   - TransparentFX

@@ -12,6 +12,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] Image bulletTypeSprite = null;
 
     [SerializeField] Image[] shieldSprites = null;
+    [SerializeField] Image[] nukesSprites = null;
 
     [SerializeField] GameObject weaponTypeTimeBar = null;
     [SerializeField] Image weaponTimeBarFillImage = null;
@@ -59,6 +60,16 @@ public class HUDController : MonoBehaviour
                 shieldSprites[i].enabled = true;
             }else{
                 shieldSprites[i].enabled = false;
+            }
+        }
+    }
+
+    public void UpdateNukesHUD(int amountOfNukes){
+        for(int i = 0; i < nukesSprites.Length; i++){
+            if(i <= amountOfNukes - 1){
+                nukesSprites[i].enabled = true;
+            }else{
+                nukesSprites[i].enabled = false;
             }
         }
     }

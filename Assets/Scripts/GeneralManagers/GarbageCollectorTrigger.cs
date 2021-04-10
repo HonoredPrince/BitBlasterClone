@@ -21,6 +21,15 @@ public class GarbageCollectorTrigger : MonoBehaviour
             case "Ammunition":
                 Destroy(collision.gameObject);
                 break;
+            case "ShieldPowerUp":
+                Destroy(collision.gameObject);
+                break;
+            case "TripleBulletPowerUp":
+                Destroy(collision.gameObject);
+                break;
+            case "BerserkerPowerUp":
+                Destroy(collision.gameObject);
+                break;
         }
     }
 }
