@@ -6,6 +6,7 @@ public class ShipMovement : MonoBehaviour
 {
     Rigidbody2D shipRigidBody2D = null;
     Transform shootingPoint;
+    [SerializeField]Animator engineThrustAnimator = null;
     [SerializeField]Transform leftBorder = null, rightBorder = null, topBorder = null, bottomBorder = null;
     [SerializeField]HUDController hudController = null;
     float shipSizeOffSet;
@@ -70,11 +71,14 @@ public class ShipMovement : MonoBehaviour
 
     IEnumerator BoostShip(float boostForce){
         isBoosting = true;
+        engineThrustAnimator.SetBool("isBoosting", true);
         Vector2 boostThrust = transform.up * boostForce;
         shipRigidBody2D.AddForce(boostThrust, ForceMode2D.Impulse);
         yield return new WaitForSeconds(boostingTime);
         isBoosting = false;
         canBoost = false;
+        yield return new WaitForSeconds(1.3f);
+        engineThrustAnimator.SetBool("isBoosting", false);
         yield return new WaitForSeconds(boostDelay);
         canBoost = true;
     }

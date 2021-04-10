@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField]HUDController hudController = null;
+    [SerializeField] HUDController hudController = null;
     GameObject shipPlayer;
+    [SerializeField] GameObject[] shipDeathObjects = null; 
     bool isShipInDamagedState, isShipInvencible;
     int playerShield;
 
@@ -16,7 +17,8 @@ public class GameController : MonoBehaviour
         isShipInvencible = false; //God Mode for Debug purposes
         
         isShipInDamagedState = false;
-        playerShield = 5;
+        playerShield = 3; 
+        hudController.UpdateShieldHUD(playerShield);
     }
 
     IEnumerator playerDamage(){
@@ -27,15 +29,18 @@ public class GameController : MonoBehaviour
                 hudController.UpdateShieldHUD(this.playerShield);
                 //Debug.Log("ShipShield: " + playerShield);
             }else{
+                //TODO: Ship's death and handle the game's scenes resets, a.k.a Game Ending Handler
                 GameObject[] emitters = GameObject.FindGameObjectsWithTag("Emitter");
                 foreach(GameObject emitter in emitters){
                     emitter.SetActive(false);
                 }
-                //TODO: Ship's death and handle the game's scenes resets, a.k.a Game Ending Handler
                 shipPlayer.SetActive(false);
+                GameObject shipDeathAnimObj = Instantiate(shipDeathObjects[0], shipPlayer.transform.position, shipPlayer.transform.rotation);
                 //For now, it's better to instantaneously end the game upon death hit, until find a way
                 //for not get NullReference on emmiters spawn objects on "game end" delay
-                yield return new WaitForSeconds(0f);
+                yield return new WaitForSeconds(0.8f);
+                Destroy(shipDeathAnimObj);
+                yield return new WaitForSeconds(3f);
                 SceneManager.LoadScene("MainGame");
             }
         }
