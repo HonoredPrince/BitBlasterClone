@@ -17,6 +17,8 @@ public class ShipAttack : MonoBehaviour
     bool fireAllowed;
     bool hasBerserkerMode;
     int amountOfNukes;
+    float nukeDelayTime;
+    bool canDeployNuke;
 
     string typeOfFiringSystem;
     [HideInInspector] public bool shipHasSpecialBullet;
@@ -31,7 +33,10 @@ public class ShipAttack : MonoBehaviour
         typeOfFiringSystem = "defaultBullet";
         shipHasSpecialBullet = false;
         amountOfNukes = 3;
+        canDeployNuke = true;
+        nukeDelayTime = 8f;
         hudController.UpdateNukesHUD(GetAmountOfNukes());
+        hudController.SetNukeCooldownTimersActive(false);
     }
 
     void Update()
@@ -40,13 +45,17 @@ public class ShipAttack : MonoBehaviour
             FireBullet();
         }   
 
-        if(Input.GetMouseButtonDown(1) && amountOfNukes > 0){
+        if(Input.GetMouseButtonDown(1) && amountOfNukes > 0 && canDeployNuke){
             DeployNuke();
         }
 
         if(shipHasSpecialBullet){
             hudController.DecreaseWeaponTypeBar(Time.deltaTime/10f);
         } 
+
+        if(!canDeployNuke){
+            hudController.DecreaseNukeCooldownTimers(Time.deltaTime/this.nukeDelayTime);
+        }
     }
 
     public int GetShipCurrentAmmo(){
@@ -146,6 +155,7 @@ public class ShipAttack : MonoBehaviour
     void DeployNuke(){
         this.amountOfNukes--;
         hudController.UpdateNukesHUD(GetAmountOfNukes());
+        StartCoroutine(ActivateNukeDelay(this.nukeDelayTime));
 
         GameObject[] allEnemiesType1 = GameObject.FindGameObjectsWithTag("Enemy1");
         GameObject[] allEnemiesType1Splitted = GameObject.FindGameObjectsWithTag("Enemy1_Splitted");
@@ -184,5 +194,14 @@ public class ShipAttack : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator ActivateNukeDelay(float delayTime){
+        canDeployNuke = false;
+        hudController.SetNukeCooldownTimersActive(true);
+        hudController.FillNukeCooldownTimers();
+        yield return new WaitForSeconds(delayTime);
+        hudController.SetNukeCooldownTimersActive(false);
+        canDeployNuke = true;
     }
 }

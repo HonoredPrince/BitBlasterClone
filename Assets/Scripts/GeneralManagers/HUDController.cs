@@ -12,7 +12,8 @@ public class HUDController : MonoBehaviour
     [SerializeField] Image bulletTypeSprite = null;
 
     [SerializeField] Image[] shieldSprites = null;
-    [SerializeField] Image[] nukesSprites = null;
+    [SerializeField] GameObject[] nukesSpritesObjects = null;
+    [SerializeField] Image[] nukesSpritesCooldownImg = null;
 
     [SerializeField] GameObject weaponTypeTimeBar = null;
     [SerializeField] Image weaponTimeBarFillImage = null;
@@ -65,12 +66,30 @@ public class HUDController : MonoBehaviour
     }
 
     public void UpdateNukesHUD(int amountOfNukes){
-        for(int i = 0; i < nukesSprites.Length; i++){
+        for(int i = 0; i < nukesSpritesObjects.Length; i++){
             if(i <= amountOfNukes - 1){
-                nukesSprites[i].enabled = true;
+                nukesSpritesObjects[i].SetActive(true);
             }else{
-                nukesSprites[i].enabled = false;
+                nukesSpritesObjects[i].SetActive(false);
             }
+        }
+    }
+
+    public void DecreaseNukeCooldownTimers(float amount){
+        foreach(Image nukeCdStamp in this.nukesSpritesCooldownImg){
+            nukeCdStamp.fillAmount -= amount; 
+        }
+    } 
+
+    public void FillNukeCooldownTimers(){
+        foreach(Image nukeCdStamp in this.nukesSpritesCooldownImg){
+            nukeCdStamp.fillAmount = 1; 
+        }
+    }
+
+    public void SetNukeCooldownTimersActive(bool status){
+        foreach(Image nukeCdStamp in this.nukesSpritesCooldownImg){
+            nukeCdStamp.enabled = status;
         }
     }
 

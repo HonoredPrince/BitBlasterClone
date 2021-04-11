@@ -44,7 +44,7 @@ public class ShipMovement : MonoBehaviour
         if(isBoosting){
             hudController.DecreaseBoostBar(Time.deltaTime * 4);
         }else{
-            hudController.IncreaseBoostBar(Time.deltaTime/boostDelay);
+            hudController.IncreaseBoostBar(Time.deltaTime/(boostDelay + 1.3f));
         }
 
         if(Input.GetKeyDown(KeyCode.Space)){
