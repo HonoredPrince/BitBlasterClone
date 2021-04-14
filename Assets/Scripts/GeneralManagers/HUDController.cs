@@ -101,6 +101,9 @@ public class HUDController : MonoBehaviour
             case "tripleBullet":
                 this.bulletTypeSprite.sprite = bulletsTypesSprites[1];
                 break;
+            case "laserStream":
+                this.bulletTypeSprite.sprite = bulletsTypesSprites[2];
+                break;
         }
         
     }

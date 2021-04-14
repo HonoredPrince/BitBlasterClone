@@ -20,6 +20,9 @@ public class EnemyCollisionHandler : MonoBehaviour
             case "ShipBerserker":
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
+            case "Laser":
+                DestroyEnemy(this.gameObject.tag, collision);          
+                break;
         }
     }
 

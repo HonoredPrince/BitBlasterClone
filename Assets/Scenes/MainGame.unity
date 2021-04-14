@@ -3648,7 +3648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &897982057
 Transform:
   m_ObjectHideFlags: 0
@@ -6647,7 +6647,7 @@ MonoBehaviour:
   bulletsTypesSprites:
   - {fileID: 21300000, guid: 796918993d764484ea3d7174b93e919f, type: 3}
   - {fileID: 21300000, guid: c975342d0011a83468259882b54a62b4, type: 3}
-  - {fileID: 2587950767783263728, guid: a3f3bc8d406e4f548b6c98ad8b8ddb0b, type: 3}
+  - {fileID: -3251231564973485085, guid: 92088c53e340995468c8e5d2c3c91a55, type: 3}
   bulletTypeSprite: {fileID: 970941331}
   shieldSprites:
   - {fileID: 1913418608}
@@ -7126,10 +7126,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5043434744138947399, guid: 97fbd411f636b3a49b68148f83999cbb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5047457157833378523, guid: 97fbd411f636b3a49b68148f83999cbb, type: 3}
       propertyPath: m_Name
       value: PurpleShip

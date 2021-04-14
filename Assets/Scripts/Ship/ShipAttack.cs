@@ -7,40 +7,56 @@ public class ShipAttack : MonoBehaviour
     [SerializeField] GameObject defaultBullet = null;
     [SerializeField] Transform[] shootingPoints = null;
     [SerializeField] GameObject shipBerserker = null;
+    [SerializeField] GameObject shipLaser = null;
 
     HUDController hudController;
     GameController gameController;
     ScoreController scoreController;
 
+    [HideInInspector] public bool shipHasSpecialBullet;
     int shipAmmo;
     float fireRate = 0.1f;
     bool fireAllowed;
+    
     bool hasBerserkerMode;
-    int amountOfNukes;
-    float nukeDelayTime;
-    bool canDeployNuke;
+    
+    bool hasLaserMode;
 
+    int amountOfNukes;
+    float nukeDelayTime, weaponsDelayTime;
+    bool canDeployNuke;
+    
     string typeOfFiringSystem;
-    [HideInInspector] public bool shipHasSpecialBullet;
+    
 
     void Awake(){
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         scoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
         hudController = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDController>();
+
+        shipAmmo = 100;
+        amountOfNukes = 3;
+        
+        nukeDelayTime = 8f;
+        weaponsDelayTime = 10f;
+
         fireAllowed = true;
         hasBerserkerMode = false;
-        shipAmmo = 100;
-        typeOfFiringSystem = "defaultBullet";
+        hasLaserMode = false;
         shipHasSpecialBullet = false;
-        amountOfNukes = 3;
         canDeployNuke = true;
-        nukeDelayTime = 8f;
+
+        typeOfFiringSystem = "defaultBullet";
+
         hudController.UpdateNukesHUD(GetAmountOfNukes());
         hudController.SetNukeCooldownTimersActive(false);
     }
 
     void Update()
     {
+        Debug.Log(this.typeOfFiringSystem);
+        Debug.Log(this.hasLaserMode);
+        
         if(Input.GetMouseButtonDown(0)){
             FireBullet();
         }   
@@ -62,6 +78,10 @@ public class ShipAttack : MonoBehaviour
         return this.shipAmmo;
     }
 
+    public int GetAmountOfNukes(){
+        return this.amountOfNukes;
+    }
+    
     public void AddAmmo(int amount){
         this.shipAmmo += amount;
     }
@@ -70,10 +90,6 @@ public class ShipAttack : MonoBehaviour
         if(amountOfNukes < 5){
             amountOfNukes++;
         }
-    }
-
-    public int GetAmountOfNukes(){
-        return this.amountOfNukes;
     }
 
     void FireBullet(){
@@ -85,22 +101,6 @@ public class ShipAttack : MonoBehaviour
                 StartCoroutine(FireTripleBullet());
                 break;
         }
-    }
-
-    //TODO: The Ship's attack firing system changing to the other 2 types of bullets: triple-fire e laser
-    public IEnumerator ChangeTypeOfFiringSystemInSeconds(string typeOfFireSystem, float timeActiveInSeconds){
-        //See the current solution on ShipCollisionPowerUp switch(case)...
-        //Debug.Log(Time.time);
-        hudController.SetWeaponTypeBarActive();
-        shipHasSpecialBullet = true;
-        this.typeOfFiringSystem = typeOfFireSystem;
-        hudController.SetBulletTypeSprite(this.typeOfFiringSystem);
-        yield return new WaitForSeconds(timeActiveInSeconds);
-        //Debug.Log(Time.time);
-        this.typeOfFiringSystem = "defaultBullet";
-        shipHasSpecialBullet = false;
-        hudController.DeactivateWeaponTypeBar();
-        hudController.SetBulletTypeSprite(this.typeOfFiringSystem);
     }
 
     IEnumerator FireDefaultBullet(){
@@ -125,6 +125,49 @@ public class ShipAttack : MonoBehaviour
         }
     }
 
+    public void ResetFiringSystem(){
+        fireAllowed = true;
+        this.typeOfFiringSystem = "defaultBullet";
+        shipHasSpecialBullet = false;
+        hudController.DeactivateWeaponTypeBar();
+        hudController.SetBulletTypeSprite(this.typeOfFiringSystem);
+    }
+
+    //TODO: The Ship's attack firing system changing to the other 2 types of bullets: triple-fire e laser
+    public IEnumerator ChangeTypeOfFiringSystemInSeconds(string typeOfFireSystem, float timeActiveInSeconds){
+        //See the current solution on ShipCollisionPowerUp switch(case)...
+        //Debug.Log(Time.time);
+        hudController.SetWeaponTypeBarActive();
+        shipHasSpecialBullet = true;
+        this.typeOfFiringSystem = typeOfFireSystem;
+        hudController.SetBulletTypeSprite(this.typeOfFiringSystem);
+        yield return new WaitForSeconds(timeActiveInSeconds);
+        //Debug.Log(Time.time);
+        ResetFiringSystem();
+    }
+
+    public IEnumerator ActivateLaserMode(float timeActiveInSeconds){
+        //Debug.Log(Time.time);
+        this.fireAllowed = false;
+        this.hasLaserMode = true;
+        this.shipLaser.SetActive(true);
+        hudController.SetWeaponTypeBarActive();
+        shipHasSpecialBullet = true;
+        this.typeOfFiringSystem = "laserStream";
+        hudController.SetBulletTypeSprite("laserStream");
+        
+        yield return new WaitForSeconds(timeActiveInSeconds);
+        //Debug.Log(Time.time);
+        
+        this.shipLaser.SetActive(false);
+        hasLaserMode = false;
+        ResetFiringSystem();
+    }
+
+    public void DeactivateLaserMode(){
+        this.shipLaser.SetActive(false);
+    }
+
     public IEnumerator ActivateBerserkerMode(float timeActiveInSeconds){
         //Debug.Log(Time.time);
         this.hasBerserkerMode = true;
@@ -146,6 +189,10 @@ public class ShipAttack : MonoBehaviour
 
     public bool HasBerserkerMode(){
         return this.hasBerserkerMode;
+    }
+
+    public bool HasLaserMode(){
+        return this.hasLaserMode;
     }
 
     public string GetTypeOfFiringSystem(){

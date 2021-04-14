@@ -75,6 +75,12 @@ public class ShipCollisionController : MonoBehaviour
                     StopCoroutine(this.currentFiringTypeRoutine); //Works but maybe not the optimal way
                     shipAttackController.shipHasSpecialBullet = false;
                 }
+                if(shipAttackController.HasLaserMode() == true){
+                    shipAttackController.ActivateLaserMode(10f);
+                    StopCoroutine(this.currentFiringTypeRoutine);//Find a way of optmize this mess
+                    shipAttackController.ResetFiringSystem();
+                    this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ActivateLaserMode(10f));
+                }
                 this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ChangeTypeOfFiringSystemInSeconds("tripleBullet", 10f));
                 Destroy(collision.gameObject);
                 break;
@@ -84,6 +90,19 @@ public class ShipCollisionController : MonoBehaviour
                     StopCoroutine(this.currentBerserkerRoutine); //Works but maybe not the optimal way
                 }
                 this.currentBerserkerRoutine = StartCoroutine(shipAttackController.ActivateBerserkerMode(10f));
+                Destroy(collision.gameObject);
+                break;
+            case "LaserPowerUp":
+                if(shipAttackController.GetTypeOfFiringSystem() == "laserStream"){
+                    StopCoroutine(this.currentFiringTypeRoutine); //Works but maybe not the optimal way
+                    shipAttackController.shipHasSpecialBullet = false;
+                }
+                if(shipAttackController.GetTypeOfFiringSystem() == "tripleBullet"){
+                    StopCoroutine(this.currentFiringTypeRoutine);//Find a way of optmize this mess
+                    shipAttackController.ResetFiringSystem();
+                    this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ChangeTypeOfFiringSystemInSeconds("tripleBullet", 10f));
+                }
+                this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ActivateLaserMode(10f));
                 Destroy(collision.gameObject);
                 break;
         }
