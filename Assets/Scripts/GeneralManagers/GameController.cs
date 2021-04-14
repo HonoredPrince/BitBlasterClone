@@ -40,8 +40,8 @@ public class GameController : MonoBehaviour
                 //for not get NullReference on emmiters spawn objects on "game end" delay
                 yield return new WaitForSeconds(0.8f);
                 Destroy(shipDeathAnimObj);
-                yield return new WaitForSeconds(3f);
-                SceneManager.LoadScene("MainGame");
+                yield return new WaitForSeconds(1f);
+                SceneManager.LoadScene("StartMenu");
             }
         }
     }

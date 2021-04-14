@@ -19,6 +19,8 @@ TagManager:
   - ShipBerserker
   - ShipBerserkerPowerUp
   - NukePowerUp
+  - LaserPowerUp
+  - Laser
   layers:
   - Default
   - TransparentFX
