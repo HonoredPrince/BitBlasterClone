@@ -54,8 +54,8 @@ public class ShipAttack : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(this.typeOfFiringSystem);
-        Debug.Log(this.hasLaserMode);
+        //Debug.Log(this.typeOfFiringSystem);
+        //Debug.Log(this.hasLaserMode);
         
         if(Input.GetMouseButtonDown(0)){
             FireBullet();
@@ -158,7 +158,7 @@ public class ShipAttack : MonoBehaviour
         
         yield return new WaitForSeconds(timeActiveInSeconds);
         //Debug.Log(Time.time);
-        
+    
         this.shipLaser.SetActive(false);
         hasLaserMode = false;
         ResetFiringSystem();

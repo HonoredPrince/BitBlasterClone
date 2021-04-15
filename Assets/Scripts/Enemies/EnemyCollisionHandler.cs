@@ -60,6 +60,8 @@ public class EnemyCollisionHandler : MonoBehaviour
             enemyDropsController.DropNukePowerUp(transform);
         }else if(chance <= 2f){
             enemyDropsController.DropBerserkerPowerUp(transform);
+        }else if(chance <= 3f){
+            enemyDropsController.DropLaserPowerUp(transform);
         }else if(chance <= 5f){
             enemyDropsController.DropShieldPowerUp(transform);
         }else if(chance <= 10f){

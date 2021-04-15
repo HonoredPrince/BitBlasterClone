@@ -75,11 +75,10 @@ public class ShipCollisionController : MonoBehaviour
                     StopCoroutine(this.currentFiringTypeRoutine); //Works but maybe not the optimal way
                     shipAttackController.shipHasSpecialBullet = false;
                 }
-                if(shipAttackController.HasLaserMode() == true){
-                    shipAttackController.ActivateLaserMode(10f);
-                    StopCoroutine(this.currentFiringTypeRoutine);//Find a way of optmize this mess
+                if(shipAttackController.GetTypeOfFiringSystem() == "laserStream"){
+                    shipAttackController.DeactivateLaserMode();
+                    StopCoroutine(this.currentFiringTypeRoutine); //Find a way of optmize this mess
                     shipAttackController.ResetFiringSystem();
-                    this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ActivateLaserMode(10f));
                 }
                 this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ChangeTypeOfFiringSystemInSeconds("tripleBullet", 10f));
                 Destroy(collision.gameObject);
@@ -98,9 +97,8 @@ public class ShipCollisionController : MonoBehaviour
                     shipAttackController.shipHasSpecialBullet = false;
                 }
                 if(shipAttackController.GetTypeOfFiringSystem() == "tripleBullet"){
-                    StopCoroutine(this.currentFiringTypeRoutine);//Find a way of optmize this mess
+                    StopCoroutine(this.currentFiringTypeRoutine); //Find a way of optmize this mess
                     shipAttackController.ResetFiringSystem();
-                    this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ChangeTypeOfFiringSystemInSeconds("tripleBullet", 10f));
                 }
                 this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ActivateLaserMode(10f));
                 Destroy(collision.gameObject);
