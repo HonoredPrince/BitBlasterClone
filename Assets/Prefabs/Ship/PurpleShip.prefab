@@ -627,6 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65652c75237ace846bb9aab71dedbc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nukeWhiteScreen: {fileID: 0}
   defaultBullet: {fileID: 7356341123292201768, guid: f7d5aa83375b05743b39dd498fbcadb7, type: 3}
   shootingPoints:
   - {fileID: 5047457156811958335}

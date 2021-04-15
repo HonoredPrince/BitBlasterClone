@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] HUDController hudController = null;
+    SoundController soundController;
     GameObject shipPlayer;
     [SerializeField] GameObject[] shipDeathObjects = null; 
     bool isShipInDamagedState, isShipInvencible;
@@ -13,12 +14,14 @@ public class GameController : MonoBehaviour
 
     void Awake(){
         shipPlayer = GameObject.FindGameObjectWithTag("Ship");
-        
+        soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
+
         isShipInvencible = false; //God Mode for Debug purposes
         
         isShipInDamagedState = false;
         playerShield = 3; 
         hudController.UpdateShieldHUD(playerShield);
+        soundController.playMusic();
     }
 
     IEnumerator playerDamage(){

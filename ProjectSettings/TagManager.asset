@@ -21,6 +21,7 @@ TagManager:
   - NukePowerUp
   - LaserPowerUp
   - Laser
+  - SoundManager
   layers:
   - Default
   - TransparentFX

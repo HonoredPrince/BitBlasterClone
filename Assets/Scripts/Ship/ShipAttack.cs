@@ -1,17 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using EZCameraShake;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class ShipAttack : MonoBehaviour
 {
+    [SerializeField] GameObject nukeWhiteScreen = null;
+
     [SerializeField] GameObject defaultBullet = null;
     [SerializeField] Transform[] shootingPoints = null;
     [SerializeField] GameObject shipBerserker = null;
     [SerializeField] GameObject shipLaser = null;
 
+
     HUDController hudController;
     GameController gameController;
     ScoreController scoreController;
+    SoundController soundController;
 
     [HideInInspector] public bool shipHasSpecialBullet;
     int shipAmmo;
@@ -33,6 +39,7 @@ public class ShipAttack : MonoBehaviour
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         scoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
         hudController = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDController>();
+        soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
 
         shipAmmo = 100;
         amountOfNukes = 3;
@@ -62,7 +69,7 @@ public class ShipAttack : MonoBehaviour
         }   
 
         if(Input.GetMouseButtonDown(1) && amountOfNukes > 0 && canDeployNuke){
-            DeployNuke();
+            StartCoroutine(DeployNuke());
         }
 
         if(shipHasSpecialBullet){
@@ -95,9 +102,12 @@ public class ShipAttack : MonoBehaviour
     void FireBullet(){
         switch(this.typeOfFiringSystem){
             case "defaultBullet":
+                soundController.playSFX("shipFiring");
                 StartCoroutine(FireDefaultBullet());
                 break;
             case "tripleBullet":
+                soundController.playSFX("shipFiring");
+                soundController.playSFX("shipFiring");
                 StartCoroutine(FireTripleBullet());
                 break;
         }
@@ -201,7 +211,13 @@ public class ShipAttack : MonoBehaviour
         return this.typeOfFiringSystem;
     }
 
-    void DeployNuke(){
+    IEnumerator DeployNuke(){
+        soundController.playSFX("nukeDeploy");
+        yield return new WaitForSeconds(1f);
+        
+        //CameraShaker.Instance.ShakeOnce(16f, 32f, 0.1f, 1f); are the best values for now
+        CameraShaker.Instance.ShakeOnce(16f, 32f, 0.1f, 1f);
+        StartCoroutine(ActivateNukeWhiteScreen());
         this.amountOfNukes--;
         hudController.UpdateNukesHUD(GetAmountOfNukes());
         StartCoroutine(ActivateNukeDelay(this.nukeDelayTime));
@@ -252,5 +268,12 @@ public class ShipAttack : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         hudController.SetNukeCooldownTimersActive(false);
         canDeployNuke = true;
+    }
+
+    IEnumerator ActivateNukeWhiteScreen(){
+        Image nukeWhiteScreenImg = nukeWhiteScreen.GetComponent<Image>();
+        nukeWhiteScreen.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        nukeWhiteScreen.SetActive(false);
     }
 }
