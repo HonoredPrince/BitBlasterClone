@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1145659889541895862}
   - component: {fileID: 1145659889541895865}
   - component: {fileID: 8051804733812164059}
+  - component: {fileID: 3681414803364186946}
   m_Layer: 0
   m_Name: ShipBerserkerPowerUp
   m_TagString: ShipBerserkerPowerUp
@@ -119,3 +120,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.16
+--- !u!114 &3681414803364186946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145659889541895864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc7e07dffad3a6468bba8661dc2ccaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

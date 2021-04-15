@@ -51,6 +51,11 @@ public class HUDController : MonoBehaviour
         weaponTimeBarFillImage.fillAmount = 0;
     }
 
+    public void SetWeaponWeaponTypeBarColor(Color32 color){
+        Image weaponTypeTimeBarImage = this.weaponTypeTimeBar.GetComponent<Image>();
+        weaponTimeBarFillImage.color = color;
+    }
+
     public void DecreaseWeaponTypeBar(float amount){
         weaponTimeBarFillImage.fillAmount -= amount;
     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2569598218087612594}
   - component: {fileID: 146516074714024974}
   - component: {fileID: -5545776308616597274}
+  - component: {fileID: -1347240148976840097}
   m_Layer: 0
   m_Name: NukePowerUp
   m_TagString: NukePowerUp
@@ -119,3 +120,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-1347240148976840097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201452252723652591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc7e07dffad3a6468bba8661dc2ccaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

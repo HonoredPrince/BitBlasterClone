@@ -66,7 +66,7 @@ public class ShipAttack : MonoBehaviour
         }
 
         if(shipHasSpecialBullet){
-            hudController.DecreaseWeaponTypeBar(Time.deltaTime/10f);
+            hudController.DecreaseWeaponTypeBar(Time.deltaTime/this.weaponsDelayTime);
         } 
 
         if(!canDeployNuke){
@@ -130,33 +130,35 @@ public class ShipAttack : MonoBehaviour
         this.typeOfFiringSystem = "defaultBullet";
         shipHasSpecialBullet = false;
         hudController.DeactivateWeaponTypeBar();
+        hudController.SetWeaponWeaponTypeBarColor(new Color32(119, 255, 254, 255));
         hudController.SetBulletTypeSprite(this.typeOfFiringSystem);
     }
 
     //TODO: The Ship's attack firing system changing to the other 2 types of bullets: triple-fire e laser
-    public IEnumerator ChangeTypeOfFiringSystemInSeconds(string typeOfFireSystem, float timeActiveInSeconds){
+    public IEnumerator ChangeTypeOfFiringSystemInSeconds(string typeOfFireSystem){
         //See the current solution on ShipCollisionPowerUp switch(case)...
         //Debug.Log(Time.time);
         hudController.SetWeaponTypeBarActive();
         shipHasSpecialBullet = true;
         this.typeOfFiringSystem = typeOfFireSystem;
         hudController.SetBulletTypeSprite(this.typeOfFiringSystem);
-        yield return new WaitForSeconds(timeActiveInSeconds);
+        yield return new WaitForSeconds(this.weaponsDelayTime);
         //Debug.Log(Time.time);
         ResetFiringSystem();
     }
 
-    public IEnumerator ActivateLaserMode(float timeActiveInSeconds){
+    public IEnumerator ActivateLaserMode(){
         //Debug.Log(Time.time);
         this.fireAllowed = false;
         this.hasLaserMode = true;
         this.shipLaser.SetActive(true);
         hudController.SetWeaponTypeBarActive();
+        hudController.SetWeaponWeaponTypeBarColor(new Color32(253, 47, 25, 255));
         shipHasSpecialBullet = true;
         this.typeOfFiringSystem = "laserStream";
         hudController.SetBulletTypeSprite("laserStream");
         
-        yield return new WaitForSeconds(timeActiveInSeconds);
+        yield return new WaitForSeconds(this.weaponsDelayTime);
         //Debug.Log(Time.time);
     
         this.shipLaser.SetActive(false);
@@ -168,13 +170,13 @@ public class ShipAttack : MonoBehaviour
         this.shipLaser.SetActive(false);
     }
 
-    public IEnumerator ActivateBerserkerMode(float timeActiveInSeconds){
+    public IEnumerator ActivateBerserkerMode(){
         //Debug.Log(Time.time);
         this.hasBerserkerMode = true;
         this.gameController.SetPlayerInvencible(true);
         this.shipBerserker.SetActive(true);
 
-        yield return new WaitForSeconds(timeActiveInSeconds);
+        yield return new WaitForSeconds(this.weaponsDelayTime);
         //Debug.Log(Time.time);
         
         this.hasBerserkerMode = false;

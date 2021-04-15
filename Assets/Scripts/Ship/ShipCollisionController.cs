@@ -80,7 +80,7 @@ public class ShipCollisionController : MonoBehaviour
                     StopCoroutine(this.currentFiringTypeRoutine); //Find a way of optmize this mess
                     shipAttackController.ResetFiringSystem();
                 }
-                this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ChangeTypeOfFiringSystemInSeconds("tripleBullet", 10f));
+                this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ChangeTypeOfFiringSystemInSeconds("tripleBullet"));
                 Destroy(collision.gameObject);
                 break;
             case "ShipBerserkerPowerUp":
@@ -88,7 +88,7 @@ public class ShipCollisionController : MonoBehaviour
                     shipAttackController.DeactivateBerserkerMode();
                     StopCoroutine(this.currentBerserkerRoutine); //Works but maybe not the optimal way
                 }
-                this.currentBerserkerRoutine = StartCoroutine(shipAttackController.ActivateBerserkerMode(10f));
+                this.currentBerserkerRoutine = StartCoroutine(shipAttackController.ActivateBerserkerMode());
                 Destroy(collision.gameObject);
                 break;
             case "LaserPowerUp":
@@ -100,7 +100,7 @@ public class ShipCollisionController : MonoBehaviour
                     StopCoroutine(this.currentFiringTypeRoutine); //Find a way of optmize this mess
                     shipAttackController.ResetFiringSystem();
                 }
-                this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ActivateLaserMode(10f));
+                this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ActivateLaserMode());
                 Destroy(collision.gameObject);
                 break;
         }
