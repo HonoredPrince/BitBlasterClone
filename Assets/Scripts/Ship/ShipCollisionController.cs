@@ -8,6 +8,7 @@ public class ShipCollisionController : MonoBehaviour
     ShipAttack shipAttackController;
     GameController gameController;
     ScoreController scoreController;
+    SoundController soundController;
 
     Coroutine currentFiringTypeRoutine, currentBerserkerRoutine;
 
@@ -16,6 +17,7 @@ public class ShipCollisionController : MonoBehaviour
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         scoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
         hudController = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDController>();
+        soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
     }
 
     void OnTriggerEnter2D(Collider2D collision){
@@ -32,18 +34,22 @@ public class ShipCollisionController : MonoBehaviour
             case "Enemy1":
                 gameController.DestroyEnemyIfValid(collision.gameObject);
                 gameController.StartCoroutine("playerDamage");
+                soundController.playSFX("shipHitDamage");
                 break;
             case "Enemy1_Splitted":
                 gameController.DestroyEnemyIfValid(collision.gameObject);
                 gameController.StartCoroutine("playerDamage");
+                soundController.playSFX("shipHitDamage");
                 break;
             case "Enemy2":
                 gameController.DestroyEnemyIfValid(collision.gameObject);
                 gameController.StartCoroutine("playerDamage");
+                soundController.playSFX("shipHitDamage");
                 break;
             case "Enemy3":
                 gameController.DestroyEnemyIfValid(collision.gameObject);
                 gameController.StartCoroutine("playerDamage");
+                soundController.playSFX("shipHitDamage");
                 break;
         }
     }
@@ -60,6 +66,7 @@ public class ShipCollisionController : MonoBehaviour
                 }
                 gameController.AddShield(1);
                 hudController.UpdateShieldHUD(gameController.GetShipShield());
+                soundController.playSFX("shieldPowerUpPickup");
                 Destroy(collision.gameObject);
                 break;
             case "NukePowerUp":
@@ -68,6 +75,7 @@ public class ShipCollisionController : MonoBehaviour
                 }
                 shipAttackController.AddNuke();
                 hudController.UpdateNukesHUD(shipAttackController.GetAmountOfNukes());
+                soundController.playSFX("nukePowerUpPickup");
                 Destroy(collision.gameObject);
                 break;
             case "TripleBulletPowerUp":

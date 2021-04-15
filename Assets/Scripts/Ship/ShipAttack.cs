@@ -102,12 +102,9 @@ public class ShipAttack : MonoBehaviour
     void FireBullet(){
         switch(this.typeOfFiringSystem){
             case "defaultBullet":
-                soundController.playSFX("shipFiring");
                 StartCoroutine(FireDefaultBullet());
                 break;
             case "tripleBullet":
-                soundController.playSFX("shipFiring");
-                soundController.playSFX("shipFiring");
                 StartCoroutine(FireTripleBullet());
                 break;
         }
@@ -116,6 +113,7 @@ public class ShipAttack : MonoBehaviour
     IEnumerator FireDefaultBullet(){
         if(fireAllowed && this.shipAmmo > 0){
             fireAllowed = false;
+            soundController.playSFX("shipFiring");
             Instantiate(defaultBullet, shootingPoints[0].position, transform.rotation);
             this.shipAmmo--;
             yield return new WaitForSeconds(fireRate);
@@ -126,6 +124,8 @@ public class ShipAttack : MonoBehaviour
     IEnumerator FireTripleBullet(){
         if(fireAllowed && this.shipAmmo > 0){
             fireAllowed = false;
+            soundController.playSFX("shipFiring");
+            soundController.playSFX("shipFiring");
             Instantiate(defaultBullet, shootingPoints[0].position, shootingPoints[0].rotation);
             Instantiate(defaultBullet, shootingPoints[1].position, shootingPoints[1].rotation);
             Instantiate(defaultBullet, shootingPoints[2].position, shootingPoints[2].rotation);

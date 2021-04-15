@@ -9,6 +9,7 @@ public class ShipMovement : MonoBehaviour
     [SerializeField]Animator engineThrustAnimator = null;
     [SerializeField]Transform leftBorder = null, rightBorder = null, topBorder = null, bottomBorder = null;
     [SerializeField]HUDController hudController = null;
+    SoundController soundController;
     float shipSizeOffSet;
     float movSpeed, rotationSpeed;
     float xAxisDirection, yAxisDirection;
@@ -26,6 +27,8 @@ public class ShipMovement : MonoBehaviour
         boostDelay = 3f;
         boostingTime = 0.3f;
         canBoost = true;
+
+        soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
     }
     
     void Update(){
@@ -70,6 +73,7 @@ public class ShipMovement : MonoBehaviour
     }
 
     IEnumerator BoostShip(float boostForce){
+        soundController.playSFX("shipBoost");
         isBoosting = true;
         engineThrustAnimator.SetBool("isBoosting", true);
         Vector2 boostThrust = transform.up * boostForce;
