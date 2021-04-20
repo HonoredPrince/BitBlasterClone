@@ -124,8 +124,7 @@ public class ShipAttack : MonoBehaviour
     IEnumerator FireTripleBullet(){
         if(fireAllowed && this.shipAmmo > 0){
             fireAllowed = false;
-            soundController.playSFX("shipFiring");
-            soundController.playSFX("shipFiring");
+            soundController.playSFX("shipTripleFiring");
             Instantiate(defaultBullet, shootingPoints[0].position, shootingPoints[0].rotation);
             Instantiate(defaultBullet, shootingPoints[1].position, shootingPoints[1].rotation);
             Instantiate(defaultBullet, shootingPoints[2].position, shootingPoints[2].rotation);
@@ -212,6 +211,8 @@ public class ShipAttack : MonoBehaviour
     }
 
     IEnumerator DeployNuke(){
+        StartCoroutine(ActivateNukeDelay(this.nukeDelayTime));
+        
         soundController.playSFX("nukeDeploy");
         yield return new WaitForSeconds(1f);
         
@@ -220,8 +221,7 @@ public class ShipAttack : MonoBehaviour
         StartCoroutine(ActivateNukeWhiteScreen());
         this.amountOfNukes--;
         hudController.UpdateNukesHUD(GetAmountOfNukes());
-        StartCoroutine(ActivateNukeDelay(this.nukeDelayTime));
-
+        
         GameObject[] allEnemiesType1 = GameObject.FindGameObjectsWithTag("Enemy1");
         GameObject[] allEnemiesType1Splitted = GameObject.FindGameObjectsWithTag("Enemy1_Splitted");
         GameObject[] allEnemiesType2 = GameObject.FindGameObjectsWithTag("Enemy2");

@@ -39,6 +39,7 @@ public class GameController : MonoBehaviour
                 }
                 shipPlayer.SetActive(false);
                 GameObject shipDeathAnimObj = Instantiate(shipDeathObjects[0], shipPlayer.transform.position, shipPlayer.transform.rotation);
+                soundController.playSFX("shipDeath");
                 //For now, it's better to instantaneously end the game upon death hit, until find a way
                 //for not get NullReference on emmiters spawn objects on "game end" delay
                 yield return new WaitForSeconds(0.8f);
@@ -51,6 +52,7 @@ public class GameController : MonoBehaviour
 
     IEnumerator DamageTaken(){
         playerShield--;
+        soundController.playSFX("shipHitDamage");
         Color hitColor = new Color(1, 0, 0, 1);
         Color noHitColor = new Color(1, 1, 1, 0.5f);
         SpriteRenderer playerSprite = shipPlayer.GetComponent<SpriteRenderer>();

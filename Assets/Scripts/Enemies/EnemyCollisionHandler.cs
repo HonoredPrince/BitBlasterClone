@@ -6,15 +6,18 @@ public class EnemyCollisionHandler : MonoBehaviour
 {
     EnemyDropsController enemyDropsController;
     ScoreController shipScoreController;
+    SoundController soundController;
 
     void Awake(){
         enemyDropsController = GetComponent<EnemyDropsController>();
         shipScoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
+        soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
     }
 
     void OnTriggerEnter2D(Collider2D collision){
         switch(collision.gameObject.tag){
             case "Bullet1":
+                soundController.playSFX("enemyHit");
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
             case "ShipBerserker":

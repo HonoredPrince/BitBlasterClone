@@ -4021,13 +4021,23 @@ MonoBehaviour:
   SFXAudioSource: {fileID: 828850021}
   musicOST: {fileID: 8300000, guid: 00a6ab854ec1f33409df10efdf8c63f2, type: 3}
   shipFiring:
-  - {fileID: 8300000, guid: 4d37b5a07d3a3cc47bbbdc28b5bd1112, type: 3}
-  - {fileID: 8300000, guid: 19c12834f429f4941828201898891f97, type: 3}
+  - {fileID: 8300000, guid: ef661c2176df325438e50b5cf19ab245, type: 3}
+  - {fileID: 8300000, guid: df1accc99cdc2794a935794e771f80c0, type: 3}
+  - {fileID: 8300000, guid: 22bec444f996e654792961231f89206f, type: 3}
+  - {fileID: 8300000, guid: e7c129a6c87ce7543b52a2768fcf6ab4, type: 3}
+  - {fileID: 8300000, guid: 63213392ab88f414da0dac66a82c2a9f, type: 3}
   nukeDeploy: {fileID: 8300000, guid: 179cf79dcc3707245b5f002e007fcddc, type: 3}
   shipBoost: {fileID: 8300000, guid: cd5a9b1c89a410d44aaf036a804fca5f, type: 3}
+  shipBoostRecharge: {fileID: 8300000, guid: 53ae98a97c8bbd6439e3a42918401467, type: 3}
+  ammoPickup: {fileID: 8300000, guid: f1a6296e9f8204f4099b23d08974d5a0, type: 3}
+  tripleBulletPowerUpPickup: {fileID: 8300000, guid: 02fe588389aea484c8f0a8caca59a66b, type: 3}
   shieldPowerUpPickup: {fileID: 8300000, guid: ac61580d086fba940b7be6815eb57a6e, type: 3}
+  laserPowerUpPickup: {fileID: 8300000, guid: 39157fd782875a04a855674760b15b94, type: 3}
+  shipBerserkerPowerUpPickup: {fileID: 8300000, guid: 4f70891fb2915cc43a8ce0e1b38dd543, type: 3}
   nukePowerUpPickup: {fileID: 8300000, guid: 3bc1b3d01f9c015488b29f8f42fb567c, type: 3}
   shipHitDamage: {fileID: 8300000, guid: ebb17d4e6fda9a344b45583d8eb73d53, type: 3}
+  shipDeath: {fileID: 8300000, guid: 50f4c689d0143404c888f08f7b7cdaa7, type: 3}
+  enemyHit: {fileID: 8300000, guid: 1f5819dea149a324daa0e002520fb7bd, type: 3}
 --- !u!4 &828850024
 Transform:
   m_ObjectHideFlags: 0

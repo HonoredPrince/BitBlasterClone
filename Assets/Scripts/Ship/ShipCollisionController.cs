@@ -34,22 +34,18 @@ public class ShipCollisionController : MonoBehaviour
             case "Enemy1":
                 gameController.DestroyEnemyIfValid(collision.gameObject);
                 gameController.StartCoroutine("playerDamage");
-                soundController.playSFX("shipHitDamage");
                 break;
             case "Enemy1_Splitted":
                 gameController.DestroyEnemyIfValid(collision.gameObject);
                 gameController.StartCoroutine("playerDamage");
-                soundController.playSFX("shipHitDamage");
                 break;
             case "Enemy2":
                 gameController.DestroyEnemyIfValid(collision.gameObject);
                 gameController.StartCoroutine("playerDamage");
-                soundController.playSFX("shipHitDamage");
                 break;
             case "Enemy3":
                 gameController.DestroyEnemyIfValid(collision.gameObject);
                 gameController.StartCoroutine("playerDamage");
-                soundController.playSFX("shipHitDamage");
                 break;
         }
     }
@@ -58,6 +54,7 @@ public class ShipCollisionController : MonoBehaviour
         switch(collision.gameObject.tag){
             case "Ammunition":
                 shipAttackController.AddAmmo(1);
+                //soundController.playSFX("ammoPickup");
                 Destroy(collision.gameObject);
                 break;
             case "ShieldPowerUp":
@@ -89,6 +86,7 @@ public class ShipCollisionController : MonoBehaviour
                     shipAttackController.ResetFiringSystem();
                 }
                 this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ChangeTypeOfFiringSystemInSeconds("tripleBullet"));
+                soundController.playSFX("tripleBulletPowerUpPickup");
                 Destroy(collision.gameObject);
                 break;
             case "ShipBerserkerPowerUp":
@@ -97,6 +95,7 @@ public class ShipCollisionController : MonoBehaviour
                     StopCoroutine(this.currentBerserkerRoutine); //Works but maybe not the optimal way
                 }
                 this.currentBerserkerRoutine = StartCoroutine(shipAttackController.ActivateBerserkerMode());
+                soundController.playSFX("berserkerPowerUpPickup");
                 Destroy(collision.gameObject);
                 break;
             case "LaserPowerUp":
@@ -109,6 +108,7 @@ public class ShipCollisionController : MonoBehaviour
                     shipAttackController.ResetFiringSystem();
                 }
                 this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ActivateLaserMode());
+                soundController.playSFX("laserPowerUpPickup");
                 Destroy(collision.gameObject);
                 break;
         }
