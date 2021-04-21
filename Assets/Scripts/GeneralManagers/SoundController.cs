@@ -20,17 +20,12 @@ public class SoundController : MonoBehaviour
                                 nukePowerUpPickup = null,
                                 shipHitDamage = null,
                                 shipDeath = null,
-                                enemyHit = null;
+                                enemyHit = null,
+                                enemyLaserHit = null;
     
     /*TODO
-    Ship's Berserker SFX,
-    Ship's Laser SFX,
     Ship's Thrusts SFX,
     Ammunition SFX,
-    Enemy 1 Hit SFX,
-    Enemy 1 Splits Hit SFX,
-    Enemy 2 Hit SFX,
-    Enemy 3 Hit SFX,
     */ 
 
     public void playMusic(){
@@ -83,8 +78,14 @@ public class SoundController : MonoBehaviour
             case "shipDeath":
                 SFXAudioSource.PlayOneShot(shipDeath);
                 break;
-            case "enemyHit":
+            case "enemyBulletHit":
                 SFXAudioSource.PlayOneShot(enemyHit);
+                break;
+            case "enemyBerserkerHit":
+                SFXAudioSource.PlayOneShot(enemyHit);
+                break;
+            case "enemyLaserHit":
+                SFXAudioSource.PlayOneShot(enemyLaserHit);
                 break;
             default:
                 //Apenas para testes

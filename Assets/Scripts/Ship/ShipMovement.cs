@@ -84,6 +84,7 @@ public class ShipMovement : MonoBehaviour
         yield return new WaitForSeconds(1.3f);
         engineThrustAnimator.SetBool("isBoosting", false);
         yield return new WaitForSeconds(boostDelay);
+        soundController.playSFX("shipBoostRecharge");
         canBoost = true;
     }
 }

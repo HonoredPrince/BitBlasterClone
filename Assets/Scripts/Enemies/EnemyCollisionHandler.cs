@@ -17,13 +17,15 @@ public class EnemyCollisionHandler : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision){
         switch(collision.gameObject.tag){
             case "Bullet1":
-                soundController.playSFX("enemyHit");
+                soundController.playSFX("enemyBulletHit");
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
             case "ShipBerserker":
+                soundController.playSFX("enemyBulletHit");
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
             case "Laser":
+                soundController.playSFX("enemyLaserHit");
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
         }
