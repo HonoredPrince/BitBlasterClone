@@ -22,11 +22,6 @@ public class SoundController : MonoBehaviour
                                 shipDeath = null,
                                 enemyHit = null,
                                 enemyLaserHit = null;
-    
-    /*TODO
-    Ship's Thrusts SFX,
-    Ammunition SFX,
-    */ 
 
     public void playMusic(){
         musicAudioSource.PlayOneShot(musicOST);
@@ -88,7 +83,7 @@ public class SoundController : MonoBehaviour
                 SFXAudioSource.PlayOneShot(enemyLaserHit);
                 break;
             default:
-                //Apenas para testes
+                //Only for tests purposes
                 Debug.Log("Missing AudioClip association");
                 break;
         }

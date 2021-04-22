@@ -22,6 +22,7 @@ TagManager:
   - LaserPowerUp
   - Laser
   - SoundManager
+  - BorderHazard
   layers:
   - Default
   - TransparentFX
