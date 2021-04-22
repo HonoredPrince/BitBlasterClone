@@ -72,6 +72,11 @@ public class ShipMovement : MonoBehaviour
         }
     }
 
+    void FixedUpdate(){
+        //Debug In-Gametime the camera resolution limits
+        AdjustMovementLimitationBorders();
+    }
+
     void MoveShip(float yDirection){
         Vector2 shipDirectionVector = new Vector2(0f, yDirection * movSpeed * Time.deltaTime);
         shipRigidBody2D.transform.Translate(shipDirectionVector, Space.Self);
@@ -89,15 +94,29 @@ public class ShipMovement : MonoBehaviour
 
     void AdjustMovementLimitationBorders(){
         //Test funcion for adjusting the limitation borders of the ship's movement with the camera size
-        float verticalHeightSeen = mainCamera.orthographicSize * 2.0f;
-        float horizontalHeightSeen = mainCamera.orthographicSize * (Screen.width / Screen.height);
+        
+        //float verticalHeightSeen = mainCamera.orthographicSize * 2.0f;
+        //float horizontalHeightSeen = mainCamera.orthographicSize * (Screen.width / Screen.height);
         //Debug.Log(verticalHeightSeen);
         //Debug.Log(horizontalHeightSeen);
 
-        leftBorder.position = new Vector2(-horizontalHeightSeen - 2.5f, 0f);
-        rightBorder.position = new Vector2(+horizontalHeightSeen + 2.5f, 0f);
-        topBorder.position = new Vector2(0f, +verticalHeightSeen/2f);
-        bottomBorder.position = new Vector2(0f, -verticalHeightSeen/2f);
+        //leftBorder.position = new Vector2(-horizontalHeightSeen - 2.5f, 0f);
+        //rightBorder.position = new Vector2(+horizontalHeightSeen + 2.5f, 0f);
+        //topBorder.position = new Vector2(0f, +verticalHeightSeen/2f);
+        //bottomBorder.position = new Vector2(0f, -verticalHeightSeen/2f);
+
+        Vector2 cameraPosition = mainCamera.ViewportToWorldPoint(new Vector3(1,1,mainCamera.nearClipPlane));
+        
+        //Debug.Log(cameraPosition);
+        //Debug.Log(cameraPosition.x);
+        //Debug.Log(-cameraPosition.x);
+        //Debug.Log(cameraPosition.y);
+        //Debug.Log(-cameraPosition.y);
+
+        leftBorder.position = new Vector2(-cameraPosition.x, 0f);
+        rightBorder.position = new Vector2(cameraPosition.x, 0f);
+        topBorder.position = new Vector2(0f, cameraPosition.y);
+        bottomBorder.position = new Vector2(0f, -cameraPosition.y);
     }
 
     IEnumerator BoostShip(float boostForce){
