@@ -8,12 +8,22 @@ public class EnemyCollisionHandler : MonoBehaviour
     ScoreController shipScoreController;
     SoundController soundController;
     Material dissolveMaterial;
+    float fadeValue;
+    public bool isDissolving;
 
     void Awake(){
         enemyDropsController = GetComponent<EnemyDropsController>();
         shipScoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
+        
         soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
+        
         dissolveMaterial = GetComponent<SpriteRenderer>().material;
+        fadeValue = 1f;
+        isDissolving = false;
+    }
+
+    void Update(){
+        CheckDissolvingEnemy();
     }
 
     void OnTriggerEnter2D(Collider2D collision){
@@ -54,7 +64,9 @@ public class EnemyCollisionHandler : MonoBehaviour
                 break; 
             case "Enemy3":
                 shipScoreController.AddScore(30);
-                StartCoroutine(DissolveEnemy());
+                this.isDissolving = true;
+                StopEnemyAfterCollision();
+                //StartCoroutine(DissolveEnemy());
                 DropItem();
                 break; 
         }
@@ -78,12 +90,39 @@ public class EnemyCollisionHandler : MonoBehaviour
         }
     }
 
-    IEnumerator DissolveEnemy(){
-        float fadeValue = 1;
-        dissolveMaterial.SetFloat("_Fade", fadeValue);
+    // IEnumerator DissolveEnemy(){
+    //     dissolveMaterial.SetFloat("_Fade", fadeValue);
+
+    //     StopEnemyAfterCollision();
+
+    //     //Try later to get this values to play the fade dissolve animation more smoothly
+    //     for(float i = 0f; i < 1f; i += 0.1f){
+    //         yield return new WaitForSeconds(0.1f);
+    //         fadeValue -= Time.deltaTime * 10;
+    //         //Debug.Log(fadeValue);
+    //         dissolveMaterial.SetFloat("_Fade", fadeValue);
+    //     }
+    //     Destroy(this.gameObject);
+    // }
+
+    void CheckDissolvingEnemy(){
+        if(isDissolving){
+            fadeValue -= Time.deltaTime * 2.5f;
+
+            if(fadeValue <= 0f){
+                fadeValue = 0f;
+                isDissolving = false;
+                Destroy(this.gameObject);
+            }      
+
+            dissolveMaterial.SetFloat("_Fade", fadeValue);
+        }
+    }
+
+    void StopEnemyAfterCollision(){
         Collider2D enemyCollider;
 
-        //Stop enemy movement after being hit while dissolving
+        //For stopping the enemy movement after being hit while dissolving
         switch(this.gameObject.tag){
             case "Enemy1":
                 GetComponent<Enemy1Movement>().enabled = false;
@@ -91,7 +130,6 @@ public class EnemyCollisionHandler : MonoBehaviour
                 enemyCollider.enabled = false;
                 break;
             case "Enemy1_Splitted":
-                GetComponent<Enemy1Movement>().enabled = false;
                 enemyCollider = GetComponent<PolygonCollider2D>();
                 enemyCollider.enabled = false;
                 break;
@@ -106,14 +144,6 @@ public class EnemyCollisionHandler : MonoBehaviour
                 enemyCollider.enabled = false;
                 break;
         }
-
-        //Try later to get this values to play the fade dissolve animation more smoothly
-        for(float i = 0f; i < 1f; i += 0.1f){
-            yield return new WaitForSeconds(0.1f);
-            fadeValue -= 0.3f;
-            //Debug.Log(fadeValue);
-            dissolveMaterial.SetFloat("_Fade", fadeValue);
-        }
-        Destroy(this.gameObject);
     }
+
 }
