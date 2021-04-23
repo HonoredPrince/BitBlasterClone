@@ -30,16 +30,17 @@ public class EnemyCollisionHandler : MonoBehaviour
         switch(collision.gameObject.tag){
             case "Bullet1":
                 soundController.playSFX("enemyBulletHit");
-                SetDissolveColor(new Color32(4, 190, 191, 0));
+                SetDissolveColor(new Vector4(4, 190, 191, 0));
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
             case "ShipBerserker":
+                //See the problem with berserker not working with dissolve shader
                 soundController.playSFX("enemyBulletHit");
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
             case "Laser":
                 soundController.playSFX("enemyLaserHit");
-                SetDissolveColor(new Color32(254, 95, 75, 0));
+                SetDissolveColor(new Vector4(254, 95, 75, 0));
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
         }
@@ -143,7 +144,14 @@ public class EnemyCollisionHandler : MonoBehaviour
         }
     }
 
-    void SetDissolveColor(Color32 color){
-        this.dissolveMaterial.SetColor("_Color", color);
+    void SetDissolveColor(Vector4 color){
+        float intensity = (color.x + color.y + color.z + color.w) / 4f;
+        float factor = 2f / intensity;
+        //float intensity = 0.02f;
+        //float factor = Mathf.Pow(2, intensity);
+
+        //Vector4 hdrColor = new Vector4(color.x*intensity, color.y*intensity, color.z*intensity, color.w*intensity);
+        Vector4 hdrColor = new Vector4(color.x*factor, color.y*factor, color.z*factor, color.w*factor);
+        this.dissolveMaterial.SetColor("_Color", hdrColor);
     }
 }
