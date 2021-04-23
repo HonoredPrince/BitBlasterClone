@@ -28,4 +28,5 @@ Material:
     - _Scale: 40
     m_Colors:
     - Color_4F26BC54: {r: 0.0627451, g: 2.9803922, b: 2.9960785, a: 0}
+    - _Color: {r: 0.0627451, g: 2.9803922, b: 2.9960785, a: 0}
   m_BuildTextureStacks: []

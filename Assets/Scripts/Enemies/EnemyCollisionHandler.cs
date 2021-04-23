@@ -30,6 +30,7 @@ public class EnemyCollisionHandler : MonoBehaviour
         switch(collision.gameObject.tag){
             case "Bullet1":
                 soundController.playSFX("enemyBulletHit");
+                SetDissolveColor(new Color32(4, 190, 191, 0));
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
             case "ShipBerserker":
@@ -38,6 +39,7 @@ public class EnemyCollisionHandler : MonoBehaviour
                 break;
             case "Laser":
                 soundController.playSFX("enemyLaserHit");
+                SetDissolveColor(new Color32(254, 95, 75, 0));
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
         }
@@ -47,27 +49,25 @@ public class EnemyCollisionHandler : MonoBehaviour
         switch(typeOfEnemy){
             case "Enemy1":
                 shipScoreController.AddScore(10);
-                DropItem();
+                this.isDissolving = true;
+                DisableEnemyCollision();
                 Enemy1Splitter enemy1Splitter = GetComponent<Enemy1Splitter>();
                 enemy1Splitter.SpawnSplittedParts();
-                Destroy(this.gameObject);
                 break;
             case "Enemy1_Splitted":
                 shipScoreController.AddScore(20);
-                DropItem();
-                Destroy(this.gameObject);
+                this.isDissolving = true;
+                DisableEnemyCollision();
                 break;
             case "Enemy2":
                 shipScoreController.AddScore(20);
-                DropItem();
-                Destroy(this.gameObject);
+                this.isDissolving = true;
+                DisableEnemyCollision();
                 break; 
             case "Enemy3":
                 shipScoreController.AddScore(30);
                 this.isDissolving = true;
-                StopEnemyAfterCollision();
-                //StartCoroutine(DissolveEnemy());
-                DropItem();
+                DisableEnemyCollision();
                 break; 
         }
     }
@@ -91,14 +91,15 @@ public class EnemyCollisionHandler : MonoBehaviour
     }
 
     // IEnumerator DissolveEnemy(){
+    //     //Debug.Log("entrou na corotina");
     //     dissolveMaterial.SetFloat("_Fade", fadeValue);
 
-    //     StopEnemyAfterCollision();
+    //     DisableEnemyCollision();
 
     //     //Try later to get this values to play the fade dissolve animation more smoothly
     //     for(float i = 0f; i < 1f; i += 0.1f){
     //         yield return new WaitForSeconds(0.1f);
-    //         fadeValue -= Time.deltaTime * 10;
+    //         fadeValue -= 0.2f;
     //         //Debug.Log(fadeValue);
     //         dissolveMaterial.SetFloat("_Fade", fadeValue);
     //     }
@@ -110,22 +111,20 @@ public class EnemyCollisionHandler : MonoBehaviour
             fadeValue -= Time.deltaTime * 2.5f;
 
             if(fadeValue <= 0f){
-                fadeValue = 0f;
-                isDissolving = false;
+                DropItem();
                 Destroy(this.gameObject);
             }      
-
+            
             dissolveMaterial.SetFloat("_Fade", fadeValue);
         }
     }
 
-    void StopEnemyAfterCollision(){
+    void DisableEnemyCollision(){
+        //For stopping the enemy collision after being hit   
         Collider2D enemyCollider;
 
-        //For stopping the enemy movement after being hit while dissolving
         switch(this.gameObject.tag){
             case "Enemy1":
-                GetComponent<Enemy1Movement>().enabled = false;
                 enemyCollider = GetComponent<PolygonCollider2D>();
                 enemyCollider.enabled = false;
                 break;
@@ -134,16 +133,17 @@ public class EnemyCollisionHandler : MonoBehaviour
                 enemyCollider.enabled = false;
                 break;
             case "Enemy2":
-                GetComponent<Enemy1Movement>().enabled = false;
                 enemyCollider = GetComponent<CircleCollider2D>();
                 enemyCollider.enabled = false;
                 break;
             case "Enemy3":
-                GetComponent<Enemy3Movement>().enabled = false;
                 enemyCollider = GetComponent<CircleCollider2D>();
                 enemyCollider.enabled = false;
                 break;
         }
     }
 
+    void SetDissolveColor(Color32 color){
+        this.dissolveMaterial.SetColor("_Color", color);
+    }
 }
