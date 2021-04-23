@@ -37,8 +37,9 @@ public class ShipMovement : MonoBehaviour
         shipThrustsAudioSource = GetComponent<AudioSource>();
         shipThrustsAudioSource.enabled = false;
         soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
-    
-        AdjustMovementLimitationBorders();
+
+        //Activate as the game start
+        AdjustMovementLimitationBordersBasedOnCamera();
     }
     
     void Update(){
@@ -74,7 +75,7 @@ public class ShipMovement : MonoBehaviour
 
     void FixedUpdate(){
         //Debug In-Gametime the camera resolution limits
-        AdjustMovementLimitationBorders();
+        AdjustMovementLimitationBordersBasedOnCamera();
     }
 
     void MoveShip(float yDirection){
@@ -92,7 +93,7 @@ public class ShipMovement : MonoBehaviour
         shipRigidBody2D.transform.Rotate(shipRotationVector);
     }
 
-    void AdjustMovementLimitationBorders(){
+    void AdjustMovementLimitationBordersBasedOnCamera(){
         //Test funcion for adjusting the limitation borders of the ship's movement with the camera size
         
         //float verticalHeightSeen = mainCamera.orthographicSize * 2.0f;
@@ -113,10 +114,33 @@ public class ShipMovement : MonoBehaviour
         //Debug.Log(cameraPosition.y);
         //Debug.Log(-cameraPosition.y);
 
+        //Call adjustements for the borders limits scale
+        AdjustBordersScaleBasedOnCamera(cameraPosition);
+
         leftBorder.position = new Vector2(-cameraPosition.x, 0f);
         rightBorder.position = new Vector2(cameraPosition.x, 0f);
         topBorder.position = new Vector2(0f, cameraPosition.y);
         bottomBorder.position = new Vector2(0f, -cameraPosition.y);
+    }
+
+    void AdjustBordersScaleBasedOnCamera(Vector2 cameraPosition){
+        float fixedBordersWidth = 10f;
+
+        float xAxisTransformBordersDistance = cameraPosition.x * 2;
+        float yAxisTransformBordersDistance = cameraPosition.y * 2;
+
+        float xBordersScaleBasedOnDistance = xAxisTransformBordersDistance * 100;
+        float yBordersScaleBasedOnDistance = yAxisTransformBordersDistance * 100;
+
+        //Debug.Log(leftBorder.localScale);
+        //Debug.Log(rightBorder.localScale);
+        //Debug.Log(topBorder.localScale);
+        //Debug.Log(bottomBorder.localScale);
+        
+        leftBorder.localScale = new Vector3(fixedBordersWidth, yBordersScaleBasedOnDistance, 1f);
+        rightBorder.localScale = new Vector3(fixedBordersWidth, yBordersScaleBasedOnDistance, 1f);
+        topBorder.localScale = new Vector3(fixedBordersWidth, xBordersScaleBasedOnDistance, 1f);
+        bottomBorder.localScale = new Vector3(fixedBordersWidth, xBordersScaleBasedOnDistance, 1f);
     }
 
     IEnumerator BoostShip(float boostForce){

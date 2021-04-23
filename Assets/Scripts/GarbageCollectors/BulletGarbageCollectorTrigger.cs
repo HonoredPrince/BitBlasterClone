@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletGarbageCollectorTrigger : MonoBehaviour
 {
-    void OnTriggerExit2D(Collider2D collision){
+    void OnTriggerEnter2D(Collider2D collision){
         switch(collision.gameObject.tag){
             case "Bullet1":
                 Destroy(collision.gameObject.transform.parent.gameObject);
