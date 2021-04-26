@@ -36,7 +36,8 @@ public class EnemyCollisionHandler : MonoBehaviour
             case "ShipBerserker":
                 //See the problem with berserker not working with dissolve shader
                 soundController.playSFX("enemyBulletHit");
-                DestroyEnemy(this.gameObject.tag, collision);          
+                DestroyEnemy(this.gameObject.tag, collision); 
+                DropItem();         
                 break;
             case "Laser":
                 soundController.playSFX("enemyLaserHit");

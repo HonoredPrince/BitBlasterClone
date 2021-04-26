@@ -217,9 +217,9 @@ public class ShipAttack : MonoBehaviour
         yield return new WaitForSeconds(1f);
         
         //CameraShaker.Instance.ShakeOnce(16f, 32f, 0.1f, 1f); are the best values for now
-        CameraShaker.Instance.ShakeOnce(10f, 20f, 0.1f, 1f);
+        CameraShaker.Instance.ShakeOnce(16f, 32f, 0.1f, 1f);
         StartCoroutine(ActivateNukeWhiteScreen());
-        //StartCoroutine(DeactivateSceneryBordersSprites());
+        StartCoroutine(DeactivateSceneryBordersSprites());
         this.amountOfNukes--;
         hudController.UpdateNukesHUD(GetAmountOfNukes());
         
