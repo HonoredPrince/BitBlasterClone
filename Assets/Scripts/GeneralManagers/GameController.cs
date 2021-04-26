@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] HUDController hudController = null;
+    LevelLoader levelLoaderController;
     SoundController soundController;
     GameObject shipPlayer;
     [SerializeField] GameObject[] shipDeathObjects = null; 
@@ -15,6 +17,7 @@ public class GameController : MonoBehaviour
     void Awake(){
         shipPlayer = GameObject.FindGameObjectWithTag("Ship");
         soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
+        levelLoaderController = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LevelLoader>();
 
         isShipInvencible = false; //God Mode for Debug purposes
         
@@ -45,7 +48,7 @@ public class GameController : MonoBehaviour
                 yield return new WaitForSeconds(0.8f);
                 Destroy(shipDeathAnimObj);
                 yield return new WaitForSeconds(1f);
-                SceneManager.LoadScene("StartMenu");
+               levelLoaderController.LoadLevelWithName("StartMenu");
             }
         }
     }
@@ -56,17 +59,23 @@ public class GameController : MonoBehaviour
         Color hitColor = new Color(1, 0, 0, 1);
         Color noHitColor = new Color(1, 1, 1, 0.5f);
         SpriteRenderer playerSprite = shipPlayer.GetComponent<SpriteRenderer>();
+        SpriteRenderer thrustsSprites = GameObject.FindGameObjectWithTag("ShipThrusts").GetComponent<SpriteRenderer>();
+        
         playerSprite.color = noHitColor;
+        thrustsSprites.color = noHitColor;
         yield return new WaitForSeconds(0.1f);
 
         for(float i = 0; i < 1; i+= 0.1f){
             playerSprite.enabled = false;
+            thrustsSprites.enabled = false;
             yield return new WaitForSeconds(0.1f);
             playerSprite.enabled = true;
+            thrustsSprites.enabled = true;
             yield return new WaitForSeconds(0.1f);
         }
 
         playerSprite.color = Color.white;
+        thrustsSprites.color = Color.white;
         isShipInDamagedState = false;
     }
 

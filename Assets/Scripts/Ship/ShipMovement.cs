@@ -8,6 +8,7 @@ public class ShipMovement : MonoBehaviour
     Rigidbody2D shipRigidBody2D = null;
     Transform shootingPoint;
     [SerializeField]GameObject engineThrustAnimatorObject = null;
+    SpriteRenderer engineThrustsSprite;
     Animator engineThrustAnimator;
     [SerializeField]Transform leftBorder = null, rightBorder = null, topBorder = null, bottomBorder = null;
     [SerializeField]HUDController hudController = null;
@@ -22,6 +23,8 @@ public class ShipMovement : MonoBehaviour
     void Awake(){
         shipRigidBody2D = GetComponent<Rigidbody2D>();   
         shootingPoint = GetComponentInChildren<Transform>(); 
+        engineThrustsSprite = GameObject.FindGameObjectWithTag("ShipThrusts").GetComponent<SpriteRenderer>();
+
         movSpeed = 8f;
         rotationSpeed = 300f;
         shipSizeOffSet = 0.5f;
@@ -32,8 +35,9 @@ public class ShipMovement : MonoBehaviour
         canBoost = true;
 
         engineThrustAnimator = engineThrustAnimatorObject.GetComponent<Animator>();
-        engineThrustAnimatorObject.SetActive(false);
-
+        //engineThrustAnimatorObject.SetActive(false);
+        engineThrustsSprite.enabled = false;
+        
         shipThrustsAudioSource = GetComponent<AudioSource>();
         shipThrustsAudioSource.enabled = false;
         soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
@@ -47,10 +51,12 @@ public class ShipMovement : MonoBehaviour
         yAxisDirection = Input.GetAxis("Vertical");
         if(yAxisDirection > 0){
             MoveShip(yAxisDirection);
-            engineThrustAnimatorObject.SetActive(true);
+            //engineThrustAnimatorObject.SetActive(true);
+            engineThrustsSprite.enabled = true;
             shipThrustsAudioSource.enabled = true;
         }else{
-            engineThrustAnimatorObject.SetActive(false);
+            //engineThrustAnimatorObject.SetActive(false);
+            engineThrustsSprite.enabled = false;
             shipThrustsAudioSource.enabled = false;
         }
         

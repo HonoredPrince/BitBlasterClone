@@ -23,6 +23,9 @@ TagManager:
   - Laser
   - SoundManager
   - BorderHazard
+  - ShipThrusts
+  - BordersPoints
+  - LevelLoader
   layers:
   - Default
   - TransparentFX
