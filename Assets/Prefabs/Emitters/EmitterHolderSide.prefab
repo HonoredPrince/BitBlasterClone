@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2263806421501379943}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5, z: 0}
+  m_LocalPosition: {x: 0, y: -8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2263806421527809391}
@@ -89,7 +89,7 @@ Transform:
   m_GameObject: {fileID: 2263806421982449149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1197.0001, y: 211, z: 1}
+  m_LocalScale: {x: 1986, y: 211, z: 1}
   m_Children: []
   m_Father: {fileID: 2263806422402321878}
   m_RootOrder: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   emissionEndPoint: {fileID: 2263806422619163739}
   emissionOrientationType: Horizontal
   emitterType: Side
-  directionOfEmission: 1
+  directionOfEmission: -1
 --- !u!1 &2263806422619163740
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2263806422619163740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2263806421527809391}

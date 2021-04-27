@@ -41,4 +41,6 @@ public class CameraController : MonoBehaviour
         float posY = shipPlayer.transform.position.y;
         cameraTransform.position = Vector3.Lerp(transform.position, new Vector3(posX, posY, transform.position.z), smoothTime);
     }
+
+    //TODO: A function that sets automatically the distance and size between the camera size and the emitters and garbage collectors
 }
