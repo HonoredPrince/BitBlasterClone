@@ -23,6 +23,15 @@ public class SoundController : MonoBehaviour
                                 enemyHit = null,
                                 enemyLaserHit = null;
 
+    
+    void Update(){
+        //TODO: Handle volume adjustments when game is paused
+        if(PauseMenuManager.gameIsPaused){
+            //musicAudioSource.pitch *= 0.5f;
+            //SFXAudioSource.pitch *= 0.5f;
+        }
+    }
+    
     public void playMusic(){
         musicAudioSource.PlayOneShot(musicOST);
     }

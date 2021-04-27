@@ -111,7 +111,7 @@ public class ShipAttack : MonoBehaviour
     }
 
     IEnumerator FireDefaultBullet(){
-        if(fireAllowed && this.shipAmmo > 0){
+        if(fireAllowed && this.shipAmmo > 0 && PauseMenuManager.gameIsPaused == false){
             fireAllowed = false;
             soundController.playSFX("shipFiring");
             Instantiate(defaultBullet, shootingPoints[0].position, transform.rotation);
@@ -122,7 +122,7 @@ public class ShipAttack : MonoBehaviour
     }
 
     IEnumerator FireTripleBullet(){
-        if(fireAllowed && this.shipAmmo > 0){
+        if(fireAllowed && this.shipAmmo > 0 && PauseMenuManager.gameIsPaused == false){
             fireAllowed = false;
             soundController.playSFX("shipTripleFiring");
             Instantiate(defaultBullet, shootingPoints[0].position, shootingPoints[0].rotation);

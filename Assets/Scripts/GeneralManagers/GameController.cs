@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
         soundController.playMusic();
     }
 
+    //TODO: Move Ship Health Handling to another script later
     IEnumerator playerDamage(){
         if(!isShipInDamagedState && isShipInvencible == false){
             isShipInDamagedState = true;
