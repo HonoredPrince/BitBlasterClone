@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
+    [SerializeField] AudioMixer audioMixerSFX = null, audioMixerOST = null; 
     [SerializeField] AudioSource musicAudioSource = null, SFXAudioSource = null;
     
-    [SerializeField] AudioSource[] SFXAudioSourceGroup = null, musicAudioSourceGroup = null;
+    [SerializeField] AudioSource[] SFXAudioSourceGroup = null;
     
-    [SerializeField] float musicGroupVolume = 0;
-    [SerializeField] float sfxGroupVolume = 0;
+
+    float musicAudioMixerVolume; //TODO: Get this value from options panel volume slider;
+
+    float sfxAudioMixerVolume; //TODO: Get this value from options panel volume slider;
 
     [SerializeField] AudioClip musicOST = null;
     
@@ -29,20 +32,15 @@ public class SoundController : MonoBehaviour
                                 enemyHit = null,
                                 enemyLaserHit = null;
 
-    
-    void Update(){
-        //TODO: Handle volume adjustments when game is paused
-        UdpateAudioSourceGroupsVolumes();
-        ManageSFXAudioSourceGroupsState(PauseMenuManager.gameIsPaused);
+    void Awake(){
+        musicAudioMixerVolume = GetAudioMixerVolumeLevel(audioMixerOST);
+        sfxAudioMixerVolume = GetAudioMixerVolumeLevel(audioMixerSFX);
+    }
 
-        if(PauseMenuManager.gameIsPaused){
-            musicGroupVolume = 0.01f;
-            sfxGroupVolume = 0.1f;
-            
-        }else{
-            musicGroupVolume = 0.05f;
-            sfxGroupVolume = 0.5f;
-        }
+    void Update(){
+        //TODO: Handle volume or play state adjustments when game is paused
+        UdpateAudioSourceGroupsVolumes();
+        ManageAudioSourceGroupsState(SFXAudioSourceGroup, PauseMenuManager.gameIsPaused, "SFX");
     }
     
     public void playMusic(){
@@ -111,43 +109,35 @@ public class SoundController : MonoBehaviour
         }
     }
 
-    void UdpateAudioSourceGroupsVolumes(){
-        for(int i = 0; i < musicAudioSourceGroup.Length; i++){
-            if(musicAudioSourceGroup[i].volume != musicGroupVolume){
-                musicAudioSourceGroup[i].volume = musicGroupVolume;
-                //Debug.Log("Music Audio Source Group Changed");
-            }
-        }
-        for(int i = 0; i < SFXAudioSourceGroup.Length; i++){
-            if(SFXAudioSourceGroup[i].volume != sfxGroupVolume){
-                SFXAudioSourceGroup[i].volume = sfxGroupVolume;
-                //Debug.Log("SFX Audio Source Group Changed");
-            }
+    public void UdpateAudioSourceGroupsVolumes(){
+        if(PauseMenuManager.gameIsPaused){
+            audioMixerOST.SetFloat("volume", musicAudioMixerVolume - 10f);
+            audioMixerSFX.SetFloat("volume", sfxAudioMixerVolume - 10f);
+        }else{
+            audioMixerOST.SetFloat("volume", musicAudioMixerVolume);
+            audioMixerSFX.SetFloat("volume", sfxAudioMixerVolume);
         }
     }
 
-    void ManageMusicAudioSourceGroupsState(bool isGamePaused){
-        for(int i = 0; i < musicAudioSourceGroup.Length; i++){
+    void ManageAudioSourceGroupsState(AudioSource[] audioSourceGroop, bool isGamePaused, string debugTypeOfAudioSourceGroup){
+        for(int i = 0; i < audioSourceGroop.Length; i++){
             if(isGamePaused){
-                musicAudioSourceGroup[i].Pause();
-                //Debug.Log("Music Audio Source Group Paused");
+                audioSourceGroop[i].Pause();
+                //Debug.Log(debugTypeOfAudioSourceGroup + " Audio Source Group Paused");
             }else{
-                musicAudioSourceGroup[i].UnPause();
-                //Debug.Log("Music Audio Source Group Unpaused");
+                audioSourceGroop[i].UnPause();
+                //Debug.Log(debugTypeOfAudioSourceGroup + " Audio Source Group Unpaused");
             }
         }
     }
 
-    void ManageSFXAudioSourceGroupsState(bool isGamePaused){
-        for(int i = 0; i < SFXAudioSourceGroup.Length; i++){
-            if(isGamePaused){
-                SFXAudioSourceGroup[i].Pause();
-                //Debug.Log("SFX Audio Source Group Paused");
-            }else{
-                SFXAudioSourceGroup[i].UnPause();
-                //Debug.Log("SFX Audio Source Group Unpaused");
-            }
+    float GetAudioMixerVolumeLevel(AudioMixer audioMixer){
+        float value;
+        bool result = audioMixer.GetFloat("volume", out value); //The mixer must have the volume exposed parameter called "volume"
+        if(result){
+            return value;
+        }else{
+            return 0f;
         }
     }
-
 }

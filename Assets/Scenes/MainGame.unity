@@ -5196,10 +5196,10 @@ AudioSource:
   m_GameObject: {fileID: 828850020}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 7677b5228e11fb74283268bf66489f2f, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5292,7 +5292,7 @@ AudioSource:
   m_GameObject: {fileID: 828850020}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 72e098d5d36a40f44a087f7d240bac12, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.05
@@ -5391,16 +5391,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34aae1d5c3689e040a4b52d83e641757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixerSFX: {fileID: 24100000, guid: 7677b5228e11fb74283268bf66489f2f, type: 2}
+  audioMixerOST: {fileID: 24100000, guid: 72e098d5d36a40f44a087f7d240bac12, type: 2}
   musicAudioSource: {fileID: 828850022}
   SFXAudioSource: {fileID: 828850021}
   SFXAudioSourceGroup:
   - {fileID: 828850021}
   - {fileID: 2029153885}
   - {fileID: 101894729}
-  musicAudioSourceGroup:
-  - {fileID: 828850022}
-  musicGroupVolume: 1
-  sfxGroupVolume: 1
+  musicGroupVolume: 0
+  sfxGroupVolume: 0
   musicOST: {fileID: 8300000, guid: 00a6ab854ec1f33409df10efdf8c63f2, type: 3}
   shipFiring:
   - {fileID: 8300000, guid: 63213392ab88f414da0dac66a82c2a9f, type: 3}
@@ -11334,6 +11334,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 172265030, guid: 97fbd411f636b3a49b68148f83999cbb, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 7677b5228e11fb74283268bf66489f2f, type: 2}
+    - target: {fileID: 3673397647751684103, guid: 97fbd411f636b3a49b68148f83999cbb, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 7677b5228e11fb74283268bf66489f2f, type: 2}
     - target: {fileID: 5047457157833378523, guid: 97fbd411f636b3a49b68148f83999cbb, type: 3}
       propertyPath: m_Name
       value: PurpleShip
