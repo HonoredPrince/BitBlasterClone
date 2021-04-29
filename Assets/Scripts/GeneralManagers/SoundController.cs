@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
     [SerializeField] AudioSource musicAudioSource = null, SFXAudioSource = null;
     
+    [SerializeField] AudioSource[] SFXAudioSourceGroup = null, musicAudioSourceGroup = null;
+    
+    [SerializeField] float musicGroupVolume = 0;
+    [SerializeField] float sfxGroupVolume = 0;
+
     [SerializeField] AudioClip musicOST = null;
     
     [SerializeField] AudioClip[] shipFiring = null;
@@ -26,9 +32,16 @@ public class SoundController : MonoBehaviour
     
     void Update(){
         //TODO: Handle volume adjustments when game is paused
+        UdpateAudioSourceGroupsVolumes();
+        ManageSFXAudioSourceGroupsState(PauseMenuManager.gameIsPaused);
+
         if(PauseMenuManager.gameIsPaused){
-            //musicAudioSource.pitch *= 0.5f;
-            //SFXAudioSource.pitch *= 0.5f;
+            musicGroupVolume = 0.01f;
+            sfxGroupVolume = 0.1f;
+            
+        }else{
+            musicGroupVolume = 0.05f;
+            sfxGroupVolume = 0.5f;
         }
     }
     
@@ -97,4 +110,44 @@ public class SoundController : MonoBehaviour
                 break;
         }
     }
+
+    void UdpateAudioSourceGroupsVolumes(){
+        for(int i = 0; i < musicAudioSourceGroup.Length; i++){
+            if(musicAudioSourceGroup[i].volume != musicGroupVolume){
+                musicAudioSourceGroup[i].volume = musicGroupVolume;
+                //Debug.Log("Music Audio Source Group Changed");
+            }
+        }
+        for(int i = 0; i < SFXAudioSourceGroup.Length; i++){
+            if(SFXAudioSourceGroup[i].volume != sfxGroupVolume){
+                SFXAudioSourceGroup[i].volume = sfxGroupVolume;
+                //Debug.Log("SFX Audio Source Group Changed");
+            }
+        }
+    }
+
+    void ManageMusicAudioSourceGroupsState(bool isGamePaused){
+        for(int i = 0; i < musicAudioSourceGroup.Length; i++){
+            if(isGamePaused){
+                musicAudioSourceGroup[i].Pause();
+                //Debug.Log("Music Audio Source Group Paused");
+            }else{
+                musicAudioSourceGroup[i].UnPause();
+                //Debug.Log("Music Audio Source Group Unpaused");
+            }
+        }
+    }
+
+    void ManageSFXAudioSourceGroupsState(bool isGamePaused){
+        for(int i = 0; i < SFXAudioSourceGroup.Length; i++){
+            if(isGamePaused){
+                SFXAudioSourceGroup[i].Pause();
+                //Debug.Log("SFX Audio Source Group Paused");
+            }else{
+                SFXAudioSourceGroup[i].UnPause();
+                //Debug.Log("SFX Audio Source Group Unpaused");
+            }
+        }
+    }
+
 }
