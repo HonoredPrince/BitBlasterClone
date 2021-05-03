@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
                 yield return new WaitForSeconds(0.8f);
                 Destroy(shipDeathAnimObj);
                 yield return new WaitForSeconds(1f);
-               levelLoaderController.LoadLevelWithName("StartMenu");
+                levelLoaderController.LoadLevelWithName("GameOverScene");
             }
         }
     }
