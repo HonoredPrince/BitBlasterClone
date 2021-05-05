@@ -51,6 +51,7 @@ public class EnemyCollisionHandler : MonoBehaviour
         switch(typeOfEnemy){
             case "Enemy1":
                 shipScoreController.AddScore(10);
+                shipScoreController.SpawnScorePopUpText(this.transform.position, 10);
                 this.isDissolving = true;
                 DisableEnemyCollision();
                 Enemy1Splitter enemy1Splitter = GetComponent<Enemy1Splitter>();
@@ -58,16 +59,19 @@ public class EnemyCollisionHandler : MonoBehaviour
                 break;
             case "Enemy1_Splitted":
                 shipScoreController.AddScore(20);
+                shipScoreController.SpawnScorePopUpText(this.transform.position, 20);
                 this.isDissolving = true;
                 DisableEnemyCollision();
                 break;
             case "Enemy2":
                 shipScoreController.AddScore(20);
+                shipScoreController.SpawnScorePopUpText(this.transform.position, 20);
                 this.isDissolving = true;
                 DisableEnemyCollision();
                 break; 
             case "Enemy3":
                 shipScoreController.AddScore(30);
+                shipScoreController.SpawnScorePopUpText(this.transform.position, 30);
                 this.isDissolving = true;
                 DisableEnemyCollision();
                 break; 

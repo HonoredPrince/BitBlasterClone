@@ -55,7 +55,7 @@ public class ShipCollisionController : MonoBehaviour
             case "Ammunition":
                 shipAttackController.AddAmmo(1);
                 //soundController.playSFX("ammoPickup");
-                Destroy(collision.gameObject);
+                Destroy(collision.gameObject.transform.parent.gameObject);
                 break;
             case "ShieldPowerUp":
                 if(gameController.GetShipShield() == 5){

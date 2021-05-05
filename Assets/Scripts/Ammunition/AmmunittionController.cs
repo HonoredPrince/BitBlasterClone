@@ -5,6 +5,7 @@ using UnityEngine;
 public class AmmunittionController : MonoBehaviour
 {
     [SerializeField]GameObject mininumMagnetCollider = null, maximumMagnetCollider = null;
+    [SerializeField]SpriteRenderer ammoSpriteRenderer = null;
 
     void Awake(){
         mininumMagnetCollider.SetActive(true);
@@ -15,20 +16,19 @@ public class AmmunittionController : MonoBehaviour
     IEnumerator AmmoSpawnTime(float ammoTimeActive){
         Color hitColor = new Color(1, 0, 0, 1);
         Color noHitColor = new Color(1, 1, 1, 0.5f);
-        SpriteRenderer ammoSprite = GetComponent<SpriteRenderer>();
-        
+
         yield return new WaitForSeconds(ammoTimeActive);
         
-        ammoSprite.color = noHitColor;
+        ammoSpriteRenderer.color = noHitColor;
         yield return new WaitForSeconds(0.1f);
 
         for(float i = 0; i < 2; i+= 0.3f){
-            ammoSprite.enabled = false;
+            ammoSpriteRenderer.enabled = false;
             yield return new WaitForSeconds(0.3f);
-            ammoSprite.enabled = true;
+            ammoSpriteRenderer.enabled = true;
             yield return new WaitForSeconds(0.3f);
         }
-        ammoSprite.color = Color.white;
+        ammoSpriteRenderer.color = Color.white;
         
         Destroy(this.gameObject);
     }

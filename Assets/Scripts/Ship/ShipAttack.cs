@@ -239,25 +239,29 @@ public class ShipAttack : MonoBehaviour
             Renderer enemieRenderer = enemie.GetComponent<Renderer>(); //Have to see if this works as a way to destroy only enemies in câmera view
             EnemyCollisionHandler enemieDropsController = enemie.GetComponent<EnemyCollisionHandler>();
             if(enemieRenderer.isVisible){
-                Destroy(enemie);
                 switch(typeToAddScore){
                     case "Enemy1":
                         scoreController.AddScore(10);
+                        scoreController.SpawnScorePopUpText(enemie.transform.position, 10);
                         enemieDropsController.DropItem();
                         break;
                     case "Enemy1_Splitter":
                         scoreController.AddScore(20);
+                        scoreController.SpawnScorePopUpText(enemie.transform.position, 20);
                         enemieDropsController.DropItem();
                         break;
                     case "Enemy2":
                         scoreController.AddScore(20);
+                        scoreController.SpawnScorePopUpText(enemie.transform.position, 20);
                         enemieDropsController.DropItem();
                         break;
                     case "Enemy3":
                         scoreController.AddScore(30);
+                        scoreController.SpawnScorePopUpText(enemie.transform.position, 30);
                         enemieDropsController.DropItem();
                         break;
                 }
+                Destroy(enemie);
             }
         }
     }

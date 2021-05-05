@@ -272,6 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96462777955793a48b6f101f2314f579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDissolving: 0
 --- !u!114 &4857435160571626989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDrops:
-  - {fileID: 5082292531553913417, guid: 761b0c681ea79434592c27411b3366a9, type: 3}
+  - {fileID: 5274749713894301075, guid: cf330b6604b1e794bbd4158805a36136, type: 3}
   - {fileID: 103237271272902352, guid: c4639d2e297f3764fb376714db4e4f9f, type: 3}
   - {fileID: 2550664522552521636, guid: b49ea862cb0fe5d4086c5e0bd80e5721, type: 3}
   - {fileID: 1145659889541895864, guid: dba864b91ffb268409e5b4f75a7bf155, type: 3}
