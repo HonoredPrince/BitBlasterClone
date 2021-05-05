@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine;
@@ -13,7 +14,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] Canvas optionsCanvas = null;
     
     Resolution[] resolutions;
-    [SerializeField] Dropdown resolutionDropdown = null;
+    [SerializeField] TMP_Dropdown resolutionDropdown = null;
     
     //Initial tests on the main title canvas system implementation
     void Awake(){
