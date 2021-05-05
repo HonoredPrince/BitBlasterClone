@@ -5141,6 +5141,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarryBackground
       objectReference: {fileID: 0}
+    - target: {fileID: 9052478127714722517, guid: 42ad492927dbef14ba8f95baaa5f2f1f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9052478127714722521, guid: 42ad492927dbef14ba8f95baaa5f2f1f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
