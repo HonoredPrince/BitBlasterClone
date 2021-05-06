@@ -13,18 +13,24 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject[] shipDeathObjects = null; 
     bool isShipInDamagedState, isShipInvencible;
     int playerShield;
-    [SerializeField] Transform  leftBorder = null, 
-                                rightBorder = null, 
-                                topBorder = null, 
-                                bottomBorder = null,
-                                leftGarbageCollector = null, 
-                                rightGarbageCollector = null, 
-                                topGarbageCollector = null,
-                                bottomGarbageCollector = null,
-                                leftEmitter = null,
-                                rightEmitter = null,
-                                topEmitter = null,
-                                bottomEmitter = null;
+
+    [Header("Borders Tranforms")]
+    [SerializeField] Transform leftBorder = null;
+    [SerializeField] Transform rightBorder = null; 
+    [SerializeField] Transform topBorder = null;
+    [SerializeField] Transform bottomBorder = null;
+    
+    [Header("GarbageCollectors Tranforms")]
+    [SerializeField] Transform leftGarbageCollector = null;
+    [SerializeField] Transform rightGarbageCollector = null;
+    [SerializeField] Transform topGarbageCollector = null;
+    [SerializeField] Transform bottomGarbageCollector = null;                      
+                                
+    [Header("Emitters Tranforms")]
+    [SerializeField] Transform leftEmitter = null;
+    [SerializeField] Transform rightEmitter = null;
+    [SerializeField] Transform topEmitter = null;
+    [SerializeField] Transform bottomEmitter = null;
 
     void Awake(){
         shipPlayer = GameObject.FindGameObjectWithTag("Ship");

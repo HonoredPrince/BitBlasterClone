@@ -86,10 +86,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -163,9 +161,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15926}
     - Class: 114
-      Script: {instanceID: 16952}
+      Script: {instanceID: 16954}
     - Class: 114
-      Script: {instanceID: 17050}
+      Script: {instanceID: 17052}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -294,17 +292,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16534}
     - Class: 114
-      Script: {instanceID: 16678}
+      Script: {instanceID: 16568}
     - Class: 114
-      Script: {instanceID: 16794}
+      Script: {instanceID: 16680}
     - Class: 114
-      Script: {instanceID: 16950}
+      Script: {instanceID: 16796}
     - Class: 114
       Script: {instanceID: 16952}
     - Class: 114
-      Script: {instanceID: 17050}
+      Script: {instanceID: 16954}
     - Class: 114
-      Script: {instanceID: 44722}
+      Script: {instanceID: 17052}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -447,29 +445,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16402}
     - Class: 114
-      Script: {instanceID: 16582}
+      Script: {instanceID: 16568}
     - Class: 114
-      Script: {instanceID: 16638}
+      Script: {instanceID: 16584}
     - Class: 114
-      Script: {instanceID: 16690}
+      Script: {instanceID: 16640}
     - Class: 114
-      Script: {instanceID: 16900}
+      Script: {instanceID: 16692}
     - Class: 114
-      Script: {instanceID: 16904}
+      Script: {instanceID: 16902}
     - Class: 114
-      Script: {instanceID: 16952}
+      Script: {instanceID: 16906}
     - Class: 114
-      Script: {instanceID: 16980}
+      Script: {instanceID: 16954}
     - Class: 114
-      Script: {instanceID: 17020}
+      Script: {instanceID: 16982}
     - Class: 114
-      Script: {instanceID: 17050}
+      Script: {instanceID: 17022}
     - Class: 114
-      Script: {instanceID: 17140}
+      Script: {instanceID: 17052}
     - Class: 114
-      Script: {instanceID: 17148}
+      Script: {instanceID: 17142}
     - Class: 114
-      Script: {instanceID: 44722}
+      Script: {instanceID: 17150}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -759,7 +757,7 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
-      Hash: 94abe9896df12fec98763e0633cbbf96
+      Hash: e0445ca2046cba2a5864eaf0fe1118c8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController
@@ -1023,7 +1021,7 @@ ScriptsOnlyBuild:
     className: VertexJitter
   - hash:
       serializedVersion: 2
-      Hash: 6ae2252f9272211635f64315cb9ea33b
+      Hash: bd22fcea2ef671fb608060ce99728052
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyCollisionHandler
@@ -1545,6 +1543,12 @@ ScriptsOnlyBuild:
     className: ShadowCaster2D
   - hash:
       serializedVersion: 2
+      Hash: 0c6a33253b83306295e01df44a7ad0d3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StarryBackgroundHandler
+  - hash:
+      serializedVersion: 2
       Hash: 8d35f16c5022311c6f4d9432be73bfcf
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
@@ -1741,12 +1745,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 0c6a33253b83306295e01df44a7ad0d3
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: StarryBackgroundHandler
   platform: 5
   scenePathNames:
   - Assets/Scenes/StartMenu.unity

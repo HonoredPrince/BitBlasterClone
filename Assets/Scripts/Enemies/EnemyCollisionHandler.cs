@@ -40,6 +40,11 @@ public class EnemyCollisionHandler : MonoBehaviour
                 SetDissolveColor(new Vector4(4, 190, 191, 0));
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
+            case "PurpleBombExplosionRadius":
+                //soundController.playSFX("enemyBulletHit");
+                SetDissolveColor(new Vector4(98, 26, 142, 255));
+                DestroyEnemy(this.gameObject.tag, collision);          
+                break;
             case "ShipBerserker":
                 //See the problem with berserker not working with dissolve shader
                 soundController.playSFX("enemyBulletHit");

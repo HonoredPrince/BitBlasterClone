@@ -98,12 +98,13 @@
      <Compile Include="Assets\Scripts\ShipPowerUps\PowerUpsController.cs" />
      <Compile Include="Assets\3RDParty\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
      <Compile Include="Assets\Scripts\GarbageCollectors\EnemyGarbageCollectorTrigger.cs" />
+     <Compile Include="Assets\Scripts\Background\StarryBackgroundHandler.cs" />
      <Compile Include="Assets\3RDParty\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
      <Compile Include="Assets\3RDParty\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
      <Compile Include="Assets\3RDParty\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
      <Compile Include="Assets\3RDParty\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
      <Compile Include="Assets\Scripts\Ammunition\AmmunitionMagnet.cs" />
-     <Compile Include="Assets\Scripts\Background\StarryBackgroundHandler.cs" />
+     <Compile Include="Assets\Scripts\ShipProjectiles\PurpleBomb.cs" />
      <None Include="Assets\3RDParty\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\3RDParty\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\3RDParty\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

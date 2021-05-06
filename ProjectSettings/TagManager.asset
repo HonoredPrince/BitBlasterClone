@@ -26,6 +26,8 @@ TagManager:
   - ShipThrusts
   - BordersPoints
   - LevelLoader
+  - PurpleBombExplosionRadius
+  - PurpleBomb
   layers:
   - Default
   - TransparentFX
@@ -71,4 +73,7 @@ TagManager:
     locked: 0
   - name: Ship Weapon
     uniqueID: 1070916229
+    locked: 0
+  - name: PurpleBomb
+    uniqueID: 2876121397
     locked: 0

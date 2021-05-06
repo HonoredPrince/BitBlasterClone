@@ -1,5 +1,4 @@
 ##Current TODOs
 
-1. New Bullets?
+1. Finish the improvements on the purple bullet, but initial system has been implemented already
 2. More Enemies?
-3. Set the Emitters and Garbage Collectors to a fixed off set distance based on the scene borders
