@@ -11,6 +11,8 @@ public class EnemyCollisionHandler : MonoBehaviour
     float fadeValue;
     public bool isDissolving;
 
+    public bool hasPassedBorders = false;
+
     void Awake(){
         enemyDropsController = GetComponent<EnemyDropsController>();
         shipScoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
@@ -43,6 +45,14 @@ public class EnemyCollisionHandler : MonoBehaviour
                 soundController.playSFX("enemyLaserHit");
                 SetDissolveColor(new Vector4(254, 95, 75, 0));
                 DestroyEnemy(this.gameObject.tag, collision);          
+                break;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision){
+        switch(collision.gameObject.tag){
+            case "BordersPoints":
+                this.hasPassedBorders = true;
                 break;
         }
     }
