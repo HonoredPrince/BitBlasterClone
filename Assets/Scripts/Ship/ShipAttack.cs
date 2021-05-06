@@ -251,7 +251,7 @@ public class ShipAttack : MonoBehaviour
                         scoreController.SpawnScorePopUpText(enemie.transform.position, 10);
                         enemyCollisionHandler.DropItem();
                         break;
-                    case "Enemy1_Splitter":
+                    case "Enemy1_Splitted":
                         scoreController.AddScore(20);
                         scoreController.SpawnScorePopUpText(enemie.transform.position, 20);
                         enemyCollisionHandler.DropItem();
