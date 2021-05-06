@@ -21,7 +21,7 @@ public class ShipAttack : MonoBehaviour
 
     [HideInInspector] public bool shipHasSpecialBullet;
     int shipAmmo;
-    float fireRate = 0.1f;
+    float fireRate;
     bool fireAllowed;
     
     bool hasBerserkerMode;
@@ -47,6 +47,7 @@ public class ShipAttack : MonoBehaviour
         nukeDelayTime = 8f;
         weaponsDelayTime = 10f;
 
+        fireRate = 0.4f;
         fireAllowed = true;
         hasBerserkerMode = false;
         hasLaserMode = false;
@@ -64,7 +65,7 @@ public class ShipAttack : MonoBehaviour
         //Debug.Log(this.typeOfFiringSystem);
         //Debug.Log(this.hasLaserMode);
         
-        if(Input.GetMouseButtonDown(0)){
+        if(Input.GetMouseButton(0)){
             FireBullet();
         }   
 
@@ -135,12 +136,16 @@ public class ShipAttack : MonoBehaviour
     }
 
     public void ResetFiringSystem(){
-        fireAllowed = true;
+        //fireAllowed = true;
         this.typeOfFiringSystem = "defaultBullet";
         shipHasSpecialBullet = false;
         hudController.DeactivateWeaponTypeBar();
         hudController.SetWeaponWeaponTypeBarColor(new Color32(119, 255, 254, 255));
         hudController.SetBulletTypeSprite(this.typeOfFiringSystem);
+    }
+
+    public void SetFirePermission(bool status){
+        this.fireAllowed = status;
     }
 
     //TODO: The Ship's attack firing system changing to the other 2 types of bullets: triple-fire e laser
@@ -158,7 +163,7 @@ public class ShipAttack : MonoBehaviour
 
     public IEnumerator ActivateLaserMode(){
         //Debug.Log(Time.time);
-        this.fireAllowed = false;
+        SetFirePermission(false);
         this.hasLaserMode = true;
         this.shipLaser.SetActive(true);
         hudController.SetWeaponTypeBarActive();
@@ -172,6 +177,7 @@ public class ShipAttack : MonoBehaviour
     
         this.shipLaser.SetActive(false);
         hasLaserMode = false;
+        SetFirePermission(true);
         ResetFiringSystem();
     }
 

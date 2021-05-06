@@ -1,5 +1,5 @@
 ##Current TODOs
 
-1. Check Audio Volumes on Thrusters compared to the SFX Values
-2. See the Ammo Pick Up orb clarity in contrast with the new starry background
-3. Give life to the starry BG
+1. New Bullets?
+2. More Enemies?
+3. Set the Emitters and Garbage Collectors to a fixed off set distance based on the scene borders

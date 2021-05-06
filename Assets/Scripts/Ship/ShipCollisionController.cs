@@ -84,6 +84,7 @@ public class ShipCollisionController : MonoBehaviour
                     shipAttackController.DeactivateLaserMode();
                     StopCoroutine(this.currentFiringTypeRoutine); //Find a way of optmize this mess
                     shipAttackController.ResetFiringSystem();
+                    shipAttackController.SetFirePermission(true);
                 }
                 this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ChangeTypeOfFiringSystemInSeconds("tripleBullet"));
                 soundController.playSFX("tripleBulletPowerUpPickup");
@@ -106,6 +107,7 @@ public class ShipCollisionController : MonoBehaviour
                 if(shipAttackController.GetTypeOfFiringSystem() == "tripleBullet"){
                     StopCoroutine(this.currentFiringTypeRoutine); //Find a way of optmize this mess
                     shipAttackController.ResetFiringSystem();
+                    shipAttackController.SetFirePermission(true);
                 }
                 this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ActivateLaserMode());
                 soundController.playSFX("laserPowerUpPickup");
