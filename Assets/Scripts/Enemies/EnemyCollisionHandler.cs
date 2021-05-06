@@ -11,7 +11,7 @@ public class EnemyCollisionHandler : MonoBehaviour
     float fadeValue;
     public bool isDissolving;
 
-    public bool hasPassedBorders = false;
+    public bool hasPassedBorders;
 
     void Awake(){
         enemyDropsController = GetComponent<EnemyDropsController>();
@@ -22,6 +22,11 @@ public class EnemyCollisionHandler : MonoBehaviour
         dissolveMaterial = GetComponent<SpriteRenderer>().material;
         fadeValue = 1f;
         isDissolving = false;
+        if(this.gameObject.tag == "Enemy1_Splitted"){
+            this.hasPassedBorders = true;
+        }else{
+            this.hasPassedBorders = false;
+        }
     }
 
     void Update(){
