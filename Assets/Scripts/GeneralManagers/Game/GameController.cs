@@ -13,6 +13,18 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject[] shipDeathObjects = null; 
     bool isShipInDamagedState, isShipInvencible;
     int playerShield;
+    [SerializeField] Transform  leftBorder = null, 
+                                rightBorder = null, 
+                                topBorder = null, 
+                                bottomBorder = null,
+                                leftGarbageCollector = null, 
+                                rightGarbageCollector = null, 
+                                topGarbageCollector = null,
+                                bottomGarbageCollector = null,
+                                leftEmitter = null,
+                                rightEmitter = null,
+                                topEmitter = null,
+                                bottomEmitter = null;
 
     void Awake(){
         shipPlayer = GameObject.FindGameObjectWithTag("Ship");
@@ -25,6 +37,15 @@ public class GameController : MonoBehaviour
         playerShield = 3; 
         hudController.UpdateShieldHUD(playerShield);
         soundController.playMusic();
+
+        SetEmittersPositions();
+        SetGarbageCollectorsPositions();
+    }
+    
+    void FixedUpdate(){
+        //Just for debug purposes in the Unity Editor Runtime
+        SetEmittersPositions();
+        SetGarbageCollectorsPositions();
     }
 
     //TODO: Move Ship Health Handling to another script later
@@ -98,5 +119,39 @@ public class GameController : MonoBehaviour
 
     public int GetShipShield(){
         return this.playerShield;
+    }
+
+    void SetEmittersPositions(){
+        /*Debug.Log("LeftBorder:" + leftBorder.position);
+        Debug.Log("RightBorder:" + rightBorder.position);
+        Debug.Log("TopBorder:" + topBorder.position);
+        Debug.Log("BottomBorder:" + bottomBorder.position);*/
+        
+        leftEmitter.position = new Vector3(leftBorder.position.x - 6f, leftEmitter.position.y, leftEmitter.position.z);
+        rightEmitter.position = new Vector3(rightBorder.position.x + 6f, rightEmitter.position.y, rightEmitter.position.z);
+        topEmitter.position = new Vector3(bottomEmitter.position.x, topBorder.position.y + 2f, topEmitter.position.z);
+        bottomEmitter.position = new Vector3(bottomEmitter.position.x, bottomBorder.position.y - 2f, bottomEmitter.position.z);
+    
+        /*Debug.Log("LeftEmitter: " + leftEmitter.position);
+        Debug.Log("RightEmitter: " + rightEmitter.position);
+        Debug.Log("TopEmitter: " + topEmitter.position);
+        Debug.Log("BottomEmitter: " + bottomEmitter.position);*/
+    }
+    
+    void SetGarbageCollectorsPositions(){
+        /*Debug.Log("LeftBorder:" + leftBorder.position);
+        Debug.Log("RightBorder:" + rightBorder.position);
+        Debug.Log("TopBorder:" + topBorder.position);
+        Debug.Log("BottomBorder:" + bottomBorder.position);*/
+        
+        leftGarbageCollector.position = new Vector3(leftBorder.position.x - 11.77f, leftGarbageCollector.position.y, leftGarbageCollector.position.z);
+        rightGarbageCollector.position = new Vector3(rightBorder.position.x + 11.77f, rightGarbageCollector.position.y, rightGarbageCollector.position.z);
+        topGarbageCollector.position = new Vector3(bottomGarbageCollector.position.x, topBorder.position.y + 5f, topGarbageCollector.position.z);
+        bottomGarbageCollector.position = new Vector3(bottomGarbageCollector.position.x, bottomBorder.position.y - 5f, bottomGarbageCollector.position.z);
+    
+        /*Debug.Log("LeftGarbageCollector: " + leftGarbageCollector.position);
+        Debug.Log("RightGarbageCollector: " + rightGarbageCollector.position);
+        Debug.Log("TopGarbageCollector: " + topGarbageCollector.position);
+        Debug.Log("BottomGarbageCollector: " + bottomGarbageCollector.position);*/
     }
 }

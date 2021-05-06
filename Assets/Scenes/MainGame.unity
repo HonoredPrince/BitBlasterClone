@@ -1869,6 +1869,18 @@ MonoBehaviour:
   hudController: {fileID: 1990855997}
   shipDeathObjects:
   - {fileID: 4496356291651963069, guid: 7169ada683f2ed34eb44dc139f6e68bb, type: 3}
+  leftBorder: {fileID: 1919131098}
+  rightBorder: {fileID: 531960952}
+  topBorder: {fileID: 1293022465}
+  bottomBorder: {fileID: 1980003837}
+  leftGarbageCollector: {fileID: 778985173}
+  rightGarbageCollector: {fileID: 520173643}
+  topGarbageCollector: {fileID: 471167942}
+  bottomGarbageCollector: {fileID: 1779735646}
+  leftEmitter: {fileID: 812242411}
+  rightEmitter: {fileID: 1631606042}
+  topEmitter: {fileID: 892624508}
+  bottomEmitter: {fileID: 562753023}
 --- !u!4 &384982943
 Transform:
   m_ObjectHideFlags: 0
