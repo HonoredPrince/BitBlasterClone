@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDissolving: 0
+  hasPassedBorders: 0
 --- !u!114 &-2246756286537850122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,3 +208,4 @@ MonoBehaviour:
   - {fileID: 1145659889541895864, guid: dba864b91ffb268409e5b4f75a7bf155, type: 3}
   - {fileID: 1201452252723652591, guid: 3efed9bc7d1fde846afa5bff6593010a, type: 3}
   - {fileID: 5822426097229116835, guid: 146eeaa9b8336c143bf88abeff1e0b90, type: 3}
+  - {fileID: 8395487148145623903, guid: ec6fc89632b9ee14c85a5d426c94fa99, type: 3}

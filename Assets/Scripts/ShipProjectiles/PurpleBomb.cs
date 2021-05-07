@@ -36,9 +36,10 @@ public class PurpleBomb : MonoBehaviour
 
     IEnumerator PurpleBombExplosion(){
         this.canMove = false;
-        yield return new WaitForSeconds(0.1f);
         purpleBombAnimator.SetTrigger("bulletExplosion");
-        explosionCompoundCollider.SetActive(true);
+        this.explosionCompoundCollider.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        this.explosionCompoundCollider.SetActive(false);
         yield return new WaitForSeconds(2.0f);
         DestroyBullet();
     }

@@ -27,6 +27,10 @@ public class EnemyDropsController : MonoBehaviour
     } 
 
     public void DropLaserPowerUp(Transform enemyTransform){
-        GameObject nukeDropped = Instantiate(enemyDrops[5], enemyTransform.position, Quaternion.identity);
+        GameObject laserDropped = Instantiate(enemyDrops[5], enemyTransform.position, Quaternion.identity);
+    } 
+
+    public void DropPurpleBombPowerUp(Transform enemyTransform){
+        GameObject purpleBombDropped = Instantiate(enemyDrops[6], enemyTransform.position, Quaternion.identity);
     } 
 }

@@ -86,17 +86,32 @@ public class ShipCollisionController : MonoBehaviour
                     shipAttackController.ResetFiringSystem();
                     shipAttackController.SetFirePermission(true);
                 }
-                this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ChangeTypeOfFiringSystemInSeconds("tripleBullet"));
+                if(shipAttackController.GetTypeOfFiringSystem() == "purpleBomb"){
+                    StopCoroutine(this.currentFiringTypeRoutine); //Works but maybe not the optimal way
+                    shipAttackController.shipHasSpecialBullet = false;
+                    shipAttackController.ResetFiringSystem();
+                }
+                this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ActivateTripleBulletFiringSystem("tripleBullet"));
                 soundController.playSFX("tripleBulletPowerUpPickup");
                 Destroy(collision.gameObject);
                 break;
-            case "ShipBerserkerPowerUp":
-                if(shipAttackController.HasBerserkerMode() == true){
-                    shipAttackController.DeactivateBerserkerMode();
-                    StopCoroutine(this.currentBerserkerRoutine); //Works but maybe not the optimal way
+            case "PurpleBombPowerUp":
+                if(shipAttackController.GetTypeOfFiringSystem() == "purpleBomb"){
+                    StopCoroutine(this.currentFiringTypeRoutine); //Works but maybe not the optimal way
+                    shipAttackController.ResetFiringSystem();
                 }
-                this.currentBerserkerRoutine = StartCoroutine(shipAttackController.ActivateBerserkerMode());
-                soundController.playSFX("berserkerPowerUpPickup");
+                if(shipAttackController.GetTypeOfFiringSystem() == "tripleBullet"){
+                    StopCoroutine(this.currentFiringTypeRoutine); //Works but maybe not the optimal way
+                    shipAttackController.ResetFiringSystem();
+                }
+                if(shipAttackController.GetTypeOfFiringSystem() == "laserStream"){
+                    shipAttackController.DeactivateLaserMode();
+                    StopCoroutine(this.currentFiringTypeRoutine); //Find a way of optmize this mess
+                    shipAttackController.ResetFiringSystem();
+                    shipAttackController.SetFirePermission(true);
+                }
+                this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ActivatePurpleBombFiringSystem("purpleBomb"));
+                soundController.playSFX("tripleBulletPowerUpPickup");
                 Destroy(collision.gameObject);
                 break;
             case "LaserPowerUp":
@@ -109,8 +124,22 @@ public class ShipCollisionController : MonoBehaviour
                     shipAttackController.ResetFiringSystem();
                     shipAttackController.SetFirePermission(true);
                 }
+                if(shipAttackController.GetTypeOfFiringSystem() == "purpleBomb"){
+                    StopCoroutine(this.currentFiringTypeRoutine); //Works but maybe not the optimal way
+                    shipAttackController.ResetFiringSystem();
+                    shipAttackController.SetFirePermission(true);
+                }
                 this.currentFiringTypeRoutine = StartCoroutine(shipAttackController.ActivateLaserMode());
                 soundController.playSFX("laserPowerUpPickup");
+                Destroy(collision.gameObject);
+                break;
+            case "ShipBerserkerPowerUp":
+                if(shipAttackController.HasBerserkerMode() == true){
+                    shipAttackController.DeactivateBerserkerMode();
+                    StopCoroutine(this.currentBerserkerRoutine); //Works but maybe not the optimal way
+                }
+                this.currentBerserkerRoutine = StartCoroutine(shipAttackController.ActivateBerserkerMode());
+                soundController.playSFX("berserkerPowerUpPickup");
                 Destroy(collision.gameObject);
                 break;
         }

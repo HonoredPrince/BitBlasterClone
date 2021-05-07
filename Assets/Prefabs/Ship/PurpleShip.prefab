@@ -981,7 +981,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nukeWhiteScreen: {fileID: 0}
-  defaultBullet: {fileID: 7356341123292201768, guid: f7d5aa83375b05743b39dd498fbcadb7, type: 3}
+  bulletWeapons:
+  - {fileID: 7356341123292201768, guid: f7d5aa83375b05743b39dd498fbcadb7, type: 3}
+  - {fileID: 1705322192024265304, guid: a9904b0345cd1a64089d41a37f2d7ebc, type: 3}
   shootingPoints:
   - {fileID: 5047457156811958335}
   - {fileID: 2890015558537374022}

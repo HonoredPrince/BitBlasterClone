@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,11 @@ public class AmmunitionMagnet : MonoBehaviour
     [SerializeField] Transform ammoParentTransform = null;
 
     void Awake(){
-        this.shipTransform = GameObject.FindGameObjectWithTag("Ship").GetComponent<Transform>();
+        try{
+            shipTransform = GameObject.FindGameObjectWithTag("Ship").GetComponent<Transform>();
+        }catch(Exception e){
+            Debug.Log("Ship not found: " + e);   
+        }
     }
 
     void AmmunitionMovement(){
@@ -19,7 +24,9 @@ public class AmmunitionMagnet : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision){
         if(collision.gameObject.tag == "Ship"){
-            AmmunitionMovement();
+            if(this.shipTransform != null){
+                AmmunitionMovement();
+            }
         }
     } 
 }

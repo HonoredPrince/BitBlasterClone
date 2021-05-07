@@ -8,7 +8,7 @@ public class ShipAttack : MonoBehaviour
 {
     [SerializeField] GameObject nukeWhiteScreen = null;
 
-    [SerializeField] GameObject defaultBullet = null;
+    [SerializeField] GameObject[] bulletWeapons = null;
     [SerializeField] Transform[] shootingPoints = null;
     [SerializeField] GameObject shipBerserker = null;
     [SerializeField] GameObject shipLaser = null;
@@ -101,34 +101,30 @@ public class ShipAttack : MonoBehaviour
     }
 
     void FireBullet(){
-        switch(this.typeOfFiringSystem){
-            case "defaultBullet":
-                StartCoroutine(FireDefaultBullet());
-                break;
-            case "tripleBullet":
-                StartCoroutine(FireTripleBullet());
-                break;
-        }
+        StartCoroutine(Fire());
     }
 
-    IEnumerator FireDefaultBullet(){
+    IEnumerator Fire(){
         if(fireAllowed && this.shipAmmo > 0 && PauseMenuManager.gameIsPaused == false){
             fireAllowed = false;
-            soundController.playSFX("shipFiring");
-            Instantiate(defaultBullet, shootingPoints[0].position, transform.rotation);
-            this.shipAmmo--;
-            yield return new WaitForSeconds(fireRate);
-            fireAllowed = true;
-        }
-    }
+            
+            switch(this.typeOfFiringSystem){
+                case "defaultBullet":
+                    soundController.playSFX("shipFiring");
+                    Instantiate(bulletWeapons[0], shootingPoints[0].position, transform.rotation);
+                    break;
+                case "tripleBullet":
+                    soundController.playSFX("shipTripleFiring");
+                    Instantiate(bulletWeapons[0], shootingPoints[0].position, shootingPoints[0].rotation);
+                    Instantiate(bulletWeapons[0], shootingPoints[1].position, shootingPoints[1].rotation);
+                    Instantiate(bulletWeapons[0], shootingPoints[2].position, shootingPoints[2].rotation);
+                    break;
+                case "purpleBomb":
+                    soundController.playSFX("shipFiring");
+                    Instantiate(bulletWeapons[1], shootingPoints[0].position, transform.rotation);
+                    break;
+            }
 
-    IEnumerator FireTripleBullet(){
-        if(fireAllowed && this.shipAmmo > 0 && PauseMenuManager.gameIsPaused == false){
-            fireAllowed = false;
-            soundController.playSFX("shipTripleFiring");
-            Instantiate(defaultBullet, shootingPoints[0].position, shootingPoints[0].rotation);
-            Instantiate(defaultBullet, shootingPoints[1].position, shootingPoints[1].rotation);
-            Instantiate(defaultBullet, shootingPoints[2].position, shootingPoints[2].rotation);
             this.shipAmmo--;
             yield return new WaitForSeconds(fireRate);
             fireAllowed = true;
@@ -149,10 +145,23 @@ public class ShipAttack : MonoBehaviour
     }
 
     //TODO: The Ship's attack firing system changing to the other 2 types of bullets: triple-fire e laser
-    public IEnumerator ChangeTypeOfFiringSystemInSeconds(string typeOfFireSystem){
+    public IEnumerator ActivateTripleBulletFiringSystem(string typeOfFireSystem){
         //See the current solution on ShipCollisionPowerUp switch(case)...
         //Debug.Log(Time.time);
         hudController.SetWeaponTypeBarActive();
+        this.fireRate = 0.4f;
+        shipHasSpecialBullet = true;
+        this.typeOfFiringSystem = typeOfFireSystem;
+        hudController.SetBulletTypeSprite(this.typeOfFiringSystem);
+        yield return new WaitForSeconds(this.weaponsDelayTime);
+        //Debug.Log(Time.time);
+        ResetFiringSystem();
+    }
+
+    public IEnumerator ActivatePurpleBombFiringSystem(string typeOfFireSystem){
+        hudController.SetWeaponTypeBarActive();
+        hudController.SetWeaponWeaponTypeBarColor(new Color32(148, 0, 221, 255));
+        this.fireRate = 0.6f;
         shipHasSpecialBullet = true;
         this.typeOfFiringSystem = typeOfFireSystem;
         hudController.SetBulletTypeSprite(this.typeOfFiringSystem);

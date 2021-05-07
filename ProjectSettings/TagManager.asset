@@ -28,6 +28,7 @@ TagManager:
   - LevelLoader
   - PurpleBombExplosionRadius
   - PurpleBomb
+  - PurpleBombPowerUp
   layers:
   - Default
   - TransparentFX
