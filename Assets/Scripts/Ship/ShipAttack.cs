@@ -120,7 +120,7 @@ public class ShipAttack : MonoBehaviour
                     Instantiate(bulletWeapons[0], shootingPoints[2].position, shootingPoints[2].rotation);
                     break;
                 case "purpleBomb":
-                    soundController.playSFX("shipFiring");
+                    soundController.playSFX("purpleBombFiring");
                     Instantiate(bulletWeapons[1], shootingPoints[0].position, transform.rotation);
                     break;
             }

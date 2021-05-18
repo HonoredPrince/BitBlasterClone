@@ -10,8 +10,10 @@ public class PurpleBomb : MonoBehaviour
     Animator purpleBombAnimator;
     float moveSpeed;
     [SerializeField]GameObject explosionCompoundCollider = null;
+    SoundController soundController;
     
     void Awake(){
+        soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
         bulletRigidBody2D = GetComponentInChildren<Rigidbody2D>();
         this.canMove = true;
         moveSpeed = 15f;
@@ -36,6 +38,7 @@ public class PurpleBomb : MonoBehaviour
 
     IEnumerator PurpleBombExplosion(){
         this.canMove = false;
+        soundController.playSFX("purpleBombHit");
         purpleBombAnimator.SetTrigger("bulletExplosion");
         this.explosionCompoundCollider.SetActive(true);
         yield return new WaitForSeconds(0.1f);

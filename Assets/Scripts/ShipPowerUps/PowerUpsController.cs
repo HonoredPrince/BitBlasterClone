@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PowerUpsController : MonoBehaviour
 {
+    [SerializeField] bool isDebugPowerUp = false;
     void Awake(){
-        StartCoroutine(PowerUpSpawnTime(10f));
+        if(!isDebugPowerUp){
+            StartCoroutine(PowerUpSpawnTime(10f));
+        }
     }
 
     IEnumerator PowerUpSpawnTime(float timeForPowerUp){
