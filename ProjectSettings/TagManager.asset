@@ -29,6 +29,7 @@ TagManager:
   - PurpleBombExplosionRadius
   - PurpleBomb
   - PurpleBombPowerUp
+  - Enemy4
   layers:
   - Default
   - TransparentFX

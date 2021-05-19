@@ -243,11 +243,13 @@ public class ShipAttack : MonoBehaviour
         GameObject[] allEnemiesType1Splitted = GameObject.FindGameObjectsWithTag("Enemy1_Splitted");
         GameObject[] allEnemiesType2 = GameObject.FindGameObjectsWithTag("Enemy2");
         GameObject[] allEnemiesType3 = GameObject.FindGameObjectsWithTag("Enemy3");
+        GameObject[] allEnemiesType4 = GameObject.FindGameObjectsWithTag("Enemy4");
 
         NukeDamageOnEnemies(allEnemiesType1, "Enemy1");
         NukeDamageOnEnemies(allEnemiesType1Splitted, "Enemy1_Splitted");
         NukeDamageOnEnemies(allEnemiesType2, "Enemy2");
         NukeDamageOnEnemies(allEnemiesType3, "Enemy3");
+        NukeDamageOnEnemies(allEnemiesType4, "Enemy4");
     }
 
     void NukeDamageOnEnemies(GameObject[] allEnemiesFromOneType, string typeToAddScore){
@@ -274,6 +276,11 @@ public class ShipAttack : MonoBehaviour
                     case "Enemy3":
                         scoreController.AddScore(30);
                         scoreController.SpawnScorePopUpText(enemie.transform.position, 30);
+                        enemyCollisionHandler.DropItem();
+                        break;
+                    case "Enemy4":
+                        scoreController.AddScore(25);
+                        scoreController.SpawnScorePopUpText(enemie.transform.position, 25);
                         enemyCollisionHandler.DropItem();
                         break;
                 }

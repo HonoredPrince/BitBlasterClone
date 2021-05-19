@@ -8,6 +8,7 @@ public class EnemyEmitter : MonoBehaviour
     const int ENEMY1 = 0;
     const int ENEMY2 = 1;
     const int ENEMY3 = 2;
+    const int ENEMY4 = 3;
 
     [Header("Enemy Selection")] 
     [SerializeField]GameObject[] enemyPrefab = null;
@@ -22,6 +23,7 @@ public class EnemyEmitter : MonoBehaviour
     [SerializeField]int directionOfEmission = 0;
 
     void Awake(){
+        //Find a way of balacing the game difficulty
         InvokeRepeating("TestSpawn", 1f, 3f);
     }
 
@@ -30,7 +32,9 @@ public class EnemyEmitter : MonoBehaviour
         float chance = Random.Range(0, 100);
         if(chance <= 20){
             SpawnEnemy(this.enemyPrefab[ENEMY3], this.emissionOrientationType, this.directionOfEmission);
-        }else if(chance > 20 && chance <= 50){  
+        }else if(chance > 20 && chance <= 35){  
+            SpawnEnemy(this.enemyPrefab[ENEMY4], this.emissionOrientationType, this.directionOfEmission);
+        }else if(chance > 35 && chance <= 50){  
             SpawnEnemy(this.enemyPrefab[ENEMY1], this.emissionOrientationType, this.directionOfEmission);
         }else if(chance > 50 && chance <= 100){
             SpawnEnemy(this.enemyPrefab[ENEMY2], this.emissionOrientationType, this.directionOfEmission);
@@ -60,18 +64,24 @@ public class EnemyEmitter : MonoBehaviour
         switch(enemyPrefab.gameObject.tag){
             case "Enemy1":
                 enemySpawned = Instantiate(enemyPrefab,RandomEmissionPointInEmitterLimits(this.emitterType),transform.rotation);
-                Enemy1Movement enemyTypeOneSpawnedMovementController = enemySpawned.GetComponent<Enemy1Movement>();
+                EnemyStandardMovement enemyTypeOneSpawnedMovementController = enemySpawned.GetComponent<EnemyStandardMovement>();
                 enemyTypeOneSpawnedMovementController.direction = direction;
                 enemyTypeOneSpawnedMovementController.typeOfDirection = orientation;
                 break;
             case "Enemy2":
                 enemySpawned = Instantiate(enemyPrefab,RandomEmissionPointInEmitterLimits(this.emitterType),transform.rotation);
-                Enemy1Movement enemyTypeTwoSpawnedMovementController = enemySpawned.GetComponent<Enemy1Movement>();
+                EnemyStandardMovement enemyTypeTwoSpawnedMovementController = enemySpawned.GetComponent<EnemyStandardMovement>();
                 enemyTypeTwoSpawnedMovementController.direction = direction;
                 enemyTypeTwoSpawnedMovementController.typeOfDirection = orientation;
                 break;
             case "Enemy3":
                 enemySpawned = Instantiate(enemyPrefab,RandomEmissionPointInEmitterLimits(this.emitterType),Quaternion.identity);
+                break;
+            case "Enemy4":
+                enemySpawned = Instantiate(enemyPrefab,RandomEmissionPointInEmitterLimits(this.emitterType),transform.rotation);
+                EnemyStandardMovement enemyTypeFourSpawnedMovementController = enemySpawned.GetComponent<EnemyStandardMovement>();
+                enemyTypeFourSpawnedMovementController.direction = direction;
+                enemyTypeFourSpawnedMovementController.typeOfDirection = orientation;
                 break;
         }
         

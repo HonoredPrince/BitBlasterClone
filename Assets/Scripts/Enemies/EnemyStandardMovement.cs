@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1Movement : MonoBehaviour
+public class EnemyStandardMovement : MonoBehaviour
 {
     Rigidbody2D enemy1RigidBody2D;
     [SerializeField]float movSpeed = 0f;

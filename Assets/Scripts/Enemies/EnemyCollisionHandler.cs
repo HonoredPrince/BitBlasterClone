@@ -95,6 +95,12 @@ public class EnemyCollisionHandler : MonoBehaviour
                 this.isDissolving = true;
                 DisableEnemyCollision();
                 break; 
+            case "Enemy4":
+                shipScoreController.AddScore(25);
+                shipScoreController.SpawnScorePopUpText(this.transform.position, 25);
+                this.isDissolving = true;
+                DisableEnemyCollision();
+                break; 
         }
     }
 

@@ -47,6 +47,10 @@ public class ShipCollisionController : MonoBehaviour
                 gameController.DestroyEnemyIfValid(collision.gameObject);
                 gameController.StartCoroutine("playerDamage");
                 break;
+            case "Enemy4":
+                gameController.DestroyEnemyIfValid(collision.gameObject);
+                gameController.StartCoroutine("playerDamage");
+                break;
         }
     }
 
