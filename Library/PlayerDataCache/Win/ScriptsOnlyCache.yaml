@@ -19,6 +19,7 @@ ScriptsOnlyBuild:
     - MainMenuManager
     - PauseMenuManager
     - PowerUpsController
+    - PurpleBomb
     - ScoreController
     - ScorePopUpText
     - ShipAttack
@@ -233,6 +234,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12114}
     - Class: 114
       Script: {instanceID: 12310}
+    - Class: 114
+      Script: {instanceID: 12386}
     - Class: 114
       Script: {instanceID: 12428}
     - Class: 114
@@ -949,7 +952,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerToggle
   - hash:
       serializedVersion: 2
-      Hash: d98a970e40a3ab0392cc0c677ea2e76e
+      Hash: befaf8cfb39991592e8d2f22b522315a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ShipAttack

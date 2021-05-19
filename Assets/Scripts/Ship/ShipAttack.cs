@@ -133,6 +133,7 @@ public class ShipAttack : MonoBehaviour
 
     public void ResetFiringSystem(){
         //fireAllowed = true;
+        this.fireRate = 0.4f;
         this.typeOfFiringSystem = "defaultBullet";
         shipHasSpecialBullet = false;
         hudController.DeactivateWeaponTypeBar();
