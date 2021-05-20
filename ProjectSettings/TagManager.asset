@@ -30,6 +30,7 @@ TagManager:
   - PurpleBomb
   - PurpleBombPowerUp
   - Enemy4
+  - Enemy4Bullet
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,9 @@ public class EnemyGarbageCollectorTrigger : MonoBehaviour
             case "Enemy1_Splitted":
                 Destroy(collision.gameObject);
                 break;
+            case "Enemy4":
+                Destroy(collision.gameObject);
+                break;
         }
     }
 }

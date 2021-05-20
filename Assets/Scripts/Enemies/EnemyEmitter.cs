@@ -27,16 +27,16 @@ public class EnemyEmitter : MonoBehaviour
         InvokeRepeating("TestSpawn", 1f, 3f);
     }
 
-    //For DEBUG only
+    //For DEBUG only, have to balance the game, now it's hard coded
     void TestSpawn(){
         float chance = Random.Range(0, 100);
-        if(chance <= 20){
-            SpawnEnemy(this.enemyPrefab[ENEMY3], this.emissionOrientationType, this.directionOfEmission);
-        }else if(chance > 20 && chance <= 35){  
+        if(chance <= 3){
             SpawnEnemy(this.enemyPrefab[ENEMY4], this.emissionOrientationType, this.directionOfEmission);
-        }else if(chance > 35 && chance <= 50){  
+        }else if(chance > 3 && chance <= 20){  
+            SpawnEnemy(this.enemyPrefab[ENEMY3], this.emissionOrientationType, this.directionOfEmission);
+        }else if(chance > 20 && chance <= 40){  
             SpawnEnemy(this.enemyPrefab[ENEMY1], this.emissionOrientationType, this.directionOfEmission);
-        }else if(chance > 50 && chance <= 100){
+        }else if(chance > 40 && chance <= 100){
             SpawnEnemy(this.enemyPrefab[ENEMY2], this.emissionOrientationType, this.directionOfEmission);
         }
     }

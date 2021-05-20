@@ -9,6 +9,9 @@ public class BulletGarbageCollectorTrigger : MonoBehaviour
             case "Bullet1":
                 Destroy(collision.gameObject.transform.parent.gameObject);
                 break;
+            case "Enemy4Bullet":
+                Destroy(collision.gameObject.gameObject);
+                break;
             // case "Ammunition":
             //     Destroy(collision.gameObject);
             //     break;

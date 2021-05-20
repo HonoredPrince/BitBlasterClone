@@ -20,6 +20,7 @@ public class SoundController : MonoBehaviour
     [SerializeField] AudioClip[] shipFiring = null;
     [SerializeField] AudioClip purpleBombFiring = null,
                                purpleBombHit = null;
+    [SerializeField] AudioClip enemy4BulletFire = null;
     [SerializeField] AudioClip  nukeDeploy = null, 
                                 shipBoost = null,
                                 shipBoostRecharge = null,
@@ -109,6 +110,9 @@ public class SoundController : MonoBehaviour
                 break;
             case "purpleBombHit":
                 SFXAudioSource.PlayOneShot(purpleBombHit);
+                break;
+            case "enemy4BulletFire":
+                SFXAudioSource.PlayOneShot(enemy4BulletFire);
                 break;
             default:
                 //Only for tests purposes
