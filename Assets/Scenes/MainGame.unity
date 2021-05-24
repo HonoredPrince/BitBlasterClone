@@ -1289,11 +1289,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eddac1fcfe71944d86fcbca0a5181e9, type: 3}
---- !u!82 &101894729 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 172265030, guid: 97fbd411f636b3a49b68148f83999cbb, type: 3}
-  m_PrefabInstance: {fileID: 5047457158195736581}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &117012337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7508,10 +7503,6 @@ MonoBehaviour:
   audioMixerOST: {fileID: 24100000, guid: 72e098d5d36a40f44a087f7d240bac12, type: 2}
   musicAudioSource: {fileID: 828850022}
   SFXAudioSource: {fileID: 828850021}
-  SFXAudioSourceGroup:
-  - {fileID: 828850021}
-  - {fileID: 2029153885}
-  - {fileID: 101894729}
   musicOST: {fileID: 8300000, guid: 00a6ab854ec1f33409df10efdf8c63f2, type: 3}
   shipFiring:
   - {fileID: 8300000, guid: 63213392ab88f414da0dac66a82c2a9f, type: 3}
@@ -13388,6 +13379,10 @@ MonoBehaviour:
   musicAudioMixer: {fileID: 24100000, guid: 72e098d5d36a40f44a087f7d240bac12, type: 2}
   sfxAudioMixer: {fileID: 24100000, guid: 7677b5228e11fb74283268bf66489f2f, type: 2}
   resolutionDropdown: {fileID: 253834241}
+  fullScreenToogle: {fileID: 2034154383}
+  graphicsQualityDropdown: {fileID: 1696522409}
+  musicVolumeSlider: {fileID: 1594607584}
+  sfxVolumeSlider: {fileID: 1786653164}
 --- !u!1 &1739025979
 GameObject:
   m_ObjectHideFlags: 0
@@ -15741,11 +15736,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ec045cc41cae54794cc0a3b08f29f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &2029153885 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3673397647751684103, guid: 97fbd411f636b3a49b68148f83999cbb, type: 3}
-  m_PrefabInstance: {fileID: 5047457158195736581}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2034154381
 GameObject:
   m_ObjectHideFlags: 0

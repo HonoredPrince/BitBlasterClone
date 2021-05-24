@@ -14,16 +14,44 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] Canvas optionsCanvas = null;
     
     Resolution[] resolutions;
+    
+    [Header("Resolution & FullScreen")]
     [SerializeField] TMP_Dropdown resolutionDropdown = null;
+    [SerializeField] Toggle fullScreenToogle = null;
+    
+    [Header("Graphics Quality")]
+    [SerializeField] TMP_Dropdown graphicsQualityDropdown = null;
+    
+    [Header("Volume Sliders")]
+    [SerializeField] Slider musicVolumeSlider = null;
+    [SerializeField] Slider sfxVolumeSlider = null;
     
     //Initial tests on the main title canvas system implementation
     void Awake(){
         mainCanvas.enabled = true;
         optionsCanvas.enabled = false;
 
-        SetMusicVolume(0f);
-        SetSFXVolume(0f);
+        LoadAllScreenResolutionsAvaliable();
+        LoadOptionsMenuPrefs();
+    }
 
+        
+    public void OpenOptionsMenu(){
+        LoadOptionsMenuPrefs();
+        mainCanvas.enabled = false;
+        optionsCanvas.enabled = true;
+    }
+
+    public void BackOptionButton(){
+        mainCanvas.enabled = true;
+        optionsCanvas.enabled = false;
+    }
+
+    public void QuitGame(){
+        Application.Quit();
+    }
+
+    void LoadAllScreenResolutionsAvaliable(){
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
@@ -37,56 +65,92 @@ public class MainMenuManager : MonoBehaviour
                 currentResolutionIndex = i;
             }
         }
+
         resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
     }
 
-    public void SetMusicVolume(float volume){
-        if(volume == -80f){
-            musicAudioMixer.SetFloat("volume", volume);
-        }else if(volume == 0f){
-            musicAudioMixer.SetFloat("volume", volume);
+    void LoadOptionsMenuPrefs(){
+        //Resolution Dropdown
+        resolutionDropdown.value = PlayerPrefs.GetInt("ResolutionIndex");
+        SetResolution(PlayerPrefs.GetInt("ResolutionIndex"));
+
+        //Fullscreen Toogle
+        if(PlayerPrefs.GetInt("FullscreenBoolean") == 1){
+            fullScreenToogle.isOn = true;
+            SetFullscreen(true);
         }else{
-            musicAudioMixer.SetFloat("volume", volume / 2f);
+            fullScreenToogle.isOn = false;
+            SetFullscreen(false);
+        } 
+
+        //Graphics Quality Dropdown
+        graphicsQualityDropdown.value = PlayerPrefs.GetInt("GraphicQualityIndex");
+        SetQuality(PlayerPrefs.GetInt("GraphicQualityIndex"));
+
+        //Volume Sliders
+        musicVolumeSlider.value = PlayerPrefs.GetFloat("OSTVolume");
+        SetMusicVolume(PlayerPrefs.GetFloat("OSTVolume"));
+        sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+        SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume"));
+    }
+
+
+    public void SetMusicVolume(float volume){
+        PlayerPrefs.SetFloat("OSTVolume", volume);
+        PlayerPrefs.Save();
+        float value = PlayerPrefs.GetFloat("OSTVolume");
+
+        if(value == -80f){
+            musicAudioMixer.SetFloat("volume", value);
+        }else if(value == 0f){
+            musicAudioMixer.SetFloat("volume", value);
+        }else{
+            musicAudioMixer.SetFloat("volume", value / 2f);
         }
+        
     }
 
     public void SetSFXVolume(float volume){
-        if(volume == -80f){
-            sfxAudioMixer.SetFloat("volume", volume);
-        }else if(volume == 0f){
-            sfxAudioMixer.SetFloat("volume", volume);
+        PlayerPrefs.SetFloat("SFXVolume", volume);
+        PlayerPrefs.Save();
+        float value = PlayerPrefs.GetFloat("SFXVolume");
+
+        if(value == -80f){
+            sfxAudioMixer.SetFloat("volume", value);
+        }else if(value == 0f){
+            sfxAudioMixer.SetFloat("volume", value);
         }else{
-            sfxAudioMixer.SetFloat("volume", volume / 2f);
+            sfxAudioMixer.SetFloat("volume", value / 2f);
         }
     }
 
     public void SetQuality(int qualityIndex){
-        QualitySettings.SetQualityLevel(qualityIndex);
+        PlayerPrefs.SetInt("GraphicQualityIndex", qualityIndex);
+        PlayerPrefs.Save();
+
+        QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("GraphicQualityIndex"));
         //Debug.Log(qualityIndex);
     }
 
     public void SetFullscreen(bool isFullscreen){
-        Screen.fullScreen = isFullscreen;
+        PlayerPrefs.SetInt("FullscreenBoolean", isFullscreen ? 1 : 0);
+        PlayerPrefs.Save();
+
+        if(PlayerPrefs.GetInt("FullscreenBoolean") == 1){
+            Screen.fullScreen = true;
+        }else{
+            Screen.fullScreen = false;
+        }
     }
 
     public void SetResolution(int resolutionIndex){
-        Resolution resolution = resolutions[resolutionIndex];
+        PlayerPrefs.SetInt("ResolutionIndex", resolutionIndex);
+        PlayerPrefs.Save();
+
+        Resolution resolution = resolutions[PlayerPrefs.GetInt("ResolutionIndex")];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
-    
-    public void OpenOptionsMenu(){
-        mainCanvas.enabled = false;
-        optionsCanvas.enabled = true;
-    }
 
-    public void BackOptionButton(){
-        mainCanvas.enabled = true;
-        optionsCanvas.enabled = false;
-    }
 
-    public void QuitGame(){
-        Application.Quit();
-    }
 }

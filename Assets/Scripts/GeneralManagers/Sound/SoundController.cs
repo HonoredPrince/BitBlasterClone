@@ -8,9 +8,6 @@ public class SoundController : MonoBehaviour
     [SerializeField] AudioMixer audioMixerSFX = null, audioMixerOST = null; 
     [SerializeField] AudioSource musicAudioSource = null, SFXAudioSource = null;
     
-    [SerializeField] AudioSource[] SFXAudioSourceGroup = null;
-    
-
     float musicAudioMixerVolume; //TODO: Get this value from options panel volume slider;
 
     float sfxAudioMixerVolume; //TODO: Get this value from options panel volume slider;

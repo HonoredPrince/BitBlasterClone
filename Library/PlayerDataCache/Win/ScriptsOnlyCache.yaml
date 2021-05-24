@@ -378,6 +378,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
@@ -785,7 +789,7 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 0f2342170a3ebfb53c1fda81816c7000
+      Hash: 2a8acc88ea965a15481656c825e81ea2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PauseMenuManager
@@ -995,7 +999,7 @@ ScriptsOnlyBuild:
     className: FilmGrain
   - hash:
       serializedVersion: 2
-      Hash: 1bd1c2e38805106ae8f4c7eb15fcc5a1
+      Hash: ba1569696a2e709931d9fb84b7045dab
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SoundController
@@ -1163,7 +1167,7 @@ ScriptsOnlyBuild:
     className: TMP_ExampleScript_01
   - hash:
       serializedVersion: 2
-      Hash: 03b2c342fc25e892783ac8b1bdc0bd37
+      Hash: 1cf7e08d90c49023ae32ece327ae4635
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainMenuManager
