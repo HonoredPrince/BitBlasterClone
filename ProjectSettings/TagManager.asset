@@ -31,6 +31,7 @@ TagManager:
   - PurpleBombPowerUp
   - Enemy4
   - Enemy4Bullet
+  - OptionsPanel
   layers:
   - Default
   - TransparentFX
@@ -71,12 +72,12 @@ TagManager:
   - name: Ship Thrusts Fire
     uniqueID: 2234876837
     locked: 0
-  - name: UI
-    uniqueID: 965121513
-    locked: 0
   - name: Ship Weapon
     uniqueID: 1070916229
     locked: 0
   - name: PurpleBomb
     uniqueID: 2876121397
+    locked: 0
+  - name: UI
+    uniqueID: 965121513
     locked: 0

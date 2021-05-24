@@ -26,6 +26,7 @@ ScriptsOnlyBuild:
     - ScorePopUpText
     - ShipAttack
     - ShipCollisionController
+    - ShipHealthManager
     - ShipMovement
     - SoundController
     - StarryBackgroundHandler
@@ -89,10 +90,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -166,9 +165,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15934}
     - Class: 114
-      Script: {instanceID: 16962}
+      Script: {instanceID: 16964}
     - Class: 114
-      Script: {instanceID: 17060}
+      Script: {instanceID: 17062}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -229,15 +228,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
+      Script: {instanceID: 11864}
+    - Class: 114
       Script: {instanceID: 11866}
     - Class: 114
       Script: {instanceID: 11870}
     - Class: 114
       Script: {instanceID: 11872}
     - Class: 114
+      Script: {instanceID: 11874}
+    - Class: 114
       Script: {instanceID: 11978}
     - Class: 114
       Script: {instanceID: 11990}
+    - Class: 114
+      Script: {instanceID: 12014}
     - Class: 114
       Script: {instanceID: 12116}
     - Class: 114
@@ -259,6 +264,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13192}
     - Class: 114
+      Script: {instanceID: 13252}
+    - Class: 114
       Script: {instanceID: 13318}
     - Class: 114
       Script: {instanceID: 13526}
@@ -266,6 +273,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13726}
     - Class: 114
       Script: {instanceID: 13848}
+    - Class: 114
+      Script: {instanceID: 14132}
     - Class: 114
       Script: {instanceID: 14332}
     - Class: 114
@@ -291,6 +300,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15588}
     - Class: 114
+      Script: {instanceID: 15758}
+    - Class: 114
       Script: {instanceID: 15850}
     - Class: 114
       Script: {instanceID: 15894}
@@ -303,19 +314,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16294}
     - Class: 114
-      Script: {instanceID: 16542}
+      Script: {instanceID: 16508}
     - Class: 114
-      Script: {instanceID: 16576}
+      Script: {instanceID: 16544}
     - Class: 114
-      Script: {instanceID: 16688}
+      Script: {instanceID: 16578}
     - Class: 114
-      Script: {instanceID: 16804}
+      Script: {instanceID: 16690}
     - Class: 114
-      Script: {instanceID: 16960}
+      Script: {instanceID: 16806}
     - Class: 114
       Script: {instanceID: 16962}
     - Class: 114
-      Script: {instanceID: 17060}
+      Script: {instanceID: 16964}
+    - Class: 114
+      Script: {instanceID: 17032}
+    - Class: 114
+      Script: {instanceID: 17062}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -458,29 +473,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16410}
     - Class: 114
-      Script: {instanceID: 16576}
+      Script: {instanceID: 16578}
     - Class: 114
-      Script: {instanceID: 16592}
+      Script: {instanceID: 16594}
     - Class: 114
-      Script: {instanceID: 16648}
+      Script: {instanceID: 16650}
     - Class: 114
-      Script: {instanceID: 16700}
+      Script: {instanceID: 16702}
     - Class: 114
-      Script: {instanceID: 16910}
+      Script: {instanceID: 16912}
     - Class: 114
-      Script: {instanceID: 16914}
+      Script: {instanceID: 16916}
     - Class: 114
-      Script: {instanceID: 16962}
+      Script: {instanceID: 16964}
     - Class: 114
-      Script: {instanceID: 16990}
+      Script: {instanceID: 16992}
     - Class: 114
-      Script: {instanceID: 17030}
+      Script: {instanceID: 17032}
     - Class: 114
-      Script: {instanceID: 17060}
+      Script: {instanceID: 17062}
     - Class: 114
-      Script: {instanceID: 17150}
+      Script: {instanceID: 17152}
     - Class: 114
-      Script: {instanceID: 17158}
+      Script: {instanceID: 17160}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -770,7 +785,7 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 1e7e04419b9ed57e41655273ff01b414
+      Hash: 0f2342170a3ebfb53c1fda81816c7000
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PauseMenuManager
@@ -782,7 +797,7 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
-      Hash: e0445ca2046cba2a5864eaf0fe1118c8
+      Hash: 8a2ca573130270acde0ea4d1c1483e29
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController
@@ -1550,6 +1565,12 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
+      Hash: 94abe9896df12fec98763e0633cbbf96
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShipHealthManager
+  - hash:
+      serializedVersion: 2
       Hash: e80c1450883443c68d6c2dade213536f
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
@@ -1781,4 +1802,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/StartMenu.unity
   - Assets/Scenes/MainGame.unity
   - Assets/Scenes/GameOverScene.unity
-  playerPath: C:/Users/Matheus/Desktop/Zurlog Builds/Zurlog Battle.exe
+  playerPath: C:/Users/Matheus/Desktop/Zurlog/Zurlog Battle.exe

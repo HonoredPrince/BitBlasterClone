@@ -68,7 +68,7 @@ public class ShipAttack : MonoBehaviour
             FireBullet();
         }   
 
-        if(Input.GetMouseButtonDown(1) && amountOfNukes > 0 && canDeployNuke){
+        if(Input.GetMouseButtonDown(1) && amountOfNukes > 0 && canDeployNuke && PauseMenuManager.gameIsPaused == false){
             StartCoroutine(DeployNuke());
         }
 

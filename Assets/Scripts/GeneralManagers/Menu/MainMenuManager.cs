@@ -43,11 +43,23 @@ public class MainMenuManager : MonoBehaviour
     }
 
     public void SetMusicVolume(float volume){
-        musicAudioMixer.SetFloat("volume", volume);
+        if(volume == -80f){
+            musicAudioMixer.SetFloat("volume", volume);
+        }else if(volume == 0f){
+            musicAudioMixer.SetFloat("volume", volume);
+        }else{
+            musicAudioMixer.SetFloat("volume", volume / 2f);
+        }
     }
 
     public void SetSFXVolume(float volume){
-        sfxAudioMixer.SetFloat("volume", volume);
+        if(volume == -80f){
+            sfxAudioMixer.SetFloat("volume", volume);
+        }else if(volume == 0f){
+            sfxAudioMixer.SetFloat("volume", volume);
+        }else{
+            sfxAudioMixer.SetFloat("volume", volume / 2f);
+        }
     }
 
     public void SetQuality(int qualityIndex){

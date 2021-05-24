@@ -42,8 +42,8 @@ public class SoundController : MonoBehaviour
 
     void Update(){
         //TODO: Handle volume or play state adjustments when game is paused
-        UdpateAudioSourceGroupsVolumes();
-        ManageAudioSourceGroupsState(SFXAudioSourceGroup, PauseMenuManager.gameIsPaused, "SFX");
+        //UdpateAudioSourceGroupsVolumes();
+        //ManageAudioSourceGroupsState(SFXAudioSourceGroup, PauseMenuManager.gameIsPaused, "SFX");
     }
     
     public void playMusic(){
