@@ -4040,6 +4040,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1086710551 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 654089240493745211, guid: 80445b13574f2314496b675b3fa997cc, type: 3}
+  m_PrefabInstance: {fileID: 1854386821}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1097431097
 GameObject:
   m_ObjectHideFlags: 0
@@ -7059,6 +7064,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2271360893334867661, guid: 80445b13574f2314496b675b3fa997cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5238336804052153127, guid: 80445b13574f2314496b675b3fa997cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5238336804095628668, guid: 80445b13574f2314496b675b3fa997cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7107,6 +7120,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 6849631434952835050, guid: 80445b13574f2314496b675b3fa997cc, type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 1086710551}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80445b13574f2314496b675b3fa997cc, type: 3}
 --- !u!114 &1854386822 stripped

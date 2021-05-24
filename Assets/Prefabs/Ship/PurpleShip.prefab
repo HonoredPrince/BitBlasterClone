@@ -845,11 +845,12 @@ GameObject:
   - component: {fileID: 5047457157833378532}
   - component: {fileID: 5047457157833378533}
   - component: {fileID: 5047457157833378522}
+  - component: {fileID: 2890015559195449014}
+  - component: {fileID: 3673397647751684103}
   - component: {fileID: 5047457157833378534}
   - component: {fileID: 5047457157833378529}
   - component: {fileID: 5047457157833378528}
-  - component: {fileID: 2890015559195449014}
-  - component: {fileID: 3673397647751684103}
+  - component: {fileID: 4456794381386558865}
   m_Layer: 0
   m_Name: PurpleShip
   m_TagString: Ship
@@ -949,60 +950,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &5047457157833378534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5047457157833378523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c6a122ab6b69044baa3dd72e307ca65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
-  engineThrustAnimatorObject: {fileID: 485267805}
-  leftBorder: {fileID: 0}
-  rightBorder: {fileID: 0}
-  topBorder: {fileID: 0}
-  bottomBorder: {fileID: 0}
-  hudController: {fileID: 0}
---- !u!114 &5047457157833378529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5047457157833378523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65652c75237ace846bb9aab71dedbc65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nukeWhiteScreen: {fileID: 0}
-  bulletWeapons:
-  - {fileID: 7356341123292201768, guid: f7d5aa83375b05743b39dd498fbcadb7, type: 3}
-  - {fileID: 1705322192024265304, guid: a9904b0345cd1a64089d41a37f2d7ebc, type: 3}
-  shootingPoints:
-  - {fileID: 5047457156811958335}
-  - {fileID: 2890015558537374022}
-  - {fileID: 2890015559546166529}
-  shipBerserker: {fileID: 2890015558700297716}
-  shipLaser: {fileID: 5043434744138947399}
-  shipHasSpecialBullet: 0
---- !u!114 &5047457157833378528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5047457157833378523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 966fb56ca3a93dc4fb0fccd4837550e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &2890015559195449014
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1138,6 +1085,75 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5047457157833378534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5047457157833378523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6a122ab6b69044baa3dd72e307ca65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  engineThrustAnimatorObject: {fileID: 485267805}
+  leftBorder: {fileID: 0}
+  rightBorder: {fileID: 0}
+  topBorder: {fileID: 0}
+  bottomBorder: {fileID: 0}
+  hudController: {fileID: 0}
+--- !u!114 &5047457157833378529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5047457157833378523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65652c75237ace846bb9aab71dedbc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nukeWhiteScreen: {fileID: 0}
+  bulletWeapons:
+  - {fileID: 7356341123292201768, guid: f7d5aa83375b05743b39dd498fbcadb7, type: 3}
+  - {fileID: 1705322192024265304, guid: a9904b0345cd1a64089d41a37f2d7ebc, type: 3}
+  shootingPoints:
+  - {fileID: 5047457156811958335}
+  - {fileID: 2890015558537374022}
+  - {fileID: 2890015559546166529}
+  shipBerserker: {fileID: 2890015558700297716}
+  shipLaser: {fileID: 5043434744138947399}
+  shipHasSpecialBullet: 0
+--- !u!114 &5047457157833378528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5047457157833378523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 966fb56ca3a93dc4fb0fccd4837550e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4456794381386558865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5047457157833378523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5ddbed392e9b54fa0a558e30fe9fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudController: {fileID: 0}
+  shipDeathObjects:
+  - {fileID: 4496356291651963069, guid: 7169ada683f2ed34eb44dc139f6e68bb, type: 3}
 --- !u!1 &8803835454755796761
 GameObject:
   m_ObjectHideFlags: 0

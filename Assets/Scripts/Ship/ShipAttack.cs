@@ -7,7 +7,6 @@ using UnityEngine;
 public class ShipAttack : MonoBehaviour
 {
     [SerializeField] GameObject nukeWhiteScreen = null;
-
     [SerializeField] GameObject[] bulletWeapons = null;
     [SerializeField] Transform[] shootingPoints = null;
     [SerializeField] GameObject shipBerserker = null;
@@ -15,7 +14,7 @@ public class ShipAttack : MonoBehaviour
 
 
     HUDController hudController;
-    GameController gameController;
+    ShipHealthManager shipHealthManager;
     ScoreController scoreController;
     SoundController soundController;
 
@@ -36,7 +35,7 @@ public class ShipAttack : MonoBehaviour
     
 
     void Awake(){
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        shipHealthManager = GameObject.FindGameObjectWithTag("Ship").GetComponent<ShipHealthManager>();
         scoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
         hudController = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDController>();
         soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
@@ -145,7 +144,6 @@ public class ShipAttack : MonoBehaviour
         this.fireAllowed = status;
     }
 
-    //TODO: The Ship's attack firing system changing to the other 2 types of bullets: triple-fire e laser
     public IEnumerator ActivateTripleBulletFiringSystem(string typeOfFireSystem){
         //See the current solution on ShipCollisionPowerUp switch(case)...
         //Debug.Log(Time.time);
@@ -198,19 +196,19 @@ public class ShipAttack : MonoBehaviour
     public IEnumerator ActivateBerserkerMode(){
         //Debug.Log(Time.time);
         this.hasBerserkerMode = true;
-        this.gameController.SetPlayerInvencible(true);
+        this.shipHealthManager.SetPlayerInvencible(true);
         this.shipBerserker.SetActive(true);
 
         yield return new WaitForSeconds(this.weaponsDelayTime);
         //Debug.Log(Time.time);
         
         this.hasBerserkerMode = false;
-        this.gameController.SetPlayerInvencible(false);
+        this.shipHealthManager.SetPlayerInvencible(false);
         this.shipBerserker.SetActive(false);
     }
 
     public void DeactivateBerserkerMode(){
-        this.gameController.SetPlayerInvencible(false);
+        this.shipHealthManager.SetPlayerInvencible(false);
         this.shipBerserker.SetActive(false);
     }
 

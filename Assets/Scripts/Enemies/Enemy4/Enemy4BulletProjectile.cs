@@ -10,8 +10,6 @@ public class Enemy4BulletProjectile : MonoBehaviour
     void Awake(){
         bulletRigidBody2D = GetComponentInChildren<Rigidbody2D>();
         moveSpeed = 4f;
-        //Only for initial tests, when garbage collector is not implemented
-        //Invoke("DestroyBullet", 6f);
     }
 
     void Update(){

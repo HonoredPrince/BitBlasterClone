@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Enemies\Enemy4\Enemy4BulletProjectile.cs" />
      <Compile Include="Assets\Scripts\Enemies\Enemy3\Enemy3Movement.cs" />
      <Compile Include="Assets\3RDParty\EZ Camera Shake\Demo\Sample Scripts\ShakeByDistance.cs" />
      <Compile Include="Assets\Scripts\ShipProjectiles\PurpleBomb.cs" />
@@ -58,6 +59,7 @@
      <Compile Include="Assets\3RDParty\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
      <Compile Include="Assets\3RDParty\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyCollisionHandler.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Enemy4\Enemy4CannonController.cs" />
      <Compile Include="Assets\3RDParty\EZ Camera Shake\Demo\Sample Scripts\ShakeOnTrigger.cs" />
      <Compile Include="Assets\Scripts\GeneralManagers\Game\ScoreController.cs" />
      <Compile Include="Assets\3RDParty\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
@@ -105,8 +107,7 @@
      <Compile Include="Assets\3RDParty\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
      <Compile Include="Assets\3RDParty\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
      <Compile Include="Assets\Scripts\Ammunition\AmmunitionMagnet.cs" />
-     <Compile Include="Assets\Scripts\Enemies\Enemy4\Enemy4CannonController.cs" />
-     <Compile Include="Assets\Scripts\Enemies\Enemy4\Enemy4BulletProjectile.cs" />
+     <Compile Include="Assets\Scripts\Ship\ShipHealthManager.cs" />
      <None Include="Assets\3RDParty\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\3RDParty\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\3RDParty\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

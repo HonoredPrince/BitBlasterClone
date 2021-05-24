@@ -2364,9 +2364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16dd0333c82308d4092759f4ceb84c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hudController: {fileID: 1990855997}
-  shipDeathObjects:
-  - {fileID: 4496356291651963069, guid: 7169ada683f2ed34eb44dc139f6e68bb, type: 3}
   leftBorder: {fileID: 1919131098}
   rightBorder: {fileID: 531960952}
   topBorder: {fileID: 1293022465}
@@ -11942,6 +11939,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4456794381386558865, guid: 97fbd411f636b3a49b68148f83999cbb, type: 3}
+      propertyPath: hudController
+      value: 
+      objectReference: {fileID: 1990855997}
     - target: {fileID: 5047457157833378523, guid: 97fbd411f636b3a49b68148f83999cbb, type: 3}
       propertyPath: m_Name
       value: PurpleShip
@@ -12027,6 +12028,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2271360893334867661, guid: 80445b13574f2314496b675b3fa997cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5238336804052153123, guid: 80445b13574f2314496b675b3fa997cc, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5238336804052153127, guid: 80445b13574f2314496b675b3fa997cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5238336804095628668, guid: 80445b13574f2314496b675b3fa997cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12075,8 +12088,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 6849631434952835050, guid: 80445b13574f2314496b675b3fa997cc, type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 5238336803942261246}
+    - target: {fileID: 8979501189919549369, guid: 80445b13574f2314496b675b3fa997cc, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80445b13574f2314496b675b3fa997cc, type: 3}
+--- !u!95 &5238336803942261246 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 654089240493745211, guid: 80445b13574f2314496b675b3fa997cc, type: 3}
+  m_PrefabInstance: {fileID: 5238336803942261245}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5499754432081401709
 PrefabInstance:
   m_ObjectHideFlags: 0

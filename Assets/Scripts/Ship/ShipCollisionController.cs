@@ -6,6 +6,7 @@ public class ShipCollisionController : MonoBehaviour
 {
     HUDController hudController;
     ShipAttack shipAttackController;
+    ShipHealthManager shipHealthManager;
     GameController gameController;
     ScoreController scoreController;
     SoundController soundController;
@@ -14,6 +15,7 @@ public class ShipCollisionController : MonoBehaviour
 
     void Awake(){
         shipAttackController = GetComponent<ShipAttack>();
+        shipHealthManager = GetComponent<ShipHealthManager>();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         scoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
         hudController = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDController>();
@@ -32,28 +34,28 @@ public class ShipCollisionController : MonoBehaviour
     void EnemyCollisionDetection(Collider2D collision){
         switch(collision.gameObject.tag){
             case "Enemy1":
-                gameController.DestroyEnemyIfValid(collision.gameObject);
-                gameController.StartCoroutine("playerDamage");
+                shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
+                shipHealthManager.StartCoroutine("playerDamage");
                 break;
             case "Enemy1_Splitted":
-                gameController.DestroyEnemyIfValid(collision.gameObject);
-                gameController.StartCoroutine("playerDamage");
+                shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
+                shipHealthManager.StartCoroutine("playerDamage");
                 break;
             case "Enemy2":
-                gameController.DestroyEnemyIfValid(collision.gameObject);
-                gameController.StartCoroutine("playerDamage");
+                shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
+                shipHealthManager.StartCoroutine("playerDamage");
                 break;
             case "Enemy3":
-                gameController.DestroyEnemyIfValid(collision.gameObject);
-                gameController.StartCoroutine("playerDamage");
+                shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
+                shipHealthManager.StartCoroutine("playerDamage");
                 break;
             case "Enemy4":
-                gameController.DestroyEnemyIfValid(collision.gameObject);
-                gameController.StartCoroutine("playerDamage");
+                shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
+                shipHealthManager.StartCoroutine("playerDamage");
                 break;
             case "Enemy4Bullet":
-                gameController.DestroyEnemyIfValid(collision.gameObject);
-                gameController.StartCoroutine("playerDamage");
+                shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
+                shipHealthManager.StartCoroutine("playerDamage");
                 break;
         }
     }
@@ -66,11 +68,11 @@ public class ShipCollisionController : MonoBehaviour
                 Destroy(collision.gameObject.transform.parent.gameObject);
                 break;
             case "ShieldPowerUp":
-                if(gameController.GetShipShield() == 5){
+                if(shipHealthManager.GetShipShield() == 5){
                     scoreController.AddScore(50);
                 }
-                gameController.AddShield(1);
-                hudController.UpdateShieldHUD(gameController.GetShipShield());
+                shipHealthManager.AddShield(1);
+                hudController.UpdateShieldHUD(shipHealthManager.GetShipShield());
                 soundController.playSFX("shieldPowerUpPickup");
                 Destroy(collision.gameObject);
                 break;
