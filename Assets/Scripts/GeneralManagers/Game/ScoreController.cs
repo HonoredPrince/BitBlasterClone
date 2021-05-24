@@ -5,10 +5,18 @@ using TMPro;
 
 public class ScoreController : MonoBehaviour
 {
+    int highScore;
     int playerScore;
     [SerializeField] GameObject scoreTextPopUpObject = null;
     void Awake(){
         playerScore = 0;
+        highScore = PlayerPrefs.GetInt("PlayerHighScore");
+    }
+
+    void Update(){
+        if(this.playerScore >= highScore){
+            UpdateHighScore(this.playerScore);
+        }
     }
 
     public int GetPlayerScore(){
@@ -17,6 +25,10 @@ public class ScoreController : MonoBehaviour
 
     public void AddScore(int amount){
         this.playerScore += amount;
+    }
+
+    void UpdateHighScore(int amount){
+        PlayerPrefs.SetInt("PlayerHighScore", amount);
     }
 
     public void SpawnScorePopUpText(Vector3 enemyPosition, int amount){
