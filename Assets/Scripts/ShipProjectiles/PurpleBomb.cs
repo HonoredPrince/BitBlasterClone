@@ -11,6 +11,8 @@ public class PurpleBomb : MonoBehaviour
     float moveSpeed;
     [SerializeField]GameObject explosionCompoundCollider = null;
     SoundController soundController;
+
+    bool hasExploded = false;
     
     void Awake(){
         soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
@@ -18,6 +20,7 @@ public class PurpleBomb : MonoBehaviour
         this.canMove = true;
         moveSpeed = 15f;
         purpleBombAnimator = GetComponent<Animator>();    
+        Invoke("BombTimer", 0.75f);
     }
 
     void Update(){
@@ -32,19 +35,26 @@ public class PurpleBomb : MonoBehaviour
         bulletRigidBody2D.velocity = transform.right * moveSpeed;
     }
 
+    void BombTimer(){
+        StartCoroutine(PurpleBombExplosion());
+    }
+
     public void DestroyBullet(){
         Destroy(transform.parent.gameObject);
     }
-
+    
     IEnumerator PurpleBombExplosion(){
-        this.canMove = false;
-        soundController.playSFX("purpleBombHit");
-        purpleBombAnimator.SetTrigger("bulletExplosion");
-        this.explosionCompoundCollider.SetActive(true);
-        yield return new WaitForSeconds(0.1f);
-        this.explosionCompoundCollider.SetActive(false);
-        yield return new WaitForSeconds(2.0f);
-        DestroyBullet();
+        if(!this.hasExploded){
+            this.hasExploded = true;
+            this.canMove = false;
+            soundController.playSFX("purpleBombHit");
+            purpleBombAnimator.SetTrigger("bulletExplosion");
+            this.explosionCompoundCollider.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            this.explosionCompoundCollider.SetActive(false);
+            yield return new WaitForSeconds(2.0f);
+            DestroyBullet();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision){

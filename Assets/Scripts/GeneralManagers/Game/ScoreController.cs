@@ -16,6 +16,8 @@ public class ScoreController : MonoBehaviour
     void Update(){
         if(this.playerScore >= highScore){
             UpdateHighScore(this.playerScore);
+        }else{
+            UpdateScore(this.playerScore);
         }
     }
 
@@ -29,6 +31,10 @@ public class ScoreController : MonoBehaviour
 
     void UpdateHighScore(int amount){
         PlayerPrefs.SetInt("PlayerHighScore", amount);
+    }
+
+    void UpdateScore(int amount){
+        PlayerPrefs.SetInt("PlayerScore", amount);
     }
 
     public void SpawnScorePopUpText(Vector3 enemyPosition, int amount){

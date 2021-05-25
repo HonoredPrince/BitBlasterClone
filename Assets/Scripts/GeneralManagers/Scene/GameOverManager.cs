@@ -6,7 +6,8 @@ using TMPro;
 public class GameOverManager : MonoBehaviour
 {
     [SerializeField] GameObject newHighScoreTextObject = null, currentHighScoreTextObject = null;
-    [SerializeField] TMP_Text personalBestTxt = null, currentHighScoreTxt = null;
+    [SerializeField] TMP_Text personalBestTxt = null, currentHighScoreTxt = null, currentScore = null;
+
     void Awake(){
         CheckHighScore();
     } 
@@ -31,7 +32,7 @@ public class GameOverManager : MonoBehaviour
     void ShowCurrentHighScore(){
         newHighScoreTextObject.SetActive(false);
         currentHighScoreTextObject.SetActive(true);
-
-        currentHighScoreTxt.text = PlayerPrefs.GetInt("PlayerCurrentHighScore").ToString();
+        currentScore.text = "Score: " + PlayerPrefs.GetInt("PlayerScore").ToString();
+        currentHighScoreTxt.text = "Personal Best: " + PlayerPrefs.GetInt("PlayerCurrentHighScore").ToString();
     }
 }

@@ -44,7 +44,8 @@ public class SoundController : MonoBehaviour
     }
     
     public void playMusic(){
-        musicAudioSource.PlayOneShot(musicOST);
+        musicAudioSource.clip = musicOST;
+        musicAudioSource.Play();
     }
 
     public void playSFX(string sfxName){
