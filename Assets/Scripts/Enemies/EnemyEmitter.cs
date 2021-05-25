@@ -9,6 +9,7 @@ public class EnemyEmitter : MonoBehaviour
     const int ENEMY2 = 1;
     const int ENEMY3 = 2;
     const int ENEMY4 = 3;
+    const int ENEMY5 = 4;
 
     [Header("Enemy Selection")] 
     [SerializeField]GameObject[] enemyPrefab = null;
@@ -30,7 +31,9 @@ public class EnemyEmitter : MonoBehaviour
     //For DEBUG only, have to balance the game, now it's hard coded
     void TestSpawn(){
         float chance = Random.Range(0, 100);
-        if(chance <= 3){
+        if(chance <= 1){
+            SpawnEnemy(this.enemyPrefab[ENEMY5], this.emissionOrientationType, this.directionOfEmission);
+        }else if(chance > 1 && chance <= 3){
             SpawnEnemy(this.enemyPrefab[ENEMY4], this.emissionOrientationType, this.directionOfEmission);
         }else if(chance > 3 && chance <= 20){  
             SpawnEnemy(this.enemyPrefab[ENEMY3], this.emissionOrientationType, this.directionOfEmission);
@@ -82,6 +85,9 @@ public class EnemyEmitter : MonoBehaviour
                 EnemyStandardMovement enemyTypeFourSpawnedMovementController = enemySpawned.GetComponent<EnemyStandardMovement>();
                 enemyTypeFourSpawnedMovementController.direction = direction;
                 enemyTypeFourSpawnedMovementController.typeOfDirection = orientation;
+                break;
+            case "Enemy5":
+                enemySpawned = Instantiate(enemyPrefab,RandomEmissionPointInEmitterLimits(this.emitterType),transform.rotation);
                 break;
         }
         

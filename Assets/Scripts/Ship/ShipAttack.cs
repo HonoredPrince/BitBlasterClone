@@ -17,6 +17,7 @@ public class ShipAttack : MonoBehaviour
     ShipHealthManager shipHealthManager;
     ScoreController scoreController;
     SoundController soundController;
+    PolygonCollider2D shipCollider;
 
     [HideInInspector] public bool shipHasSpecialBullet;
     int shipAmmo;
@@ -39,7 +40,7 @@ public class ShipAttack : MonoBehaviour
         scoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
         hudController = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDController>();
         soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
-
+        shipCollider = GetComponent<PolygonCollider2D>();
         shipAmmo = 100;
         amountOfNukes = 3;
         
@@ -63,6 +64,13 @@ public class ShipAttack : MonoBehaviour
     {
         //Debug.Log(this.typeOfFiringSystem);
         //Debug.Log(this.hasLaserMode);
+
+        //See if this doesn't break some minor interactions with berserker
+        if(hasBerserkerMode){
+            shipCollider.enabled = false;
+        }else{
+            shipCollider.enabled = true;
+        }
         
         if(Input.GetMouseButton(0)){
             FireBullet();
@@ -242,12 +250,14 @@ public class ShipAttack : MonoBehaviour
         GameObject[] allEnemiesType2 = GameObject.FindGameObjectsWithTag("Enemy2");
         GameObject[] allEnemiesType3 = GameObject.FindGameObjectsWithTag("Enemy3");
         GameObject[] allEnemiesType4 = GameObject.FindGameObjectsWithTag("Enemy4");
+        GameObject[] allEnemiesType5 = GameObject.FindGameObjectsWithTag("Enemy5");
 
         NukeDamageOnEnemies(allEnemiesType1, "Enemy1");
         NukeDamageOnEnemies(allEnemiesType1Splitted, "Enemy1_Splitted");
         NukeDamageOnEnemies(allEnemiesType2, "Enemy2");
         NukeDamageOnEnemies(allEnemiesType3, "Enemy3");
         NukeDamageOnEnemies(allEnemiesType4, "Enemy4");
+        NukeDamageOnEnemies(allEnemiesType5, "Enemy5");
     }
 
     void NukeDamageOnEnemies(GameObject[] allEnemiesFromOneType, string typeToAddScore){
@@ -279,6 +289,11 @@ public class ShipAttack : MonoBehaviour
                     case "Enemy4":
                         scoreController.AddScore(25);
                         scoreController.SpawnScorePopUpText(enemie.transform.position, 25);
+                        enemyCollisionHandler.DropItem();
+                        break;
+                    case "Enemy5":
+                        scoreController.AddScore(70);
+                        scoreController.SpawnScorePopUpText(enemie.transform.position, 70);
                         enemyCollisionHandler.DropItem();
                         break;
                 }

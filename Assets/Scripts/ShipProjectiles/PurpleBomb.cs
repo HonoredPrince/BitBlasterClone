@@ -74,6 +74,9 @@ public class PurpleBomb : MonoBehaviour
             case "Enemy4":
                 StartCoroutine(PurpleBombExplosion());
                 break;
+            case "Enemy5":
+                StartCoroutine(PurpleBombExplosion());
+                break;
             case "BordersPoints":
                 StartCoroutine(PurpleBombExplosion());
                 break;

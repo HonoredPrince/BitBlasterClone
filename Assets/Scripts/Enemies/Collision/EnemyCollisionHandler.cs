@@ -34,31 +34,14 @@ public class EnemyCollisionHandler : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision){
-        switch(collision.gameObject.tag){
-            case "Bullet1":
-                soundController.playSFX("enemyBulletHit");
-                SetDissolveColor(new Vector4(4, 190, 191, 0));
-                DestroyEnemy(this.gameObject.tag, collision);          
-                break;
-            case "PurpleBombExplosionRadius":
-                //soundController.playSFX("enemyBulletHit");
-                SetDissolveColor(new Vector4(98, 26, 142, 255));
-                DestroyEnemy(this.gameObject.tag, collision);          
-                break;
-            case "ShipBerserker":
-                //See the problem with berserker not working with dissolve shader
-                soundController.playSFX("enemyBulletHit");
-                DestroyEnemy(this.gameObject.tag, collision); 
-                DropItem();         
-                break;
-            case "Laser":
-                soundController.playSFX("enemyLaserHit");
-                SetDissolveColor(new Vector4(254, 95, 75, 0));
-                DestroyEnemy(this.gameObject.tag, collision);          
-                break;
+        if(this.gameObject.tag == "Enemy5"){
+            Enemy5TypeCollision(collision);
+        }else{
+            OneHitCollision(collision);
         }
     }
 
+    //Maybe it's better OnEnter?
     void OnTriggerExit2D(Collider2D collision){
         switch(collision.gameObject.tag){
             case "BordersPoints":
@@ -101,6 +84,12 @@ public class EnemyCollisionHandler : MonoBehaviour
                 this.isDissolving = true;
                 DisableEnemyCollision();
                 break; 
+            case "Enemy5":
+                shipScoreController.AddScore(70);
+                shipScoreController.SpawnScorePopUpText(this.transform.position, 70);
+                this.isDissolving = true;
+                DisableEnemyCollision();
+                break;
         }
     }
 
@@ -177,6 +166,74 @@ public class EnemyCollisionHandler : MonoBehaviour
             case "Enemy4":
                 enemyCollider = GetComponent<CapsuleCollider2D>();
                 enemyCollider.enabled = false;
+                break;
+            case "Enemy5":
+                enemyCollider = GetComponent<CircleCollider2D>();
+                enemyCollider.enabled = false;
+                break;
+        }
+    }
+
+    void OneHitCollision(Collider2D collision){
+        switch(collision.gameObject.tag){
+            case "Bullet1":
+                soundController.playSFX("enemyBulletHit");
+                SetDissolveColor(new Vector4(4, 190, 191, 0));
+                DestroyEnemy(this.gameObject.tag, collision);          
+                break;
+            case "PurpleBombExplosionRadius":
+                SetDissolveColor(new Vector4(98, 26, 142, 255));
+                DestroyEnemy(this.gameObject.tag, collision);          
+                break;
+            case "ShipBerserker":
+                //See the problem with berserker not working with dissolve shader
+                soundController.playSFX("enemyBulletHit");
+                DestroyEnemy(this.gameObject.tag, collision); 
+                DropItem();         
+                break;
+            case "Laser":
+                soundController.playSFX("enemyLaserHit");
+                SetDissolveColor(new Vector4(254, 95, 75, 0));
+                DestroyEnemy(this.gameObject.tag, collision);          
+                break;
+        }
+    }
+
+    void Enemy5TypeCollision(Collider2D collision){
+        Enemy5HealthManager enemyHealthManager = GetComponent<Enemy5HealthManager>();
+        
+        switch(collision.gameObject.tag){
+            case "Bullet1":
+                soundController.playSFX("enemyBulletHit");
+                enemyHealthManager.EnemyHit(1);
+                if(enemyHealthManager.GetCurrentHealth() <= 0){
+                    SetDissolveColor(new Vector4(4, 190, 191, 0));
+                    DestroyEnemy(this.gameObject.tag, collision);
+                }     
+                break;
+            case "PurpleBombExplosionRadius":
+                enemyHealthManager.EnemyHit(3);
+                if(enemyHealthManager.GetCurrentHealth() <= 0){
+                    SetDissolveColor(new Vector4(98, 26, 142, 255));
+                    DestroyEnemy(this.gameObject.tag, collision);
+                }         
+                break;
+            case "ShipBerserker":
+                //See the problem with berserker not working with dissolve shader
+                soundController.playSFX("enemyBulletHit");
+                enemyHealthManager.EnemyHit(2);
+                if(enemyHealthManager.GetCurrentHealth() <= 0){
+                    DestroyEnemy(this.gameObject.tag, collision); 
+                    DropItem();
+                } 
+                break;
+            case "Laser":
+                enemyHealthManager.EnemyHit(2);
+                soundController.playSFX("enemyLaserHit");
+                if(enemyHealthManager.GetCurrentHealth() <= 0){
+                    SetDissolveColor(new Vector4(254, 95, 75, 0));
+                    DestroyEnemy(this.gameObject.tag, collision);
+                }
                 break;
         }
     }

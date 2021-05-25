@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy3Movement : MonoBehaviour
+public class EnemyFollowerMovement : MonoBehaviour
 {
     Transform shipTransform;
-    float movSpeed;
+    [SerializeField]float movSpeed;
 
     void Awake(){
         try{
@@ -17,13 +17,16 @@ public class Enemy3Movement : MonoBehaviour
     }
 
     void Update(){
-        movSpeed = 3f;
         Movement();
+    }
+
+    public void ChangeSpeed(float movSpeed){
+        this.movSpeed = movSpeed;
     }
 
     void Movement(){
         if(shipTransform != null){
-            transform.position = Vector2.MoveTowards(transform.position, shipTransform.position, movSpeed*Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, shipTransform.position, movSpeed * Time.deltaTime);
         }
     }
 }
