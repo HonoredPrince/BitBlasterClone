@@ -17,7 +17,7 @@ public class ShipAttack : MonoBehaviour
     ShipHealthManager shipHealthManager;
     ScoreController scoreController;
     SoundController soundController;
-    PolygonCollider2D shipCollider;
+    Collider2D shipCollider;
 
     [HideInInspector] public bool shipHasSpecialBullet;
     int shipAmmo;
@@ -40,7 +40,7 @@ public class ShipAttack : MonoBehaviour
         scoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
         hudController = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDController>();
         soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
-        shipCollider = GetComponent<PolygonCollider2D>();
+        shipCollider = GetComponent<Collider2D>();
         shipAmmo = 100;
         amountOfNukes = 3;
         

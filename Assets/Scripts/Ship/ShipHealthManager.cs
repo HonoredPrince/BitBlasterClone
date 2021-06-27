@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShipHealthManager : MonoBehaviour
 {
    [SerializeField] HUDController hudController = null;
-   [SerializeField] GameObject[] shipDeathObjects = null;
+   [SerializeField] GameObject shipDeathObject = null;
     LevelLoader levelLoaderController;
     SoundController soundController;
     GameObject shipPlayer;
@@ -39,11 +39,11 @@ public class ShipHealthManager : MonoBehaviour
                     emitter.SetActive(false);
                 }
                 SetPlayerInactive();
-                GameObject shipDeathAnimObj = Instantiate(shipDeathObjects[0], shipPlayer.transform.position, shipPlayer.transform.rotation);
+                GameObject shipDeathAnimObj = Instantiate(shipDeathObject, shipPlayer.transform.position, shipPlayer.transform.rotation);
                 soundController.playSFX("shipDeath");
                 //For now, it's better to instantaneously end the game upon death hit, until find a way
                 //for not get NullReference on emmiters spawn objects on "game end" delay
-                yield return new WaitForSeconds(0.8f);
+                yield return new WaitForSeconds(1f);
                 Destroy(shipDeathAnimObj);
                 yield return new WaitForSeconds(1f);
                 levelLoaderController.LoadLevelWithName("GameOverScene");
@@ -100,7 +100,7 @@ public class ShipHealthManager : MonoBehaviour
     void SetPlayerInactive(){
         shipPlayer.GetComponent<SpriteRenderer>().enabled = false;
         shipPlayer.GetComponent<Rigidbody2D>().Sleep();
-        shipPlayer.GetComponent<PolygonCollider2D>().enabled = false;
+        shipPlayer.GetComponent<Collider2D>().enabled = false;
         shipPlayer.GetComponent<AudioSource>().enabled = false;
         shipPlayer.GetComponent<ShipMovement>().enabled = false;
         shipPlayer.GetComponent<ShipAttack>().enabled = false;
