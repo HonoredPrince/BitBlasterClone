@@ -191,7 +191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689651848829516906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.608, z: 0}
+  m_LocalPosition: {x: 0, y: -0.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1689651850900299442}
@@ -457,8 +457,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nukeWhiteScreen: {fileID: 0}
+  shipDefaultBullet: {fileID: 6438668912865471062, guid: 4495569040c1fae4ca18a2a58fe7fb2d, type: 3}
   bulletWeapons:
-  - {fileID: 7356341123292201768, guid: f7d5aa83375b05743b39dd498fbcadb7, type: 3}
   - {fileID: 1705322192024265304, guid: a9904b0345cd1a64089d41a37f2d7ebc, type: 3}
   shootingPoints:
   - {fileID: 1689651848829516905}
@@ -1012,7 +1012,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8747564133189156115}
   m_LocalRotation: {x: 0, y: 0, z: 0.08715578, w: 0.9961947}
-  m_LocalPosition: {x: -0.2, y: 0.608, z: 0}
+  m_LocalPosition: {x: -0.2, y: -0.29000002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1689651850900299442}
@@ -1300,7 +1300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8747564134239750486}
   m_LocalRotation: {x: 0, y: 0, z: -0.08715578, w: 0.9961947}
-  m_LocalPosition: {x: 0.2, y: 0.608, z: 0}
+  m_LocalPosition: {x: 0.2, y: -0.29000002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1689651850900299442}

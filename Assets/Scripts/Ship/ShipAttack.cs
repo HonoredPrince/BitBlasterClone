@@ -7,6 +7,7 @@ using UnityEngine;
 public class ShipAttack : MonoBehaviour
 {
     [SerializeField] GameObject nukeWhiteScreen = null;
+    [SerializeField] GameObject shipDefaultBullet = null;
     [SerializeField] GameObject[] bulletWeapons = null;
     [SerializeField] Transform[] shootingPoints = null;
     [SerializeField] GameObject shipBerserker = null;
@@ -118,17 +119,17 @@ public class ShipAttack : MonoBehaviour
             switch(this.typeOfFiringSystem){
                 case "defaultBullet":
                     soundController.playSFX("shipFiring");
-                    Instantiate(bulletWeapons[0], shootingPoints[0].position, transform.rotation);
+                    Instantiate(shipDefaultBullet, shootingPoints[0].position, transform.rotation);
                     break;
                 case "tripleBullet":
                     soundController.playSFX("shipTripleFiring");
-                    Instantiate(bulletWeapons[0], shootingPoints[0].position, shootingPoints[0].rotation);
-                    Instantiate(bulletWeapons[0], shootingPoints[1].position, shootingPoints[1].rotation);
-                    Instantiate(bulletWeapons[0], shootingPoints[2].position, shootingPoints[2].rotation);
+                    Instantiate(shipDefaultBullet, shootingPoints[0].position, shootingPoints[0].rotation);
+                    Instantiate(shipDefaultBullet, shootingPoints[1].position, shootingPoints[1].rotation);
+                    Instantiate(shipDefaultBullet, shootingPoints[2].position, shootingPoints[2].rotation);
                     break;
                 case "purpleBomb":
                     soundController.playSFX("purpleBombFiring");
-                    Instantiate(bulletWeapons[1], shootingPoints[0].position, transform.rotation);
+                    Instantiate(bulletWeapons[0], shootingPoints[0].position, transform.rotation);
                     break;
             }
 

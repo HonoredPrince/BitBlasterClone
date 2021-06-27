@@ -34,6 +34,7 @@ TagManager:
   - OptionsPanel
   - Enemy5
   - TutorialPanel
+  - PassthroughBullet
   layers:
   - Default
   - TransparentFX
