@@ -11,6 +11,7 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField]GameObject pauseMenuCanvas = null;
     [SerializeField]LevelLoader levelLoaderController = null;
     [SerializeField] GameObject optionsCanvas = null;
+    [SerializeField] GameObject tutorialCanvas = null;
     [SerializeField] Canvas HUDCanvas = null;
     [SerializeField] AudioMixer musicAudioMixer = null, sfxAudioMixer = null;
     
@@ -29,6 +30,7 @@ public class PauseMenuManager : MonoBehaviour
 
     void Awake(){
         optionsCanvas.SetActive(false);
+        tutorialCanvas.SetActive(false);
         
         LoadAllScreenResolutionsAvaliable();
         LoadOptionsMenuPrefs();
@@ -43,7 +45,7 @@ public class PauseMenuManager : MonoBehaviour
             }
         }
 
-        if(pauseMenuCanvas.activeSelf || optionsCanvas.activeSelf){
+        if(pauseMenuCanvas.activeSelf || optionsCanvas.activeSelf || tutorialCanvas.activeSelf){
             gameIsPaused = true;
         }else{
             gameIsPaused = false;
@@ -59,6 +61,7 @@ public class PauseMenuManager : MonoBehaviour
     public void Resume(){
         pauseMenuCanvas.SetActive(false);
         optionsCanvas.SetActive(false);
+        tutorialCanvas.SetActive(false);
         HUDCanvas.enabled = true;
         Time.timeScale = 1f;
     }
@@ -76,12 +79,22 @@ public class PauseMenuManager : MonoBehaviour
         HUDCanvas.enabled = true;
     }
 
+    public void OpenTutorialMenu(){
+        pauseMenuCanvas.SetActive(false);
+        tutorialCanvas.SetActive(true);
+        HUDCanvas.enabled = false;
+    }
+
+    public void BackTutorialButton(){
+        pauseMenuCanvas.SetActive(true);
+        tutorialCanvas.SetActive(false);
+        HUDCanvas.enabled = true;
+    }
+
     public void LoadMenu(){
         Time.timeScale = 1f;
         levelLoaderController.LoadLevelWithName("StartMenu");
     }
-
-
 
     void LoadAllScreenResolutionsAvaliable(){
         resolutions = Screen.resolutions;

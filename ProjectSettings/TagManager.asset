@@ -33,6 +33,7 @@ TagManager:
   - Enemy4Bullet
   - OptionsPanel
   - Enemy5
+  - TutorialPanel
   layers:
   - Default
   - TransparentFX
