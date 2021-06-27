@@ -183,7 +183,7 @@ public class EnemyCollisionHandler : MonoBehaviour
                 break;
             case "PassthroughBullet":
                 soundController.playSFX("enemyBulletHit");
-                SetDissolveColor(new Vector4(0, 255, 0, 255));
+                SetDissolveColor(new Vector4(4, 190, 4, 0));
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
             case "PurpleBombExplosionRadius":
@@ -227,7 +227,7 @@ public class EnemyCollisionHandler : MonoBehaviour
                 soundController.playSFX("enemyBulletHit");
                 enemyHealthManager.EnemyHit(1);
                 if(enemyHealthManager.GetCurrentHealth() <= 0){
-                    SetDissolveColor(new Vector4(0, 255, 0, 255));
+                    SetDissolveColor(new Vector4(0, 191, 0, 175));
                     DestroyEnemy(this.gameObject.tag, collision);
                 }         
                 break;

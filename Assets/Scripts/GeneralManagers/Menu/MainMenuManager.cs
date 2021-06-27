@@ -12,7 +12,7 @@ public class MainMenuManager : MonoBehaviour
     
     [SerializeField] Canvas mainCanvas = null;
     [SerializeField] Canvas optionsCanvas = null;
-    [SerializeField] Canvas tutorialCanvas = null;
+    [SerializeField] GameObject tutorialCanvas = null;
     [SerializeField] Canvas starryBackground = null;
     
     Resolution[] resolutions;
@@ -32,7 +32,7 @@ public class MainMenuManager : MonoBehaviour
     void Awake(){
         mainCanvas.enabled = true;
         optionsCanvas.enabled = false;
-        tutorialCanvas.enabled = false;
+        tutorialCanvas.SetActive(false);
 
         LoadAllScreenResolutionsAvaliable();
         LoadOptionsMenuPrefs();
@@ -48,7 +48,7 @@ public class MainMenuManager : MonoBehaviour
     public void OpenTutorialMenu(){
         mainCanvas.enabled = false;
         starryBackground.enabled = false;
-        tutorialCanvas.enabled = true;
+        tutorialCanvas.SetActive(true);
     }
 
     public void BackOptionButton(){
@@ -58,7 +58,7 @@ public class MainMenuManager : MonoBehaviour
     public void BackTutorialButton(){
         mainCanvas.enabled = true;
         starryBackground.enabled = true;
-        tutorialCanvas.enabled = false;
+        tutorialCanvas.SetActive(false);
     }
 
     public void QuitGame(){
