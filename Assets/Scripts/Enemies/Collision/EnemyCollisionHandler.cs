@@ -175,6 +175,7 @@ public class EnemyCollisionHandler : MonoBehaviour
     }
 
     void OneHitCollision(Collider2D collision){
+        //TODO: Find new SFXs for the new bullet types!
         switch(collision.gameObject.tag){
             case "Bullet1":
                 soundController.playSFX("enemyBulletHit");
@@ -188,6 +189,11 @@ public class EnemyCollisionHandler : MonoBehaviour
                 break;
             case "PurpleBombExplosionRadius":
                 SetDissolveColor(new Vector4(98, 26, 142, 255));
+                DestroyEnemy(this.gameObject.tag, collision);          
+                break;
+            case "CombinedShot":
+                soundController.playSFX("enemyBulletHit");
+                SetDissolveColor(new Vector4(252, 169, 3, 255));
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
             case "ShipBerserker":
@@ -224,6 +230,14 @@ public class EnemyCollisionHandler : MonoBehaviour
                 }         
                 break;
             case "PassthroughBullet":
+                soundController.playSFX("enemyBulletHit");
+                enemyHealthManager.EnemyHit(1);
+                if(enemyHealthManager.GetCurrentHealth() <= 0){
+                    SetDissolveColor(new Vector4(0, 191, 0, 175));
+                    DestroyEnemy(this.gameObject.tag, collision);
+                }         
+                break;
+            case "CombinedShot":
                 soundController.playSFX("enemyBulletHit");
                 enemyHealthManager.EnemyHit(1);
                 if(enemyHealthManager.GetCurrentHealth() <= 0){

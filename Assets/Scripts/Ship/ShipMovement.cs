@@ -15,9 +15,10 @@ public class ShipMovement : MonoBehaviour
     SoundController soundController;
     AudioSource shipThrustsAudioSource;
     float shipSizeOffSet;
-    float movSpeed, rotationSpeed;
+    [SerializeField] float movSpeed = 0, rotationSpeed = 0;
     float xAxisDirection, yAxisDirection;
-    float boostForce, boostDelay, boostingTime;
+    [SerializeField] float boostForce = 0, boostDelay = 0;
+    float boostingTime;
     bool isBoosting, canBoost;
 
     void Awake(){
@@ -25,12 +26,12 @@ public class ShipMovement : MonoBehaviour
         shootingPoint = GetComponentInChildren<Transform>(); 
         engineThrustsSprite = GameObject.FindGameObjectWithTag("ShipThrusts").GetComponent<SpriteRenderer>();
 
-        movSpeed = 8f;
-        rotationSpeed = 300f;
+        //movSpeed = 8f;
+        //rotationSpeed = 300f;
         shipSizeOffSet = 0.5f;
 
-        boostForce = 8f;
-        boostDelay = 3f;
+        //boostForce = 8f;
+        //boostDelay = 3f;
         boostingTime = 0.3f;
         canBoost = true;
 
@@ -49,7 +50,7 @@ public class ShipMovement : MonoBehaviour
     void Update(){
         xAxisDirection = Input.GetAxis("Horizontal");
         yAxisDirection = Input.GetAxis("Vertical");
-        if(yAxisDirection > 0){
+        if(yAxisDirection > 0 || isBoosting){
             MoveShip(yAxisDirection);
             //engineThrustAnimatorObject.SetActive(true);
             engineThrustsSprite.enabled = true;

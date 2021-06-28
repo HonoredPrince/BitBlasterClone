@@ -444,6 +444,11 @@ MonoBehaviour:
   topBorder: {fileID: 0}
   bottomBorder: {fileID: 0}
   hudController: {fileID: 0}
+  movSpeed: 10
+  rotationSpeed: 320
+  boostForce: 4
+  boostDelay: 5
+  boostingTime: 0.3
 --- !u!114 &1689651850900299447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,6 +472,7 @@ MonoBehaviour:
   shipBerserker: {fileID: 8747564133361777058}
   shipLaser: {fileID: 1478046820563472145}
   shipHasSpecialBullet: 0
+  fireRate: 0.45
 --- !u!114 &1689651850900299446
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,7 +22,7 @@ public class ShipAttack : MonoBehaviour
 
     [HideInInspector] public bool shipHasSpecialBullet;
     int shipAmmo;
-    float fireRate;
+    [SerializeField] float fireRate = 0;
     bool fireAllowed;
     
     bool hasBerserkerMode;
@@ -34,9 +34,12 @@ public class ShipAttack : MonoBehaviour
     bool canDeployNuke;
     
     string typeOfFiringSystem;
+    string typeOfShipName;
     
 
     void Awake(){
+        
+        
         shipHealthManager = GameObject.FindGameObjectWithTag("Ship").GetComponent<ShipHealthManager>();
         scoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
         hudController = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDController>();
@@ -48,7 +51,7 @@ public class ShipAttack : MonoBehaviour
         nukeDelayTime = 8f;
         weaponsDelayTime = 10f;
 
-        fireRate = 0.4f;
+        //fireRate = 0.4f;
         fireAllowed = true;
         hasBerserkerMode = false;
         hasLaserMode = false;
@@ -56,6 +59,7 @@ public class ShipAttack : MonoBehaviour
         canDeployNuke = true;
 
         typeOfFiringSystem = "defaultBullet";
+        typeOfShipName = this.gameObject.name;
 
         hudController.UpdateNukesHUD(GetAmountOfNukes());
         hudController.SetNukeCooldownTimersActive(false);
@@ -119,17 +123,36 @@ public class ShipAttack : MonoBehaviour
             switch(this.typeOfFiringSystem){
                 case "defaultBullet":
                     soundController.playSFX("shipFiring");
-                    Instantiate(shipDefaultBullet, shootingPoints[0].position, transform.rotation);
+                    if(typeOfShipName == "OrangeShip"){
+                        Instantiate(shipDefaultBullet, shootingPoints[0].position, shootingPoints[0].rotation);
+                        Instantiate(shipDefaultBullet, shootingPoints[3].position, shootingPoints[3].rotation);
+                    }else{
+                        Instantiate(shipDefaultBullet, shootingPoints[0].position, shootingPoints[0].rotation);
+                    }
                     break;
                 case "tripleBullet":
                     soundController.playSFX("shipTripleFiring");
-                    Instantiate(shipDefaultBullet, shootingPoints[0].position, shootingPoints[0].rotation);
-                    Instantiate(shipDefaultBullet, shootingPoints[1].position, shootingPoints[1].rotation);
-                    Instantiate(shipDefaultBullet, shootingPoints[2].position, shootingPoints[2].rotation);
+                    if(typeOfShipName == "OrangeShip"){
+                        Instantiate(shipDefaultBullet, shootingPoints[0].position, shootingPoints[0].rotation);
+                        Instantiate(shipDefaultBullet, shootingPoints[1].position, shootingPoints[1].rotation);
+                        Instantiate(shipDefaultBullet, shootingPoints[2].position, shootingPoints[2].rotation);
+                        Instantiate(shipDefaultBullet, shootingPoints[3].position, shootingPoints[3].rotation);
+                        Instantiate(shipDefaultBullet, shootingPoints[4].position, shootingPoints[4].rotation);
+                        Instantiate(shipDefaultBullet, shootingPoints[5].position, shootingPoints[5].rotation);
+                    }else{
+                        Instantiate(shipDefaultBullet, shootingPoints[0].position, shootingPoints[0].rotation);
+                        Instantiate(shipDefaultBullet, shootingPoints[1].position, shootingPoints[1].rotation);
+                        Instantiate(shipDefaultBullet, shootingPoints[2].position, shootingPoints[2].rotation);
+                    }
                     break;
                 case "purpleBomb":
                     soundController.playSFX("purpleBombFiring");
-                    Instantiate(bulletWeapons[0], shootingPoints[0].position, transform.rotation);
+                    if(typeOfShipName == "OrangeShip"){
+                        Instantiate(bulletWeapons[0], shootingPoints[0].position, shootingPoints[0].rotation);
+                        Instantiate(bulletWeapons[0], shootingPoints[3].position, shootingPoints[3].rotation);
+                    }else{
+                        Instantiate(bulletWeapons[0], shootingPoints[0].position, shootingPoints[0].rotation);
+                    }
                     break;
             }
 

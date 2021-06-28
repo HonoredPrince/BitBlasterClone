@@ -35,6 +35,8 @@ TagManager:
   - Enemy5
   - TutorialPanel
   - PassthroughBullet
+  - CombinedShot
+  - CombinedShotExplosionRadius
   layers:
   - Default
   - TransparentFX
@@ -80,6 +82,9 @@ TagManager:
     locked: 0
   - name: PurpleBomb
     uniqueID: 2876121397
+    locked: 0
+  - name: PlayerShip
+    uniqueID: 2681487429
     locked: 0
   - name: UI
     uniqueID: 965121513

@@ -1214,6 +1214,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2166466927947748554, guid: 084882cda29affc49a5694d16a42a12e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 965121513
+      objectReference: {fileID: 0}
     - target: {fileID: 2166466927947748557, guid: 084882cda29affc49a5694d16a42a12e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3395,7 +3399,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: 965121513
   m_SortingOrder: -10
   m_TargetDisplay: 0
 --- !u!224 &904288872
@@ -6622,7 +6626,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: 965121513
   m_SortingOrder: -10
   m_TargetDisplay: 0
 --- !u!224 &1990855996
