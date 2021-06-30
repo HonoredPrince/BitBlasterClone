@@ -682,7 +682,7 @@ MonoBehaviour:
   hudController: {fileID: 0}
   movSpeed: 6
   rotationSpeed: 280
-  boostForce: 12
+  boostForce: 25
   boostDelay: 3
 --- !u!114 &3655957871163028047
 MonoBehaviour:

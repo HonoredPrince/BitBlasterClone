@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField]GameObject[] shipsHolderReference = null;
+    ShipSelectorController shipSelectorController ;
+
     LevelLoader levelLoaderController;
     SoundController soundController;
 
@@ -29,8 +32,14 @@ public class GameController : MonoBehaviour
     [SerializeField] Transform bottomEmitter = null;
 
     void Awake(){
+        shipSelectorController = GameObject.FindGameObjectWithTag("ShipSelectorController").GetComponent<ShipSelectorController>();
         soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
         levelLoaderController = GameObject.FindGameObjectWithTag("LevelLoader").GetComponent<LevelLoader>();
+
+        //Only for debug, until some better system for loading a initial ship is implemented
+        //shipsHolderReference[2].SetActive(true);
+
+        shipsHolderReference[shipSelectorController.currentShipTypeIndex].SetActive(true);
 
         soundController.playMusic();
 

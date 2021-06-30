@@ -13,6 +13,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] Canvas mainCanvas = null;
     [SerializeField] Canvas optionsCanvas = null;
     [SerializeField] GameObject tutorialCanvas = null;
+    [SerializeField] GameObject shipSelectorCanvas = null;
     [SerializeField] Canvas starryBackground = null;
     
     Resolution[] resolutions;
@@ -32,6 +33,7 @@ public class MainMenuManager : MonoBehaviour
     void Awake(){
         mainCanvas.enabled = true;
         optionsCanvas.enabled = false;
+        shipSelectorCanvas.SetActive(false);
         tutorialCanvas.SetActive(false);
 
         LoadAllScreenResolutionsAvaliable();
@@ -51,14 +53,25 @@ public class MainMenuManager : MonoBehaviour
         tutorialCanvas.SetActive(true);
     }
 
+    public void OpenShipSelectorMenu(){
+        mainCanvas.enabled = false;
+        shipSelectorCanvas.SetActive(true);
+    }
+
     public void BackOptionButton(){
         mainCanvas.enabled = true;
         optionsCanvas.enabled = false;
     }
+    
     public void BackTutorialButton(){
         mainCanvas.enabled = true;
         starryBackground.enabled = true;
         tutorialCanvas.SetActive(false);
+    }
+
+    public void BackShipSelectorButton(){
+        mainCanvas.enabled = true;
+        shipSelectorCanvas.SetActive(false);
     }
 
     public void QuitGame(){

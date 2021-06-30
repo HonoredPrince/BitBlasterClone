@@ -37,6 +37,7 @@ TagManager:
   - PassthroughBullet
   - CombinedShot
   - CombinedShotExplosionRadius
+  - ShipSelectorController
   layers:
   - Default
   - TransparentFX
