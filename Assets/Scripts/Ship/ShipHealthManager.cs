@@ -44,7 +44,9 @@ public class ShipHealthManager : MonoBehaviour
 
     public IEnumerator PlayerDeath(){
         //TODO: Ship's death and handle the game's scenes resets, a.k.a Game Ending Handler
-        shipPlayer.GetComponent<Collider2D>().enabled = false;
+        foreach(Collider2D collider in shipPlayer.GetComponents<Collider2D>()){
+            collider.enabled = false;
+        }
         playerSprite.enabled = false;
         thrustsSprites.enabled = false;
         GameObject[] emitters = GameObject.FindGameObjectsWithTag("Emitter");

@@ -75,6 +75,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: SceneryBorders
+    uniqueID: 4045982161
+    locked: 0
+  - name: Ammo
+    uniqueID: 1767561111
+    locked: 0
   - name: Ship Thrusts Fire
     uniqueID: 2234876837
     locked: 0

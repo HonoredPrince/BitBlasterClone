@@ -70,14 +70,14 @@ public class ShipMovement : MonoBehaviour
         if(yAxisDirection > 0 || isBoosting){
             MoveShip(yAxisDirection);
             //engineThrustAnimatorObject.SetActive(true);
-            shipRigidBody2D.drag = 2f; 
+            shipRigidBody2D.drag = 3f; 
             shipRigidBody2D.angularDrag = 1f;
             engineThrustsSprite.enabled = true;
             shipThrustsAudioSource.enabled = true;
         }else{
             //engineThrustAnimatorObject.SetActive(false);
             // Maybe the linear drag can be increased over some little time, instead of being this value always when the ship is stopped
-            shipRigidBody2D.drag = 0.5f;
+            shipRigidBody2D.drag = 0.3f;
             shipRigidBody2D.angularDrag = 0.05f;
             engineThrustsSprite.enabled = false;
             shipThrustsAudioSource.enabled = false;

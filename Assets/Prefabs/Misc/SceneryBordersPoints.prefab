@@ -40,7 +40,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 3481413606085915427}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 001466eef878b5142873e32a1434c2dc, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -97,7 +97,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 5236222531312181188}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 001466eef878b5142873e32a1434c2dc, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 5499754430821982825}
   - component: {fileID: 5499754430821982830}
   - component: {fileID: 5499754430821982831}
+  - component: {fileID: 8473543301213195940}
   m_Layer: 0
   m_Name: topBorder
   m_TagString: BordersPoints
@@ -185,8 +186,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -248985135
+  m_SortingLayer: 1
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: bf574d1494dff0b4d991fa27bbaee1d7, type: 3}
   m_Color: {r: 1, g: 0.025012754, b: 0, a: 1}
@@ -237,6 +238,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc42d44bae6d7b94494d0cfc15d64daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8473543301213195940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499754430821982829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bee4a7d974b46846bcb8efaa7340fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneryBorderPointsManager: {fileID: 9189066160952745668}
 --- !u!1 &5499754431242298001
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +263,7 @@ GameObject:
   - component: {fileID: 5499754431242297709}
   - component: {fileID: 5499754431242298002}
   - component: {fileID: 5499754431242298003}
+  - component: {fileID: 8955250394360315207}
   m_Layer: 0
   m_Name: bottomBorder
   m_TagString: BordersPoints
@@ -308,8 +323,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -248985135
+  m_SortingLayer: 1
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: bf574d1494dff0b4d991fa27bbaee1d7, type: 3}
   m_Color: {r: 1, g: 0.025012754, b: 0, a: 1}
@@ -360,6 +375,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc42d44bae6d7b94494d0cfc15d64daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8955250394360315207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499754431242298001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bee4a7d974b46846bcb8efaa7340fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneryBorderPointsManager: {fileID: 9189066160952745668}
 --- !u!1 &5499754431315708596
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +400,7 @@ GameObject:
   - component: {fileID: 5499754431315708592}
   - component: {fileID: 5499754431315708593}
   - component: {fileID: 5499754431315708598}
+  - component: {fileID: 7393062992178357376}
   m_Layer: 0
   m_Name: leftBorder
   m_TagString: BordersPoints
@@ -431,8 +460,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -248985135
+  m_SortingLayer: 1
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: bf574d1494dff0b4d991fa27bbaee1d7, type: 3}
   m_Color: {r: 1, g: 0.025012754, b: 0, a: 1}
@@ -483,6 +512,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc42d44bae6d7b94494d0cfc15d64daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7393062992178357376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499754431315708596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bee4a7d974b46846bcb8efaa7340fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneryBorderPointsManager: {fileID: 9189066160952745668}
 --- !u!1 &5499754431671075610
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,6 +537,7 @@ GameObject:
   - component: {fileID: 5499754431671075606}
   - component: {fileID: 5499754431671075607}
   - component: {fileID: 5499754431671075604}
+  - component: {fileID: 5678321597023959644}
   m_Layer: 0
   m_Name: rightBorder
   m_TagString: BordersPoints
@@ -554,8 +597,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -248985135
+  m_SortingLayer: 1
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: bf574d1494dff0b4d991fa27bbaee1d7, type: 3}
   m_Color: {r: 1, g: 0.025012754, b: 0, a: 1}
@@ -606,6 +649,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc42d44bae6d7b94494d0cfc15d64daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5678321597023959644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499754431671075610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bee4a7d974b46846bcb8efaa7340fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneryBorderPointsManager: {fileID: 9189066160952745668}
 --- !u!1 &5499754432410980219
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +671,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5499754432410980218}
+  - component: {fileID: 9189066160952745668}
   m_Layer: 0
   m_Name: SceneryBordersPoints
   m_TagString: Untagged
@@ -640,6 +697,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9189066160952745668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499754432410980219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dcbfe8a91f14eb4f96fc5da35b54bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bordersHitColor: {r: 1, g: 1, b: 1, a: 1}
+  bordersGlobalLightManager: {fileID: 0}
 --- !u!1 &8740285842341086781
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +751,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8740285842341086781}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 001466eef878b5142873e32a1434c2dc, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -737,7 +808,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8892821732794023194}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 001466eef878b5142873e32a1434c2dc, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
