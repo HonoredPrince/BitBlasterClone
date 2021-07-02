@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShipCollisionController : MonoBehaviour
 {
+    int borderCollisionCounter = 0;
     HUDController hudController;
     ShipAttack shipAttackController;
     ShipHealthManager shipHealthManager;
@@ -23,6 +24,7 @@ public class ShipCollisionController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision){
+        BordersPhysicalCollisionDetection(collision);
         EnemyCollisionDetection(collision);
         PowerUpsCollisionDetection(collision);
     }
@@ -35,31 +37,43 @@ public class ShipCollisionController : MonoBehaviour
         switch(collision.gameObject.tag){
             case "Enemy1":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
-                shipHealthManager.StartCoroutine("playerDamage");
+                shipHealthManager.PlayerDamage(1);
                 break;
             case "Enemy1_Splitted":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
-                shipHealthManager.StartCoroutine("playerDamage");
+                shipHealthManager.PlayerDamage(1);
                 break;
             case "Enemy2":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
-                shipHealthManager.StartCoroutine("playerDamage");
+                shipHealthManager.PlayerDamage(1);
                 break;
             case "Enemy3":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
-                shipHealthManager.StartCoroutine("playerDamage");
+                shipHealthManager.PlayerDamage(1);
                 break;
             case "Enemy4":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
-                shipHealthManager.StartCoroutine("playerDamage");
+                shipHealthManager.PlayerDamage(1);
                 break;
             case "Enemy4Bullet":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
-                shipHealthManager.StartCoroutine("playerDamage");
+                shipHealthManager.PlayerDamage(1);
                 break;
             case "Enemy5":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
-                shipHealthManager.StartCoroutine("playerDamage");
+                shipHealthManager.PlayerDamage(1);
+                break;
+        }
+    }
+
+    void BordersPhysicalCollisionDetection(Collider2D collision){
+        switch(collision.gameObject.tag){
+            case "BordersPoints":
+                borderCollisionCounter++;
+                if(borderCollisionCounter == 1){
+                    this.shipHealthManager.StopAllCoroutines(); 
+                    StartCoroutine(shipHealthManager.PlayerDeath());
+                }
                 break;
         }
     }

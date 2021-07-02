@@ -346,12 +346,12 @@ public class ShipAttack : MonoBehaviour
         GameObject[] bordersPoints = GameObject.FindGameObjectsWithTag("BordersPoints");
         foreach(GameObject borderPoint in bordersPoints){
             SpriteRenderer borderPointSprite = borderPoint.GetComponent<SpriteRenderer>();
-            borderPointSprite.enabled = false; 
+            //borderPointSprite.enabled = false; 
         }
         yield return new WaitForSeconds(0.1f);
         foreach(GameObject borderPoint in bordersPoints){
             SpriteRenderer borderPointSprite = borderPoint.GetComponent<SpriteRenderer>();
-            borderPointSprite.enabled = true; 
+            //borderPointSprite.enabled = true; 
         }
     }
 }

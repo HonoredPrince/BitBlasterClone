@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 1689651850900299443}
   - component: {fileID: 1689651850900299404}
   - component: {fileID: 1689651850900299406}
+  - component: {fileID: -2641205501589168861}
   - component: {fileID: 7170985560141050961}
   - component: {fileID: 1689651850900299440}
   - component: {fileID: 1689651850900299447}
@@ -305,7 +306,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 3
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -328,6 +329,22 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.013720036, y: -0.0027439594}
   m_Size: {x: 0.41278934, y: 0.91768074}
+  m_Direction: 0
+--- !u!70 &-2641205501589168861
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689651850900299405}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 001466eef878b5142873e32a1434c2dc, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.01372004, y: -0.002743959}
+  m_Size: {x: 0.4127893, y: 0.9176807}
   m_Direction: 0
 --- !u!82 &7170985560141050961
 AudioSource:
@@ -448,7 +465,6 @@ MonoBehaviour:
   rotationSpeed: 320
   boostForce: 4
   boostDelay: 5
-  boostingTime: 0.3
 --- !u!114 &1689651850900299447
 MonoBehaviour:
   m_ObjectHideFlags: 0

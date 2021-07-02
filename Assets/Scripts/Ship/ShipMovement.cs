@@ -48,25 +48,51 @@ public class ShipMovement : MonoBehaviour
     }
     
     void Update(){
+        //If want to use translate based movement, uncomment the line bellow and comment the one in FixedUpdate()
+        //MovementInputUpdateChecker();
+
+        RotationInputUpdateChecker();
+        BoostInputUpdateChecker();
+    }
+
+    void FixedUpdate(){
+        //If want to use physics based movement, uncomment the line bellow and comment the one in Update()
+        MovementInputUpdateChecker();
+
+        //Adjust at game runtime
+        AdjustMovementLimitationBordersBasedOnCamera();
+    }
+
+    void MovementInputUpdateChecker(){
+        //Function defined for checking movement either on Update or FixedUpdate
         xAxisDirection = Input.GetAxis("Horizontal");
         yAxisDirection = Input.GetAxis("Vertical");
         if(yAxisDirection > 0 || isBoosting){
             MoveShip(yAxisDirection);
             //engineThrustAnimatorObject.SetActive(true);
+            shipRigidBody2D.drag = 2f; 
+            shipRigidBody2D.angularDrag = 1f;
             engineThrustsSprite.enabled = true;
             shipThrustsAudioSource.enabled = true;
         }else{
             //engineThrustAnimatorObject.SetActive(false);
+            // Maybe the linear drag can be increased over some little time, instead of being this value always when the ship is stopped
+            shipRigidBody2D.drag = 0.5f;
+            shipRigidBody2D.angularDrag = 0.05f;
             engineThrustsSprite.enabled = false;
             shipThrustsAudioSource.enabled = false;
         }
-        
+    }
+
+    void RotationInputUpdateChecker(){
         if(xAxisDirection != 0){
             RotateShip(xAxisDirection);
         }else{
             RotateShip(0f);
         }
+    }
 
+    void BoostInputUpdateChecker(){
         if(isBoosting){
             hudController.DecreaseBoostBar(Time.deltaTime * 4);
         }else{
@@ -80,15 +106,24 @@ public class ShipMovement : MonoBehaviour
         }
     }
 
-    void FixedUpdate(){
-        //Adjust at game runtime
-        AdjustMovementLimitationBordersBasedOnCamera();
-    }
-
     void MoveShip(float yDirection){
         Vector2 shipDirectionVector = new Vector2(0f, yDirection * movSpeed * Time.deltaTime);
+
+        //Using Translate (Non-Physics based)
         shipRigidBody2D.transform.Translate(shipDirectionVector, Space.Self);
         
+        
+        //Using Rigidbody (Physics based)
+        //--Using Force--
+        shipRigidBody2D.AddForce(transform.up * movSpeed); 
+        
+        //--Using Velocity--
+        //shipRigidBody2D.velocity += new Vector2(0f, yDirection * movSpeed * Time.deltaTime); 
+        
+        //--Using MovePosition--
+        //shipRigidBody2D.MovePosition((Vector2)transform.position + shipDirectionVector); 
+        
+        //Clampping (Only works for non physics based movement)
         float xPosClampped = Mathf.Clamp(transform.position.x, leftBorder.position.x + shipSizeOffSet, rightBorder.position.x - shipSizeOffSet);
         float yPosClampped = Mathf.Clamp(transform.position.y, bottomBorder.position.y + shipSizeOffSet, topBorder.position.y - shipSizeOffSet);
         transform.position = new Vector2(xPosClampped, yPosClampped);

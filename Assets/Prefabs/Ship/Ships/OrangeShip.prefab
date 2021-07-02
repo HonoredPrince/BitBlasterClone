@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 3655957871163028043}
   - component: {fileID: 3655957871163028084}
   - component: {fileID: 4894441878239824435}
+  - component: {fileID: 4537254192243526973}
   - component: {fileID: 5064929348253964457}
   - component: {fileID: 3655957871163028040}
   - component: {fileID: 3655957871163028047}
@@ -514,7 +515,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 3
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -533,6 +534,49 @@ PolygonCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.047619, y: 3.047619}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.52380955, y: 0.45238096}
+      - {x: 0.42857143, y: 1.0714285}
+      - {x: 0.26190478, y: 1.1904762}
+      - {x: -0.04761905, y: 1.1904762}
+      - {x: -0.23809524, y: 1.0714285}
+      - {x: -0.47619048, y: 0.61904764}
+      - {x: -0.5, y: -0.14285715}
+      - {x: -0.5952381, y: -0.5714286}
+      - {x: -0.5952381, y: -0.7619048}
+      - {x: -0.47619048, y: -0.8095238}
+      - {x: -0.42857143, y: -0.95238096}
+      - {x: -0.42857143, y: -1.1190476}
+      - {x: -0.33333334, y: -1.1904762}
+      - {x: 0.33333334, y: -1.1904762}
+      - {x: 0.5952381, y: -1.1666667}
+      - {x: 0.5, y: -0.7380952}
+      - {x: 0.5952381, y: -0.5714286}
+      - {x: 0.5952381, y: -0.1904762}
+--- !u!60 &4537254192243526973
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3655957871163028085}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 001466eef878b5142873e32a1434c2dc, type: 2}
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
