@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4428303163644387491}
   - component: {fileID: 1404864710864650374}
   m_Layer: 5
-  m_Name: purpleShipImage
+  m_Name: shipImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -29.6, y: 0}
+  m_AnchoredPosition: {x: -29.599998, y: 0}
   m_SizeDelta: {x: 107.88315, y: 28.982178}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &210022787485041616
@@ -579,7 +579,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Borges
+  m_text: Dylax
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 09acf4413d1aef24b845f8593562551e, type: 2}
   m_sharedMaterial: {fileID: -8471056848845911030, guid: 09acf4413d1aef24b845f8593562551e, type: 2}
@@ -700,7 +700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3920739637163670605
 RectTransform:
   m_ObjectHideFlags: 0
@@ -892,7 +892,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 31.87, y: 0}
+  m_AnchoredPosition: {x: 31.870003, y: 0}
   m_SizeDelta: {x: 63.74843, y: 30.783615}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3744817198633373528
