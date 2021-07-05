@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
             shipsHolderReference[shipSelectorController.currentShipTypeIndex].SetActive(true);
         }catch (Exception e){
             //Instatiate default ship
-            shipsHolderReference[0].SetActive(true);
+            shipsHolderReference[3].SetActive(true);
             Debug.Log("MainGame Scene started via editor directly, loaded deafult ship then \n" + e.Message);
         }
 

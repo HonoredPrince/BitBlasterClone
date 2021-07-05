@@ -187,6 +187,10 @@ public class EnemyCollisionHandler : MonoBehaviour
                 SetDissolveColor(new Vector4(4, 190, 4, 0));
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
+            case "BouncerBulletExplosionRadius":
+                SetDissolveColor(new Vector4(254, 254, 73, 255));
+                DestroyEnemy(this.gameObject.tag, collision);          
+                break;
             case "PurpleBombExplosionRadius":
                 SetDissolveColor(new Vector4(98, 26, 142, 255));
                 DestroyEnemy(this.gameObject.tag, collision);          
@@ -229,11 +233,18 @@ public class EnemyCollisionHandler : MonoBehaviour
                     DestroyEnemy(this.gameObject.tag, collision);
                 }         
                 break;
+            case "BouncerBulletExplosionRadius":
+                enemyHealthManager.EnemyHit(2);
+                if(enemyHealthManager.GetCurrentHealth() <= 0){
+                    SetDissolveColor(new Vector4(254, 254, 73, 2555));
+                    DestroyEnemy(this.gameObject.tag, collision);
+                }         
+                break;
             case "PassthroughBullet":
                 soundController.playSFX("enemyBulletHit");
                 enemyHealthManager.EnemyHit(1);
                 if(enemyHealthManager.GetCurrentHealth() <= 0){
-                    SetDissolveColor(new Vector4(0, 191, 0, 175));
+                    SetDissolveColor(new Vector4(4, 190, 4, 0));
                     DestroyEnemy(this.gameObject.tag, collision);
                 }         
                 break;
@@ -241,7 +252,7 @@ public class EnemyCollisionHandler : MonoBehaviour
                 soundController.playSFX("enemyBulletHit");
                 enemyHealthManager.EnemyHit(1);
                 if(enemyHealthManager.GetCurrentHealth() <= 0){
-                    SetDissolveColor(new Vector4(0, 191, 0, 175));
+                    SetDissolveColor(new Vector4(252, 169, 3, 255));
                     DestroyEnemy(this.gameObject.tag, collision);
                 }         
                 break;

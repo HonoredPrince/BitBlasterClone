@@ -38,6 +38,12 @@ TagManager:
   - CombinedShot
   - CombinedShotExplosionRadius
   - ShipSelectorController
+  - PhysicalLeftWall
+  - PhysicalRightWall
+  - PhysicalTopWall
+  - PhysicalBottomWall
+  - BouncerBullet
+  - BouncerBulletExplosionRadius
   layers:
   - Default
   - TransparentFX
@@ -49,7 +55,7 @@ TagManager:
   - 
   - UI Background
   - SceneryBorders
-  - 
+  - BouncerBullet
   - 
   - 
   - 

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5481722359447806372}
   - component: {fileID: 8465815481546254428}
-  m_Layer: 0
-  m_Name: physicalCollider
-  m_TagString: BordersPoints
+  m_Layer: 9
+  m_Name: rightPhysicalCollider
+  m_TagString: PhysicalRightWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,9 +67,9 @@ GameObject:
   m_Component:
   - component: {fileID: 564453762666698492}
   - component: {fileID: 1784526796105376038}
-  m_Layer: 0
-  m_Name: physicalCollider
-  m_TagString: BordersPoints
+  m_Layer: 9
+  m_Name: bottomPhysicalCollider
+  m_TagString: PhysicalBottomWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -709,8 +709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dcbfe8a91f14eb4f96fc5da35b54bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bordersHitColor: {r: 1, g: 1, b: 1, a: 1}
-  bordersGlobalLightManager: {fileID: 0}
+  bordersHitColor: {r: 766.9961, g: 766.9961, b: 766.9961, a: 1}
 --- !u!1 &8740285842341086781
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,9 +720,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2813117024893540599}
   - component: {fileID: 7984528424068075040}
-  m_Layer: 0
-  m_Name: physicalCollider
-  m_TagString: BordersPoints
+  m_Layer: 9
+  m_Name: leftPhysicalCollider
+  m_TagString: PhysicalLeftWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -778,9 +777,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3003108613712823567}
   - component: {fileID: 303668878919889108}
-  m_Layer: 0
-  m_Name: physicalCollider
-  m_TagString: BordersPoints
+  m_Layer: 9
+  m_Name: topPhysicalCollider
+  m_TagString: PhysicalTopWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
