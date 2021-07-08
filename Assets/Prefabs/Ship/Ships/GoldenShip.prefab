@@ -1,5 +1,123 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &309236730520885092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4072592259054197652}
+  - component: {fileID: 5752970873618309255}
+  - component: {fileID: 6031936831121954699}
+  m_Layer: 13
+  m_Name: PhysicalCollider
+  m_TagString: ShipPhysical
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4072592259054197652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309236730520885092}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8163200358894178589}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &5752970873618309255
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309236730520885092}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 001466eef878b5142873e32a1434c2dc, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.0625, y: -0.9375}
+      - {x: 0.25, y: -0.90625}
+      - {x: 0.359375, y: -0.859375}
+      - {x: 0.4375, y: -0.953125}
+      - {x: 0.53125, y: -0.953125}
+      - {x: 0.5625, y: -0.9375}
+      - {x: 0.453125, y: -0.453125}
+      - {x: 0.375, y: -0.375}
+      - {x: 0.453125, y: -0.3125}
+      - {x: 0.53125, y: -0.265625}
+      - {x: 0.609375, y: -0.171875}
+      - {x: 0.609375, y: -0.078125}
+      - {x: 0.53125, y: 0.140625}
+      - {x: 0.484375, y: 0.3125}
+      - {x: 0.453125, y: 0.484375}
+      - {x: 0.421875, y: 0.765625}
+      - {x: 0.15625, y: 0.9375}
+      - {x: -0.15625, y: 0.9375}
+      - {x: -0.40625, y: 0.828125}
+      - {x: -0.46875, y: 0.703125}
+      - {x: -0.40625, y: 0.6875}
+      - {x: -0.359375, y: 0.6875}
+      - {x: -0.5, y: 0.59375}
+      - {x: -0.484375, y: 0.515625}
+      - {x: -0.515625, y: 0.328125}
+      - {x: -0.421875, y: 0.25}
+      - {x: -0.515625, y: 0.171875}
+      - {x: -0.625, y: -0.046875}
+      - {x: -0.625, y: -0.125}
+      - {x: -0.59375, y: -0.1875}
+      - {x: -0.53125, y: -0.296875}
+      - {x: -0.484375, y: -0.28125}
+      - {x: -0.4375, y: -0.234375}
+      - {x: -0.453125, y: -0.265625}
+      - {x: -0.46875, y: -0.3125}
+      - {x: -0.59375, y: -0.9375}
+      - {x: -0.546875, y: -0.953125}
+      - {x: -0.484375, y: -0.953125}
+      - {x: -0.46875, y: -0.921875}
+      - {x: -0.359375, y: -0.859375}
+      - {x: -0.296875, y: -0.9375}
+    - - {x: 0.015625, y: 0.875}
+      - {x: -0.015625, y: 0.859375}
+      - {x: -0.0625, y: 0.8125}
+      - {x: -0.0625, y: 0.796875}
+      - {x: -0.109375, y: 0.796875}
+      - {x: -0.125, y: 0.765625}
+      - {x: 0.09375, y: 0.75}
+      - {x: 0.125, y: 0.765625}
+--- !u!114 &6031936831121954699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309236730520885092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d3dc618c77c20342bfc44b3d486e2e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &410260783408033402
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +130,7 @@ GameObject:
   - component: {fileID: 4305461141396597910}
   - component: {fileID: 6959227762036501980}
   - component: {fileID: 3982775208055089695}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: laserPart1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2260469624475431615}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ShipCannon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -172,7 +290,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8163200358894178589}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10}
 --- !u!1 &2260469624908625421
 GameObject:
@@ -188,7 +306,7 @@ GameObject:
   - component: {fileID: 2260469624908625417}
   - component: {fileID: 3982775207174034879}
   - component: {fileID: 3982775208592631448}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ShipBerserker
   m_TagString: ShipBerserker
   m_Icon: {fileID: 0}
@@ -207,7 +325,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8163200358894178589}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2260469624908625423
 SpriteRenderer:
@@ -441,7 +559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2260469625802852088}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ShipCannon (2)
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -460,7 +578,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8163200358894178589}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10}
 --- !u!1 &3982775207470252708
 GameObject:
@@ -473,7 +591,7 @@ GameObject:
   - component: {fileID: 3982775207470252711}
   - component: {fileID: 3982775207470252710}
   - component: {fileID: 3982775207470252697}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Engine Thrust
   m_TagString: ShipThrusts
   m_Icon: {fileID: 0}
@@ -493,7 +611,7 @@ Transform:
   m_Children:
   - {fileID: 3982775208170491786}
   m_Father: {fileID: 8163200358894178589}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 269.31}
 --- !u!212 &3982775207470252710
 SpriteRenderer:
@@ -575,7 +693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3982775208170491786}
   - component: {fileID: 3982775208170491789}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,7 +764,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7564140740165817943}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -681,7 +799,7 @@ GameObject:
   - component: {fileID: 4610374439149148059}
   - component: {fileID: 8552206341115236801}
   - component: {fileID: 3982775208739647385}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: laserPart2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,7 +940,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8163200358174454726}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ShipCannon
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -841,7 +959,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8163200358894178589}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8163200358894178594
 GameObject:
@@ -855,13 +973,12 @@ GameObject:
   - component: {fileID: 8163200358894178588}
   - component: {fileID: 8163200358894178595}
   - component: {fileID: 8163200358894178620}
-  - component: {fileID: 8163200358894178621}
   - component: {fileID: 414101649937497086}
   - component: {fileID: 8163200358894178591}
   - component: {fileID: 8163200358894178584}
   - component: {fileID: 8163200358894178585}
   - component: {fileID: 764519105747449448}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GoldenShip
   m_TagString: Ship
   m_Icon: {fileID: 0}
@@ -879,6 +996,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4072592259054197652}
   - {fileID: 8163200358174454726}
   - {fileID: 2260469624475431615}
   - {fileID: 2260469625802852088}
@@ -971,80 +1089,6 @@ PolygonCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 1.28, y: 1.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.0625, y: -0.9375}
-      - {x: 0.25, y: -0.90625}
-      - {x: 0.359375, y: -0.859375}
-      - {x: 0.4375, y: -0.953125}
-      - {x: 0.53125, y: -0.953125}
-      - {x: 0.5625, y: -0.9375}
-      - {x: 0.453125, y: -0.453125}
-      - {x: 0.375, y: -0.375}
-      - {x: 0.453125, y: -0.3125}
-      - {x: 0.53125, y: -0.265625}
-      - {x: 0.609375, y: -0.171875}
-      - {x: 0.609375, y: -0.078125}
-      - {x: 0.53125, y: 0.140625}
-      - {x: 0.484375, y: 0.3125}
-      - {x: 0.453125, y: 0.484375}
-      - {x: 0.421875, y: 0.765625}
-      - {x: 0.15625, y: 0.9375}
-      - {x: -0.15625, y: 0.9375}
-      - {x: -0.40625, y: 0.828125}
-      - {x: -0.46875, y: 0.703125}
-      - {x: -0.40625, y: 0.6875}
-      - {x: -0.359375, y: 0.6875}
-      - {x: -0.5, y: 0.59375}
-      - {x: -0.484375, y: 0.515625}
-      - {x: -0.515625, y: 0.328125}
-      - {x: -0.421875, y: 0.25}
-      - {x: -0.515625, y: 0.171875}
-      - {x: -0.625, y: -0.046875}
-      - {x: -0.625, y: -0.125}
-      - {x: -0.59375, y: -0.1875}
-      - {x: -0.53125, y: -0.296875}
-      - {x: -0.484375, y: -0.28125}
-      - {x: -0.4375, y: -0.234375}
-      - {x: -0.453125, y: -0.265625}
-      - {x: -0.46875, y: -0.3125}
-      - {x: -0.59375, y: -0.9375}
-      - {x: -0.546875, y: -0.953125}
-      - {x: -0.484375, y: -0.953125}
-      - {x: -0.46875, y: -0.921875}
-      - {x: -0.359375, y: -0.859375}
-      - {x: -0.296875, y: -0.9375}
-    - - {x: 0.015625, y: 0.875}
-      - {x: -0.015625, y: 0.859375}
-      - {x: -0.0625, y: 0.8125}
-      - {x: -0.0625, y: 0.796875}
-      - {x: -0.109375, y: 0.796875}
-      - {x: -0.125, y: 0.765625}
-      - {x: 0.09375, y: 0.75}
-      - {x: 0.125, y: 0.765625}
---- !u!60 &8163200358894178621
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8163200358894178594}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1250,7 +1294,8 @@ MonoBehaviour:
   shipBerserker: {fileID: 2260469624908625421}
   shipLaser: {fileID: 8266438337054638270}
   shipHasSpecialBullet: 0
-  fireRate: 0.4
+  baseShipFireRate: 0.8
+  fireRate: 0
 --- !u!114 &8163200358894178585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1289,7 +1334,7 @@ GameObject:
   - component: {fileID: 3341366085195382015}
   - component: {fileID: 8036740411821010580}
   - component: {fileID: 3982775209117281268}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LaserHolder
   m_TagString: Laser
   m_Icon: {fileID: 0}
@@ -1309,7 +1354,7 @@ Transform:
   m_Children:
   - {fileID: 7564140740165817943}
   m_Father: {fileID: 8163200358894178589}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!50 &3341366085195382015
 Rigidbody2D:

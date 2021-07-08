@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ShipCollisionController : MonoBehaviour
 {
-    int borderCollisionCounter = 0;
     HUDController hudController;
     ShipAttack shipAttackController;
     ShipHealthManager shipHealthManager;
@@ -24,7 +23,6 @@ public class ShipCollisionController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision){
-        BordersPhysicalCollisionDetection(collision);
         EnemyCollisionDetection(collision);
         PowerUpsCollisionDetection(collision);
     }
@@ -62,18 +60,6 @@ public class ShipCollisionController : MonoBehaviour
             case "Enemy5":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
                 shipHealthManager.PlayerDamage(1);
-                break;
-        }
-    }
-
-    void BordersPhysicalCollisionDetection(Collider2D collision){
-        switch(collision.gameObject.tag){
-            case "BordersPoints":
-                borderCollisionCounter++;
-                if(borderCollisionCounter == 1){
-                    this.shipHealthManager.StopAllCoroutines(); 
-                    StartCoroutine(shipHealthManager.PlayerDeath());
-                }
                 break;
         }
     }

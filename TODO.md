@@ -9,3 +9,4 @@
 7. Boostbar color for every type of ship
 8. Greenship doesn't boost?
 9. Berserker changes color for every type of ship?
+10. See in-code details for the golden ship and the new bullet type, playtest is necessary

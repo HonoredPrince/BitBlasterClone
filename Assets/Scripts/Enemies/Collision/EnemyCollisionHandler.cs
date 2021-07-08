@@ -187,7 +187,8 @@ public class EnemyCollisionHandler : MonoBehaviour
                 SetDissolveColor(new Vector4(4, 190, 4, 0));
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
-            case "BouncerBulletExplosionRadius":
+            case "BouncerBullet":
+                soundController.playSFX("enemyBulletHit");
                 SetDissolveColor(new Vector4(254, 254, 73, 255));
                 DestroyEnemy(this.gameObject.tag, collision);          
                 break;
@@ -233,8 +234,9 @@ public class EnemyCollisionHandler : MonoBehaviour
                     DestroyEnemy(this.gameObject.tag, collision);
                 }         
                 break;
-            case "BouncerBulletExplosionRadius":
-                enemyHealthManager.EnemyHit(2);
+            case "BouncerBullet":
+                soundController.playSFX("enemyBulletHit");
+                enemyHealthManager.EnemyHit(1);
                 if(enemyHealthManager.GetCurrentHealth() <= 0){
                     SetDissolveColor(new Vector4(254, 254, 73, 2555));
                     DestroyEnemy(this.gameObject.tag, collision);
