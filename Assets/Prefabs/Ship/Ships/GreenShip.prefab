@@ -473,7 +473,6 @@ MonoBehaviour:
   shipLaser: {fileID: 1478046820563472145}
   shipHasSpecialBullet: 0
   baseShipFireRate: 0.7
-  fireRate: 0
 --- !u!114 &1689651850900299446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1161,7 +1160,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 688829450379684171, guid: 771533362bf5a0348b822619b0d2d408, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.22606564, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

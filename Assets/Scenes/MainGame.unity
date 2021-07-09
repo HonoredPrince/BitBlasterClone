@@ -15139,18 +15139,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1354316316952135376, guid: 245930b11a2a2654a871e031ffc8bd21, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1354316316952135376, guid: 245930b11a2a2654a871e031ffc8bd21, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1354316316952135376, guid: 245930b11a2a2654a871e031ffc8bd21, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1354316316952135380, guid: 245930b11a2a2654a871e031ffc8bd21, type: 3}
       propertyPath: m_Name
       value: HUD

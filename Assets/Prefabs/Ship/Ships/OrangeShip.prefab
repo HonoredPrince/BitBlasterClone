@@ -799,7 +799,6 @@ MonoBehaviour:
   shipLaser: {fileID: 3552593499945542633}
   shipHasSpecialBullet: 0
   baseShipFireRate: 0.6
-  fireRate: 0
 --- !u!114 &3655957871163028046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1060,7 +1059,7 @@ Transform:
   m_GameObject: {fileID: 6677672817618621786}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 3655957871163028042}
   m_RootOrder: 8
@@ -1106,7 +1105,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 688829450379684171, guid: 771533362bf5a0348b822619b0d2d408, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.46568146, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
