@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class HUDController : MonoBehaviour
 {
+    GameObject playerShip;
+    [SerializeField] GameObject boostBarPanel = null;
     [SerializeField] Image boostBarImage = null;
     [SerializeField] Text shipAmmoText = null;
     [SerializeField] Text shipScoreText = null;
@@ -20,6 +22,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] Image weaponTimeBarFillImage = null;
 
     ShipAttack shipAttackHandler;
+    ShipMovement shipMovementHandler;
     ScoreController shipScoreController;
     ShipSelectorController shipSelectorController;
 
@@ -34,9 +37,17 @@ public class HUDController : MonoBehaviour
         //SetDefaultBulletTypeSprite();      
         SetBulletTypeImagesByIndex(this.shipSelectorController.currentShipTypeIndex);
 
-        shipAttackHandler = GameObject.FindGameObjectWithTag("Ship").GetComponent<ShipAttack>();
+        playerShip = GameObject.FindGameObjectWithTag("Ship");
+        shipAttackHandler =  playerShip.GetComponent<ShipAttack>();
+        shipMovementHandler = playerShip.GetComponent<ShipMovement>();
         shipScoreController = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreController>();
         weaponTypeTimeBar.SetActive(false);
+    
+        if(shipMovementHandler.shipHaveBoost){
+            boostBarPanel.SetActive(true);
+        }else{
+            boostBarPanel.SetActive(false);
+        }
     }
 
     void FixedUpdate(){

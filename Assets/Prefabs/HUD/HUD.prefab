@@ -1898,19 +1898,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50d6281c4e7e4ca45a719b6e9eed2373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boostBarPanel: {fileID: 1354316317051267260}
   boostBarImage: {fileID: 1354316316086825874}
   shipAmmoText: {fileID: 1354316316341379869}
   shipScoreText: {fileID: 1354316316333152518}
-  bulletsTypesSprites:
-  - {fileID: 21300000, guid: c975342d0011a83468259882b54a62b4, type: 3}
-  - {fileID: 21300000, guid: d09b9de899df1094e82e3d7fe8aaf588, type: 3}
-  - {fileID: 21300000, guid: 77d4c3b9b321e154897b5ec666631a18, type: 3}
-  shipsDefaultBulletsSprites:
-  - {fileID: 21300000, guid: 796918993d764484ea3d7174b93e919f, type: 3}
-  - {fileID: 21300000, guid: 00734ce6323834a4ea8376eb1c1bedf3, type: 3}
-  - {fileID: 21300000, guid: 0c8ca6158f046fb42be4f64b27b357d3, type: 3}
-  - {fileID: 21300000, guid: 4a308eafd8b85e54fa7258afcfe17fba, type: 3}
-  bulletTypeSprite: {fileID: 5050735987252545670}
   bulletTypeImgObj:
   - {fileID: 1354316315821074557}
   - {fileID: 92216631362239856}

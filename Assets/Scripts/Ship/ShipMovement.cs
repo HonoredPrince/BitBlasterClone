@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,8 +21,25 @@ public class ShipMovement : MonoBehaviour
     [SerializeField] float boostForce = 0, boostDelay = 0;
     float boostingTime;
     bool isBoosting, canBoost;
+    public bool shipHaveBoost { get; private set; }
+    ShipSelectorController shipSelectorController;
 
     void Awake(){
+        //Only for debug purposes so i can start the main game scene without going on the menu before
+        //Have to remove this try-catch model later, cannot not have a ShipSelector Instance
+        try{
+            shipSelectorController = GameObject.FindGameObjectWithTag("ShipSelectorController").GetComponent<ShipSelectorController>();
+            if(shipSelectorController.currentShipTypeIndex == 1){
+                shipHaveBoost = false;
+            }else{
+                shipHaveBoost = true;
+            }
+        }catch (Exception e){
+            Debug.Log("Missing ship selector controller object \n" + e.Message);
+        }
+        Debug.Log(shipHaveBoost);
+        //shipHaveBoost = true;
+
         shipRigidBody2D = GetComponent<Rigidbody2D>();   
         shootingPoint = GetComponentInChildren<Transform>(); 
         engineThrustsSprite = GameObject.FindGameObjectWithTag("ShipThrusts").GetComponent<SpriteRenderer>();
@@ -100,7 +118,7 @@ public class ShipMovement : MonoBehaviour
         }
 
         if(Input.GetKeyDown(KeyCode.Space)){
-            if(canBoost){
+            if(canBoost && shipHaveBoost){
                 StartCoroutine(BoostShip(boostForce));
             }
         }
