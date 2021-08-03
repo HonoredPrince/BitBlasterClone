@@ -90,6 +90,12 @@ public class EnemyCollisionHandler : MonoBehaviour
                 this.isDissolving = true;
                 DisableEnemyCollision();
                 break;
+            case "Enemy6":
+                shipScoreController.AddScore(110);
+                shipScoreController.SpawnScorePopUpText(this.transform.position, 110);
+                this.isDissolving = true;
+                DisableEnemyCollision();
+                break;
         }
     }
 
@@ -168,6 +174,10 @@ public class EnemyCollisionHandler : MonoBehaviour
                 enemyCollider.enabled = false;
                 break;
             case "Enemy5":
+                enemyCollider = GetComponent<CircleCollider2D>();
+                enemyCollider.enabled = false;
+                break;
+            case "Enemy6":
                 enemyCollider = GetComponent<CircleCollider2D>();
                 enemyCollider.enabled = false;
                 break;

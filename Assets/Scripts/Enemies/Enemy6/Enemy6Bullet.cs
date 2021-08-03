@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefaultBullet : MonoBehaviour
+public class Enemy6Bullet : MonoBehaviour
 {
     Rigidbody2D bulletRigidBody2D;
     float moveSpeed;
 
     void Awake(){
         bulletRigidBody2D = GetComponentInChildren<Rigidbody2D>();
-        moveSpeed = 15f;
+        moveSpeed = 9f;
         //Only for initial tests, when garbage collector is not implemented
         //Invoke("DestroyBullet", 6f);
     }
@@ -19,34 +19,19 @@ public class DefaultBullet : MonoBehaviour
     }
 
     void BulletMovement(){
-        bulletRigidBody2D.velocity = transform.right * moveSpeed;
+        bulletRigidBody2D.velocity = transform.up * moveSpeed;
     }
 
     public void DestroyBullet(){
-        Destroy(transform.parent.gameObject);
+        Destroy(this.gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D collision){
         switch(collision.gameObject.tag){
-            case "Enemy1":
+            case "GarbageCollector":
                 DestroyBullet();
                 break;
-            case "Enemy1_Splitted":
-                DestroyBullet();
-                break;
-            case "Enemy2":
-                DestroyBullet();
-                break;
-            case "Enemy3":
-                DestroyBullet();
-                break;
-            case "Enemy4":
-                DestroyBullet();
-                break;
-            case "Enemy5":
-                DestroyBullet();
-                break;
-            case "Enemy6":
+            case "Ship":
                 DestroyBullet();
                 break;
         }

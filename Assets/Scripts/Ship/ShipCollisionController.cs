@@ -61,6 +61,14 @@ public class ShipCollisionController : MonoBehaviour
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
                 shipHealthManager.PlayerDamage(1);
                 break;
+            case "Enemy6":
+                shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
+                shipHealthManager.PlayerDamage(1);
+                break;
+            case "Enemy6Bullet":
+                shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
+                shipHealthManager.PlayerDamage(1);
+                break;
         }
     }
 

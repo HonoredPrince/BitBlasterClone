@@ -45,6 +45,8 @@ TagManager:
   - BouncerBullet
   - BouncerBulletExplosionRadius
   - ShipPhysical
+  - Enemy6
+  - Enemy6Bullet
   layers:
   - Default
   - TransparentFX
@@ -102,4 +104,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 965121513
+    locked: 0
+  - name: Test
+    uniqueID: 1643833001
     locked: 0

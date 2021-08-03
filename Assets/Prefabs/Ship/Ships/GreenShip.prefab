@@ -446,8 +446,8 @@ MonoBehaviour:
   bottomBorder: {fileID: 0}
   hudController: {fileID: 0}
   movSpeed: 10
-  rotationSpeed: 320
-  boostForce: 4
+  rotationSpeed: 300
+  boostForce: 0
   boostDelay: 5
 --- !u!114 &1689651850900299447
 MonoBehaviour:

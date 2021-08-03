@@ -276,6 +276,7 @@ public class ShipAttack : MonoBehaviour
         GameObject[] allEnemiesType3 = GameObject.FindGameObjectsWithTag("Enemy3");
         GameObject[] allEnemiesType4 = GameObject.FindGameObjectsWithTag("Enemy4");
         GameObject[] allEnemiesType5 = GameObject.FindGameObjectsWithTag("Enemy5");
+        GameObject[] allEnemiesType6 = GameObject.FindGameObjectsWithTag("Enemy6");
 
         NukeDamageOnEnemies(allEnemiesType1, "Enemy1");
         NukeDamageOnEnemies(allEnemiesType1Splitted, "Enemy1_Splitted");
@@ -283,6 +284,7 @@ public class ShipAttack : MonoBehaviour
         NukeDamageOnEnemies(allEnemiesType3, "Enemy3");
         NukeDamageOnEnemies(allEnemiesType4, "Enemy4");
         NukeDamageOnEnemies(allEnemiesType5, "Enemy5");
+        NukeDamageOnEnemies(allEnemiesType6, "Enemy6");
     }
 
     void NukeDamageOnEnemies(GameObject[] allEnemiesFromOneType, string typeToAddScore){

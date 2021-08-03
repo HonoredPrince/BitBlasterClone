@@ -37,7 +37,8 @@ public class ShipMovement : MonoBehaviour
         }catch (Exception e){
             Debug.Log("Missing ship selector controller object \n" + e.Message);
         }
-        Debug.Log(shipHaveBoost);
+        
+        //Debug.Log(shipHaveBoost);
         //shipHaveBoost = true;
 
         shipRigidBody2D = GetComponent<Rigidbody2D>();   

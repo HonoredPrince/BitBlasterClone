@@ -74,6 +74,9 @@ public class BouncerBullet : MonoBehaviour
             case "Enemy5":
                 StartCoroutine(BulletExplosion());
                 break;
+            case "Enemy6":
+                StartCoroutine(BulletExplosion());
+                break;
         }
     }
 }
