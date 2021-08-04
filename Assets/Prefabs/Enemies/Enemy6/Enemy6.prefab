@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1945504145954167333}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ShootingPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1945504146678140720}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: rightPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1945504147025268089}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: leftPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1945504147597603043}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: topPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 5385984610609215138}
   - component: {fileID: -8175571040151728140}
   - component: {fileID: 390191961087968586}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy6
   m_TagString: Enemy6
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1945504147874435485}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bottomPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

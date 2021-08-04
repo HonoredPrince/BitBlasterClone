@@ -10,7 +10,7 @@ public class ShipHealthManager : MonoBehaviour
     SoundController soundController;
     GameObject shipPlayer;
     bool isShipInDamagedState, isShipInvencible;
-    int playerShield;
+    [SerializeField]int playerShield = 1;
 
     SpriteRenderer playerSprite, thrustsSprites;
 
@@ -23,8 +23,7 @@ public class ShipHealthManager : MonoBehaviour
 
         isShipInvencible = false; //God Mode for Debug purposes
         
-        isShipInDamagedState = false;
-        playerShield = 3; 
+        isShipInDamagedState = false; 
         hudController.UpdateShieldHUD(playerShield);
     }
 

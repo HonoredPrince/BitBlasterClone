@@ -473,6 +473,7 @@ MonoBehaviour:
   shipLaser: {fileID: 1478046820563472145}
   shipHasSpecialBullet: 0
   baseShipFireRate: 0.7
+  amountOfNukes: 1
 --- !u!114 &1689651850900299446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,6 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hudController: {fileID: 0}
   shipDeathObject: {fileID: 6183175453345330338, guid: 3cbbbfd8dd4014d448df984f4bf90285, type: 3}
+  playerShield: 2
 --- !u!1 &3121965817162523471
 GameObject:
   m_ObjectHideFlags: 0

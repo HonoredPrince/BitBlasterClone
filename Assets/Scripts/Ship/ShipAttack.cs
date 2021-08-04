@@ -30,7 +30,7 @@ public class ShipAttack : MonoBehaviour
     
     bool hasLaserMode;
 
-    int amountOfNukes;
+    [SerializeField] int amountOfNukes = 1;
     float nukeDelayTime, weaponsDelayTime;
     bool canDeployNuke;
     
@@ -47,7 +47,6 @@ public class ShipAttack : MonoBehaviour
         soundController = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundController>();
         shipCollider = GetComponent<Collider2D>();
         shipAmmo = 100;
-        amountOfNukes = 3;
         
         nukeDelayTime = 8f;
         weaponsDelayTime = 10f;
