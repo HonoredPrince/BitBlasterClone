@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 881013060939844590}
   - component: {fileID: 881013060939844585}
   - component: {fileID: -4044204800542379354}
+  - component: {fileID: 6538819841778748000}
   m_Layer: 11
   m_Name: Enemy1_part1
   m_TagString: Enemy1_Splitted
@@ -187,7 +188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96462777955793a48b6f101f2314f579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDissolving: 0
   hasPassedBorders: 0
 --- !u!114 &-4044204800542379354
 MonoBehaviour:
@@ -209,3 +209,18 @@ MonoBehaviour:
   - {fileID: 1201452252723652591, guid: 3efed9bc7d1fde846afa5bff6593010a, type: 3}
   - {fileID: 5822426097229116835, guid: 146eeaa9b8336c143bf88abeff1e0b90, type: 3}
   - {fileID: 8395487148145623903, guid: ec6fc89632b9ee14c85a5d426c94fa99, type: 3}
+--- !u!114 &6538819841778748000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881013060939844584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd2a1a77edd35d941947eb9ede336ec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 1
+  flashMaterial: {fileID: 2100000, guid: d04ab3f01d35d6b428e4d7de38a8154d, type: 2}
+  durationOfTheFlash: 0.125

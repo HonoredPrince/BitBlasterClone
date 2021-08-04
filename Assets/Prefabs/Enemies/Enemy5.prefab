@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: -2105280976991579058}
   - component: {fileID: 1437680388835307020}
   - component: {fileID: 6162352982983703850}
-  - component: {fileID: 7230579358955557307}
+  - component: {fileID: 8483700287753808937}
+  - component: {fileID: 4772022133746944449}
   m_Layer: 11
   m_Name: Enemy5
   m_TagString: Enemy5
@@ -170,7 +171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96462777955793a48b6f101f2314f579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDissolving: 0
   hasPassedBorders: 0
 --- !u!114 &6162352982983703850
 MonoBehaviour:
@@ -192,7 +192,22 @@ MonoBehaviour:
   - {fileID: 1201452252723652591, guid: 3efed9bc7d1fde846afa5bff6593010a, type: 3}
   - {fileID: 5822426097229116835, guid: 146eeaa9b8336c143bf88abeff1e0b90, type: 3}
   - {fileID: 8395487148145623903, guid: ec6fc89632b9ee14c85a5d426c94fa99, type: 3}
---- !u!114 &7230579358955557307
+--- !u!114 &8483700287753808937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6252472049845905102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd2a1a77edd35d941947eb9ede336ec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 3
+  flashMaterial: {fileID: 2100000, guid: d04ab3f01d35d6b428e4d7de38a8154d, type: 2}
+  durationOfTheFlash: 0.125
+--- !u!114 &4772022133746944449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,4 +219,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ef4b694f90317428f7e90562c99ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 3

@@ -23,12 +23,16 @@ public class ShipCollisionController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision){
-        EnemyCollisionDetection(collision);
+        if(!shipAttackController.HasBerserkerMode()){
+            EnemyCollisionDetection(collision);
+        }
         PowerUpsCollisionDetection(collision);
     }
 
     void OnTriggerStay2D(Collider2D collision){
-        EnemyCollisionDetection(collision);
+        if(!shipAttackController.HasBerserkerMode()){
+            EnemyCollisionDetection(collision);
+        }
     }
 
     void EnemyCollisionDetection(Collider2D collision){

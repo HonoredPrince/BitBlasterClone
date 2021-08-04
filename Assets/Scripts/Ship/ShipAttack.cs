@@ -291,37 +291,38 @@ public class ShipAttack : MonoBehaviour
         foreach(GameObject enemie in allEnemiesFromOneType){
             Renderer enemieRenderer = enemie.GetComponent<Renderer>(); //Have to see if this works as a way to destroy only enemies in câmera view
             EnemyCollisionHandler enemyCollisionHandler = enemie.GetComponent<EnemyCollisionHandler>();
+            EnemyHealthManager enemyDamagedHealthManager = enemie.GetComponent<EnemyHealthManager>();
             if(enemyCollisionHandler.hasPassedBorders){
                 switch(typeToAddScore){
                     case "Enemy1":
                         scoreController.AddScore(10);
                         scoreController.SpawnScorePopUpText(enemie.transform.position, 10);
-                        enemyCollisionHandler.DropItem();
+                        enemyDamagedHealthManager.DropItem();
                         break;
                     case "Enemy1_Splitted":
                         scoreController.AddScore(20);
                         scoreController.SpawnScorePopUpText(enemie.transform.position, 20);
-                        enemyCollisionHandler.DropItem();
+                        enemyDamagedHealthManager.DropItem();
                         break;
                     case "Enemy2":
                         scoreController.AddScore(20);
                         scoreController.SpawnScorePopUpText(enemie.transform.position, 20);
-                        enemyCollisionHandler.DropItem();
+                        enemyDamagedHealthManager.DropItem();
                         break;
                     case "Enemy3":
                         scoreController.AddScore(30);
                         scoreController.SpawnScorePopUpText(enemie.transform.position, 30);
-                        enemyCollisionHandler.DropItem();
+                        enemyDamagedHealthManager.DropItem();
                         break;
                     case "Enemy4":
                         scoreController.AddScore(25);
                         scoreController.SpawnScorePopUpText(enemie.transform.position, 25);
-                        enemyCollisionHandler.DropItem();
+                        enemyDamagedHealthManager.DropItem();
                         break;
                     case "Enemy5":
                         scoreController.AddScore(70);
                         scoreController.SpawnScorePopUpText(enemie.transform.position, 70);
-                        enemyCollisionHandler.DropItem();
+                        enemyDamagedHealthManager.DropItem();
                         break;
                 }
                 Destroy(enemie);
