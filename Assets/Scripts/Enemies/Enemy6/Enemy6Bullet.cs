@@ -34,6 +34,9 @@ public class Enemy6Bullet : MonoBehaviour
             case "Ship":
                 DestroyBullet();
                 break;
+            case "ShipBerserker":
+                DestroyBullet();
+                break;
         }
     }
 }

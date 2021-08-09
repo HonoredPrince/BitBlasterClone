@@ -11,6 +11,7 @@ public class EnemyEmitter : MonoBehaviour
     const int ENEMY4 = 3;
     const int ENEMY5 = 4;
     const int ENEMY6 = 5;
+    const int ENEMY7 = 6;
 
     [Header("Enemy Selection")] 
     [SerializeField]GameObject[] enemyPrefab = null;
@@ -24,24 +25,32 @@ public class EnemyEmitter : MonoBehaviour
     [SerializeField]string emitterType = null;
     [SerializeField]int directionOfEmission = 0;
 
+    GameObject enemy7Holder = null;
+
     void Awake(){
         //Find a way of balacing the game difficulty
         InvokeRepeating("TestSpawn", 1f, 3f);
+        //InvokeRepeating("TestSpawnEnemySeven", 10f, Random.Range(10f, 20f));
     }
 
     //For DEBUG only, have to balance the game, now it's hard coded
     void TestSpawn(){
         float chance = Random.Range(0, 100);
+        //Debug.Log(chance);
         if(chance <= 1){
             SpawnEnemy(this.enemyPrefab[ENEMY5], this.emissionOrientationType, this.directionOfEmission);
             //Debug.Log("Spawned Enemy Type 5");
         }else if(chance > 1 && chance <= 3){
             SpawnEnemy(this.enemyPrefab[ENEMY6], this.emissionOrientationType, this.directionOfEmission);
             //Debug.Log("Spawned Enemy Type 6");
-        }else if(chance > 3 && chance <= 8){
+        }else if(chance > 3 && chance <= 6 && emitterType == "Side" && !IsOneEnemyTypeSevenOnTheScene()){
+            //SpawnEnemySeven(this.enemyPrefab[ENEMY7]);
+            TestSpawnEnemySeven();
+            //Debug.Log("Spawned Enemy Type 7");
+        }else if(chance > 6 && chance <= 10){
             SpawnEnemy(this.enemyPrefab[ENEMY4], this.emissionOrientationType, this.directionOfEmission);
             //Debug.Log("Spawned Enemy Type 4");
-        }else if(chance > 8 && chance <= 20){  
+        }else if(chance > 10 && chance <= 20){  
             SpawnEnemy(this.enemyPrefab[ENEMY3], this.emissionOrientationType, this.directionOfEmission);
             //Debug.Log("Spawned Enemy Type 3");
         }else if(chance > 20 && chance <= 40){  
@@ -105,6 +114,26 @@ public class EnemyEmitter : MonoBehaviour
                 enemyTypeSixSpawnedMovementController.typeOfDirection = orientation;
                 break;
         }
-        
     }
+
+    void SpawnEnemySeven(GameObject enemyPrefab){
+        GameObject enemySpawned = Instantiate(enemyPrefab, this.emissionEndPoint.position, Quaternion.identity);
+    }
+
+    bool IsOneEnemyTypeSevenOnTheScene(){
+        if(GameObject.FindGameObjectWithTag("Enemy7") == null){
+            return false; 
+        }else{
+            return true;
+        }
+    }
+
+    //DEBUG ONLY, DELETE LATER
+    void TestSpawnEnemySeven(){
+        if(emitterType == "Side"){
+            enemy7Holder = Instantiate(this.enemyPrefab[ENEMY7], this.emissionEndPoint.position, Quaternion.identity);
+            //Debug.Log("Spawned Enemy Type 7");
+        }
+    }
+
 }

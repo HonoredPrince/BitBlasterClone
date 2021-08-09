@@ -125,6 +125,10 @@ public class EnemyHealthManager : MonoBehaviour
                 shipScoreController.AddScore(90);
                 shipScoreController.SpawnScorePopUpText(this.transform.position, 90);
                 break;
+            case "Enemy7":
+                shipScoreController.AddScore(110);
+                shipScoreController.SpawnScorePopUpText(this.transform.position, 110);
+                break;
         }
     }
 

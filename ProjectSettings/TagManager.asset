@@ -47,6 +47,11 @@ TagManager:
   - ShipPhysical
   - Enemy6
   - Enemy6Bullet
+  - Enemy7
+  - Enemy7Bomb
+  - Enemy7BombExplosionRadius
+  - Enemy7LeftPositionPoint
+  - Enemy7RightPositionPoint
   layers:
   - Default
   - TransparentFX
@@ -107,4 +112,7 @@ TagManager:
     locked: 0
   - name: Test
     uniqueID: 1643833001
+    locked: 0
+  - name: Enemies
+    uniqueID: 1823549785
     locked: 0

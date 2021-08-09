@@ -131,6 +131,10 @@ public class EnemyCollisionHandler : MonoBehaviour
                 enemyCollider = GetComponent<CircleCollider2D>();
                 enemyCollider.enabled = false;
                 break;
+            case "Enemy7":
+                enemyCollider = GetComponent<PolygonCollider2D>();
+                enemyCollider.enabled = false;
+                break;
         }
     }
 

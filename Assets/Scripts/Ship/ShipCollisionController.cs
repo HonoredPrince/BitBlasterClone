@@ -24,18 +24,19 @@ public class ShipCollisionController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision){
         if(!shipAttackController.HasBerserkerMode()){
-            EnemyCollisionDetection(collision);
+            EnemyContinuousCollisionDetection(collision);
+            EnemySingleCollisionDetection(collision);
         }
         PowerUpsCollisionDetection(collision);
     }
 
     void OnTriggerStay2D(Collider2D collision){
         if(!shipAttackController.HasBerserkerMode()){
-            EnemyCollisionDetection(collision);
+            EnemyContinuousCollisionDetection(collision);
         }
     }
 
-    void EnemyCollisionDetection(Collider2D collision){
+    void EnemyContinuousCollisionDetection(Collider2D collision){
         switch(collision.gameObject.tag){
             case "Enemy1":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
@@ -71,6 +72,23 @@ public class ShipCollisionController : MonoBehaviour
                 break;
             case "Enemy6Bullet":
                 shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
+                shipHealthManager.PlayerDamage(1);
+                break;
+            case "Enemy7":
+                shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
+                shipHealthManager.PlayerDamage(1);
+                break;
+            case "Enemy7Bomb":
+                //shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
+                shipHealthManager.PlayerDamage(1);
+                break;
+        }
+    }
+
+    void EnemySingleCollisionDetection(Collider2D collision){
+        switch(collision.gameObject.tag){
+            case "Enemy7BombExplosionRadius":
+                //shipHealthManager.CheckEnemyCollisionWithPlayerInvulnerability(collision.gameObject);
                 shipHealthManager.PlayerDamage(1);
                 break;
         }

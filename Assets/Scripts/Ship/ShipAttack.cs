@@ -276,6 +276,7 @@ public class ShipAttack : MonoBehaviour
         GameObject[] allEnemiesType4 = GameObject.FindGameObjectsWithTag("Enemy4");
         GameObject[] allEnemiesType5 = GameObject.FindGameObjectsWithTag("Enemy5");
         GameObject[] allEnemiesType6 = GameObject.FindGameObjectsWithTag("Enemy6");
+        GameObject[] allEnemiesType7 = GameObject.FindGameObjectsWithTag("Enemy7");
 
         NukeDamageOnEnemies(allEnemiesType1, "Enemy1");
         NukeDamageOnEnemies(allEnemiesType1Splitted, "Enemy1_Splitted");
@@ -284,6 +285,7 @@ public class ShipAttack : MonoBehaviour
         NukeDamageOnEnemies(allEnemiesType4, "Enemy4");
         NukeDamageOnEnemies(allEnemiesType5, "Enemy5");
         NukeDamageOnEnemies(allEnemiesType6, "Enemy6");
+        NukeDamageOnEnemies(allEnemiesType7, "Enemy7");
     }
 
     void NukeDamageOnEnemies(GameObject[] allEnemiesFromOneType, string typeToAddScore){
@@ -319,8 +321,18 @@ public class ShipAttack : MonoBehaviour
                         enemyDamagedHealthManager.DropItem();
                         break;
                     case "Enemy5":
-                        scoreController.AddScore(70);
-                        scoreController.SpawnScorePopUpText(enemie.transform.position, 70);
+                        scoreController.AddScore(100);
+                        scoreController.SpawnScorePopUpText(enemie.transform.position, 100);
+                        enemyDamagedHealthManager.DropItem();
+                        break;
+                    case "Enemy6":
+                        scoreController.AddScore(90);
+                        scoreController.SpawnScorePopUpText(enemie.transform.position, 90);
+                        enemyDamagedHealthManager.DropItem();
+                        break;
+                    case "Enemy7":
+                        scoreController.AddScore(110);
+                        scoreController.SpawnScorePopUpText(enemie.transform.position, 110);
                         enemyDamagedHealthManager.DropItem();
                         break;
                 }
