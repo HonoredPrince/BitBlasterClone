@@ -57,7 +57,7 @@ TextureImporter:
       213: 5667335499363819707
     second: Enemy6ActivationArcOnly_17
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -78,6 +78,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -87,8 +88,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -109,11 +110,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -141,6 +145,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -542,6 +558,25 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Enemy6ActivationArcOnly_1: -6333900553585993528
+      Enemy6ActivationArcOnly_2: 8587192821345381637
+      Enemy6ActivationArcOnly_3: -1803944679303781789
+      Enemy6ActivationArcOnly_4: 7007457749089511465
+      Enemy6ActivationArcOnly_0: -1818884574770056699
+      Enemy6ActivationArcOnly_13: -3264675328708954311
+      Enemy6ActivationArcOnly_9: -7969479512263623275
+      Enemy6ActivationArcOnly_15: -7850810583914454528
+      Enemy6ActivationArcOnly_14: -3567452228257480362
+      Enemy6ActivationArcOnly_7: 4111408168707804511
+      Enemy6ActivationArcOnly_17: 5667335499363819707
+      Enemy6ActivationArcOnly_5: 4808950599701743961
+      Enemy6ActivationArcOnly_6: -4960942555925788613
+      Enemy6ActivationArcOnly_10: 6478689558746435182
+      Enemy6ActivationArcOnly_12: -1851575262710823980
+      Enemy6ActivationArcOnly_8: 2530862265030147450
+      Enemy6ActivationArcOnly_16: 8369129960407890160
+      Enemy6ActivationArcOnly_11: -3593676029541721190
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -66,7 +66,7 @@ TextureImporter:
       213: 4215485837654690044
     second: Enemy7FirstConcept_20
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -87,6 +87,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -96,8 +97,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -118,11 +119,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -150,6 +154,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -614,6 +630,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Enemy7FirstConcept_6: 2022299368290599189
+      Enemy7FirstConcept_3: 1973677609956426459
+      Enemy7FirstConcept_9: -5279490848558821460
+      Enemy7FirstConcept_20: 4215485837654690044
+      Enemy7FirstConcept_16: -7281522263243012672
+      Enemy7FirstConcept_17: 8392577082576509258
+      Enemy7FirstConcept_0: -1446279910416018013
+      Enemy7FirstConcept_2: 2731800204356913565
+      Enemy7FirstConcept_4: -2299534329679271843
+      Enemy7FirstConcept_5: -3764715407207026593
+      Enemy7FirstConcept_14: -9016381800390740157
+      Enemy7FirstConcept_13: 524773904644802043
+      Enemy7FirstConcept_19: -8910772223191921204
+      Enemy7FirstConcept_18: 1153579985998618136
+      Enemy7FirstConcept_12: 4640727116292844133
+      Enemy7FirstConcept_15: -786597982687732689
+      Enemy7FirstConcept_8: 180623932087777182
+      Enemy7FirstConcept_11: -7105619699752957438
+      Enemy7FirstConcept_1: 9114329791236776064
+      Enemy7FirstConcept_7: 5147367075807547139
+      Enemy7FirstConcept_10: 263342177195595915
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

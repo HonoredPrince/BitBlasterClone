@@ -51,7 +51,7 @@ TextureImporter:
       213: -3251231564973485085
     second: LaserPowerUp2-Sheet_15
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -72,6 +72,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -81,8 +82,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -103,11 +104,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -123,6 +127,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -482,6 +498,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      LaserPowerUp2-Sheet_7: 8529327008563621801
+      LaserPowerUp2-Sheet_4: -6977597760823472941
+      LaserPowerUp2-Sheet_8: 2445758008404644959
+      LaserPowerUp2-Sheet_13: -1009415308211269323
+      LaserPowerUp2-Sheet_2: -1276747851624595029
+      LaserPowerUp2-Sheet_6: 3298666173422281083
+      LaserPowerUp2-Sheet_12: 2637925681913701220
+      LaserPowerUp2-Sheet_5: 5869073379504170811
+      LaserPowerUp2-Sheet_15: -3251231564973485085
+      LaserPowerUp2-Sheet_10: 8636507038800304924
+      LaserPowerUp2-Sheet_14: 1101641026785369398
+      LaserPowerUp2-Sheet_0: -1489928408198756712
+      LaserPowerUp2-Sheet_1: -3515616017145702749
+      LaserPowerUp2-Sheet_9: -9168776240986154715
+      LaserPowerUp2-Sheet_11: 6407509801574315051
+      LaserPowerUp2-Sheet_3: -2486141602194029819
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

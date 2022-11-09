@@ -63,7 +63,7 @@ TextureImporter:
       213: -2919304235781956751
     second: Enemy5v2stage2-Sheet_19
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -84,6 +84,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -93,8 +94,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -115,11 +116,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -147,6 +151,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -590,6 +606,27 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Enemy5v2stage2-Sheet_17: 6716838891759598432
+      Enemy5v2stage2-Sheet_7: -5703261452357483451
+      Enemy5v2stage2-Sheet_6: -4995073560491577633
+      Enemy5v2stage2-Sheet_19: -2919304235781956751
+      Enemy5v2stage2-Sheet_1: -693411885378912616
+      Enemy5v2stage2-Sheet_18: 3073389667500002367
+      Enemy5v2stage2-Sheet_13: 3712319786295437215
+      Enemy5v2stage2-Sheet_2: 3112471861218432260
+      Enemy5v2stage2-Sheet_5: -130946307425115849
+      Enemy5v2stage2-Sheet_3: 5051392946166280068
+      Enemy5v2stage2-Sheet_14: -7752787900211635664
+      Enemy5v2stage2-Sheet_12: -5368348587641464418
+      Enemy5v2stage2-Sheet_9: 7669246097408392595
+      Enemy5v2stage2-Sheet_11: 7766457449442263686
+      Enemy5v2stage2-Sheet_15: -937919787159737117
+      Enemy5v2stage2-Sheet_0: 2212219670683928785
+      Enemy5v2stage2-Sheet_4: 710069686305506197
+      Enemy5v2stage2-Sheet_10: 6034534204185833774
+      Enemy5v2stage2-Sheet_8: -7122050227741212825
+      Enemy5v2stage2-Sheet_16: -2921526623350585946
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
