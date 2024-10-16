@@ -1,0 +1,4 @@
+repository "ZurlogBattle@Cambrioleur_Games@cloud"
+  path "/"
+    br "/main"
+    co "/main"
